@@ -7,11 +7,11 @@ export const data = LandscapeSchema.make({
   License: 'TBD',
   Deployment: ['Self-hosted'],
   AppTarget: {
-    Platform: ['js:browser', 'js:server-side'],
+    Platform: ['Browser', 'Node'],
     FrameworkIntegrations: ['React Native'],
   },
   Networking: {
-    Protocol: ['WebSocket', 'HTTP'],
+    Protocol: ['WebScokets', 'HTTP'],
     Topology: 'Client-Server',
   },
   ServerSideData: {

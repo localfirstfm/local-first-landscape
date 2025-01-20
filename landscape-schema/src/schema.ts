@@ -8,14 +8,14 @@ export const AppTarget = Schema.Struct({
     .pipe(orString, Schema.Array)
     .annotations({ description: 'The platform the app is targeting' }),
   LanguageSDK: Schema.Literal(
-    'typescript',
-    'javascript',
-    'swift',
-    'kotlin',
-    'c#',
-    'rust',
-    'java',
-    'python',
+    'TypeScript',
+    'JavaScript',
+    'Swift',
+    'Kotlin',
+    'C#',
+    'Rust',
+    'Java',
+    'Python',
   )
     .pipe(orString, Schema.Array, Schema.optional)
     .annotations({

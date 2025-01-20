@@ -7,7 +7,7 @@ export const data = LandscapeSchema.make({
   License: 'Apache 2',
   Deployment: ['Self-hosted'],
   AppTarget: {
-    Platform: ['js:browser', 'js:server-side'],
+    Platform: ['Browser', 'Node'],
   },
   ServerSideData: {
     PersistenceMechanism: ['Postgres'],

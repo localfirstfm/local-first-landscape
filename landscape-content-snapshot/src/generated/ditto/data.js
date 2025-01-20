@@ -9,8 +9,8 @@ export const data = LandscapeSchema.make({
   Deployment: ['Hosted Cloud', 'Self-hostable'],
   License: 'Proprietary',
   AppTarget: {
-    Platform: ['js:browser', 'ios', 'android', 'macos', 'wasm'],
-    LanguageSDK: ['swift', 'kotlin', 'javascript', 'c#', 'c++', 'java'],
+    Platform: ['Browser', 'iOS', 'Android', 'macOS', 'WASM'],
+    LanguageSDK: ['Swift', 'Kotlin', 'JavaScript', 'C#', 'c++', 'Java'],
     FrameworkIntegrations: ['React Native', 'Flutter', 'Jetpack Compose', 'SwiftUI'],
   },
   Networking: {

@@ -7,12 +7,12 @@ export const data = LandscapeSchema.make({
   License: 'MIT',
   Deployment: ['Self-hosted', 'Hosted'],
   AppTarget: {
-    Platform: ['js:browser', 'js:server-side'],
-    LanguageSDK: ['typescript', 'python'],
+    Platform: ['Browser', 'Node'],
+    LanguageSDK: ['TypeScript', 'Python'],
     FrameworkIntegrations: ['React'],
   },
   Networking: {
-    Protocol: ['WebSocket', 'HTTP'],
+    Protocol: ['WebScokets', 'HTTP'],
     Topology: 'Client-Server',
   },
   ServerSideData: {

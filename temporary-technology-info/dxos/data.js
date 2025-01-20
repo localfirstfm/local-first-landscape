@@ -8,7 +8,7 @@ export const data = LandscapeSchema.make({
   Deployment: ['Self-hosted'],
   AppTarget: {
     Platform: ['Browser', 'Node'],
-    LanguageSDK: ['typescript'],
+    LanguageSDK: ['TypeScript'],
   },
   Networking: {
     Protocol: ['WebSockets'],
