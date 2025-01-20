@@ -6,7 +6,7 @@ export const data = LandscapeSchema.make({
   Website: 'https://getzero.dev',
   Deployment: ['Self-hosted'],
   AppTarget: {
-    Platform: ['js:browser', 'js:server-side'],
+    Platform: ['Browser', 'Node'],
     FrameworkIntegrations: ['React Native'],
   },
   Networking: {

@@ -6,6 +6,6 @@ export const data = LandscapeSchema.make({
   Website: 'https://basic.tech',
   Deployment: ['Self-hosted'],
   AppTarget: {
-    Platform: ['js:browser'],
+    Platform: ['Browser'],
   },
 })

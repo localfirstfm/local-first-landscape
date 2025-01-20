@@ -4,14 +4,7 @@ const orString = <A>(_stringLitSchema: Schema.Schema<A>) =>
   Schema.String as Schema.Schema<A | (string & Record<never, never>)>
 
 export const AppTarget = Schema.Struct({
-  Platform: Schema.Literal(
-    'js:browser',
-    'js:server-side',
-    'ios',
-    'android',
-    'macos',
-    'wasm',
-  )
+  Platform: Schema.Literal('Browser', 'Node', 'iOS', 'Android', 'macOS', 'WASM')
     .pipe(orString, Schema.Array)
     .annotations({ description: 'The platform the app is targeting' }),
   LanguageSDK: Schema.Literal(

@@ -7,7 +7,7 @@ export const data = LandscapeSchema.make({
   License: 'FSL-1.1-Apache-2.0',
   Deployment: ['Self-hosted', 'Hosted'],
   AppTarget: {
-    Platform: ['js:browser', 'ios', 'android', 'macos', 'wasm'],
+    Platform: ['Browser', 'iOS', 'Android', 'macOS', 'WASM'],
     LanguageSDK: ['typescript', 'swift', 'kotlin', 'rust', 'dart'],
     FrameworkIntegrations: ['React', 'React Native', 'Vue', 'Svelte', 'SolidJS', 'Flutter'],
   },

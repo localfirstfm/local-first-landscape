@@ -7,7 +7,7 @@ export const data = LandscapeSchema.make({
   License: 'Proprietary',
   Deployment: ['Hosted'],
   AppTarget: {
-    Platform: ['js:browser', 'js:server-side'],
+    Platform: ['Browser', 'Node'],
     LanguageSDK: ['typescript'],
     FrameworkIntegrations: ['React', 'Zustand', 'Redux'],
   },

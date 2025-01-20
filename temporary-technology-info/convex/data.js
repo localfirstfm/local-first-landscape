@@ -6,6 +6,6 @@ export const data = LandscapeSchema.make({
   Website: 'https://convex.dev',
   Deployment: ['Hosted'],
   AppTarget: {
-    Platform: ['js:browser'],
+    Platform: ['Browser'],
   },
 })
