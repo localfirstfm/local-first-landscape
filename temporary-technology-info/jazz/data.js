@@ -12,6 +12,7 @@ export const data = LandscapeSchema.make({
   },
   Networking: {
     Protocol: ['WebSockets'],
+    Topology: 'P2P',
   },
   ServerSideData: {
     PersistenceMechanism: ['SQLite', 'Custom'],

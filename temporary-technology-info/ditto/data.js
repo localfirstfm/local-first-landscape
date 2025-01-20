@@ -21,7 +21,7 @@ export const data = LandscapeSchema.make({
     PersistenceMechanism: ['Custom'],
     DataModelParadigm: 'Document',
     ExistingDatabaseSupport: 'HTTP/Webhooks and real-time via CDC Connectors (Kafka-based)',
-    DataSize: 'No theoretical limit, due to cloud scaling, but we offer benchmarking and performance services to validate & scale cloud resources for larger use cases',
+    DataSize: 'No theoretical limit',
   },
   ClientSideData: {
     QueryAPI: ['Async'],

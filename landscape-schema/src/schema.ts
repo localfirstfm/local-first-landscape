@@ -94,7 +94,7 @@ export const ServerSideData = Schema.Struct({
       description: 'The paradigm used to interact with persisted data.',
     }),
   SchemaManagement: Schema.Literal(
-    'Schema definitions',
+    'Schema definition',
     'Validate schemas on write',
     'Schema migrations',
   )
@@ -153,7 +153,7 @@ export const ClientSideData = Schema.Struct({
       description: 'The data model used by the client.',
     }),
   SchemaManagement: Schema.Literal(
-    'Schema definitions',
+    'Schema definition',
     'Schema validation on write',
     'Schema migrations',
   )

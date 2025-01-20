@@ -24,7 +24,7 @@ export const data = LandscapeSchema.make({
     LocalRefreshLatency: '<1 ms',
     PersistenceMechanism: ['IndexedDB', 'SQLite', 'LevelDB', 'RocksDB'],
     DataModel: 'Relational',
-    SchemaManagement: ['Derived TypeScript types from the Schema'],
+    SchemaManagement: ['Derived types'],
     OfflineReads: 'Subscribed queries have full db support: novel queries, counts, sums, averages, etc',
     OfflineWrites: 'Full cached writes',
     DataSize: 'limited by device capabilities',

@@ -21,10 +21,8 @@ export const data = LandscapeSchema.make({
   },
   ClientSideData: {
     LocalRefreshLatency: '<1ms',
-    PersistenceMechanism: ['Liveblocks Yjs'],
+    PersistenceMechanism: ['Yjs'],
     DataModel: 'Document',
-    OfflineReads: 'In beta',
-    OfflineWrites: 'In beta',
     DataSize: 'it depends on the in memory size of the yjs store and the history of the document',
   },
   SynchronizationStrategy: {

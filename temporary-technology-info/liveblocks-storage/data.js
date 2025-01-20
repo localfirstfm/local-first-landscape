@@ -19,7 +19,7 @@ export const data = LandscapeSchema.make({
     PersistenceMechanism: ['Cloudflare Durable Object Storage', 'SQLite'],
     DataModelParadigm: 'Document',
     SchemaManagement: ['Schema definition', 'Schema validation'],
-    ExistingDatabaseSupport: 'Does not require a datastore, but you can migrate or automatically sync to your database with webhooks/REST API',
+    ExistingDatabaseSupport: 'Webhooks and REST API',
   },
   ClientSideData: {
     LocalRefreshLatency: '16ms',
