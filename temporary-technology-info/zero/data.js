@@ -4,7 +4,6 @@ export const data = LandscapeSchema.make({
   Id: 'zero',
   Name: 'Zero',
   Website: 'https://getzero.dev',
-  License: 'TBD',
   Deployment: ['Self-hosted'],
   AppTarget: {
     Platform: ['js:browser', 'js:server-side'],

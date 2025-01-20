@@ -3,7 +3,7 @@ import { LandscapeSchema } from '@localfirstfm/landscape-schema'
 export const data = LandscapeSchema.make({
   Id: 'powersync',
   Name: 'PowerSync',
-  Website: 'https://powersync.co',
+  Website: 'https://powersync.com',
   License: 'FSL-1.1-Apache-2.0',
   Deployment: ['Self-hosted', 'Hosted'],
   AppTarget: {

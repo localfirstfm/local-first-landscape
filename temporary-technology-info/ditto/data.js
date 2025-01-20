@@ -6,7 +6,7 @@ export const data = LandscapeSchema.make({
   Description:
     'Real-time, peer-to-peer data synchronization across devices and platforms without relying on the cloud, even in offline or unreliable network conditions.',
   Website: 'https://ditto.live',
-  Deployment: ['Hosted Cloud', 'Self-hostable'],
+  Deployment: ['Hosted', 'Self-hosted'],
   License: 'Proprietary',
   AppTarget: {
     Platform: ['js:browser', 'ios', 'android', 'macos', 'wasm'],
