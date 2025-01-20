@@ -3,7 +3,7 @@ import { LandscapeSchema } from '@localfirstfm/landscape-schema'
 export const data = LandscapeSchema.make({
   Id: 'powersync',
   Name: 'PowerSync',
-  Website: 'https://powersync.co',
+  Website: 'https://powersync.com',
   License: 'FSL-1.1-Apache-2.0',
   Deployment: ['Self-hosted', 'Hosted'],
   AppTarget: {
@@ -12,7 +12,7 @@ export const data = LandscapeSchema.make({
     FrameworkIntegrations: ['React', 'React Native', 'Vue', 'Svelte', 'SolidJS', 'Flutter'],
   },
   Networking: {
-    Protocol: ['Client: Rust, TypeScript, Dart, Kotlin, Swift'],
+    Protocol: ['WebSockets', 'HTTP'],
     Topology: 'Client-Server',
   },
   ServerSideData: {

@@ -4,7 +4,6 @@ export const data = LandscapeSchema.make({
   Id: 'zero',
   Name: 'Zero',
   Website: 'https://getzero.dev',
-  License: 'TBD',
   Deployment: ['Self-hosted'],
   AppTarget: {
     Platform: ['Browser', 'Node'],
@@ -17,7 +16,7 @@ export const data = LandscapeSchema.make({
   ServerSideData: {
     PersistenceMechanism: ['Postgres'],
     DataModelParadigm: 'Relational',
-    SchemaManagement: ['Zero has built-in support for migrating schemas seamlessly across client and server'],
+    SchemaManagement: ['Schema definition', 'Schema migrations'],
     ExistingDatabaseSupport: 'Yes',
   },
   ClientSideData: {
