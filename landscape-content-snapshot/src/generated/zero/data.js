@@ -10,7 +10,7 @@ export const data = LandscapeSchema.make({
     FrameworkIntegrations: ['React Native'],
   },
   Networking: {
-    Protocol: ['WebScokets', 'HTTP'],
+    Protocol: ['WebSockets', 'HTTP'],
     Topology: 'Client-Server',
   },
   ServerSideData: {
