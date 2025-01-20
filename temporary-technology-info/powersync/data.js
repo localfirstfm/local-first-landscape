@@ -12,7 +12,7 @@ export const data = LandscapeSchema.make({
     FrameworkIntegrations: ['React', 'React Native', 'Vue', 'Svelte', 'SolidJS', 'Flutter'],
   },
   Networking: {
-    Protocol: ['Client: Rust, TypeScript, Dart, Kotlin, Swift'],
+    Protocol: ['WebSockets', 'HTTP'],
     Topology: 'Client-Server',
   },
   ServerSideData: {
