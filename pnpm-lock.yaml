@@ -59,6 +59,8 @@ importers:
         specifier: ^5.7.2
         version: 5.7.2
 
+  temporary-technology-info: {}
+
 packages:
 
   '@biomejs/biome@1.9.4':
