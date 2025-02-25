@@ -1,55 +1,133 @@
+// @ts-check
 import { LandscapeSchema } from '@localfirstfm/landscape-schema'
 
 export const data = LandscapeSchema.make({
+  Version: '0.0.1',
   Id: 'liveblocks-storage',
   Name: 'Liveblocks Storage',
-  Website: 'https://liveblocks.io',
-  License: 'Proprietary',
-  Deployment: ['Hosted'],
+  Website: {
+    data: 'https://liveblocks.io'
+  },
+  License: {
+    data: 'Proprietary'
+  },
+  Deployment: {
+    data: ['Hosted']
+  },
   AppTarget: {
-    Platform: ['Browser', 'Node'],
-    LanguageSDK: ['TypeScript'],
-    FrameworkIntegrations: ['React', 'Zustand', 'Redux'],
+    data: {
+      Platform: {
+        data: ['Browser', 'Node']
+      },
+      LanguageSDK: {
+        data: ['TypeScript']
+      },
+      FrameworkIntegrations: {
+        data: ['React', 'Zustand', 'Redux']
+      }
+    }
   },
   Networking: {
-    Protocol: ['WebSockets', 'HTTP'],
-    Topology: 'Client-Server',
+    data: {
+      Protocol: {
+        data: ['WebSockets', 'HTTP']
+      },
+      Topology: {
+        data: 'Client-Server'
+      }
+    }
   },
   ServerSideData: {
-    PersistenceMechanism: ['Cloudflare Durable Object Storage', 'SQLite'],
-    DataModelParadigm: 'Document',
-    SchemaManagement: ['Schema definition', 'Schema validation'],
-    ExistingDatabaseSupport: 'Webhooks and REST API',
+    data: {
+      PersistenceMechanism: {
+        data: ['Cloudflare Durable Object Storage', 'SQLite']
+      },
+      DataModelParadigm: {
+        data: 'Document'
+      },
+      SchemaManagement: {
+        data: ['Schema definition', 'Schema validation']
+      },
+      ExistingDatabaseSupport: {
+        data: 'Webhooks and REST API'
+      }
+    }
   },
   ClientSideData: {
-    LocalRefreshLatency: '16ms',
-    PersistenceMechanism: ['Liveblocks Storage'],
-    DataModel: 'Document',
-    SchemaManagement: ['Schema definition'],
-    OfflineReads: 'Previously accessed data is stored in-memory',
-    OfflineWrites: 'Full cached writes, stored in-memory, server will resolve conflict',
-    DataSize: 'limited by device capabilities',
+    data: {
+      LocalRefreshLatency: {
+        data: '16ms'
+      },
+      PersistenceMechanism: {
+        data: ['Liveblocks Storage']
+      },
+      DataModel: {
+        data: 'Document'
+      },
+      SchemaManagement: {
+        data: ['Schema definition']
+      },
+      OfflineReads: {
+        data: 'Previously accessed data is stored in-memory'
+      },
+      OfflineWrites: {
+        data: 'Full cached writes, stored in-memory, server will resolve conflict'
+      },
+      DataSize: {
+        data: 'limited by device capabilities'
+      }
+    }
   },
   SynchronizationStrategy: {
-    ConflictHandling: 'Custom: values: LWW, LiveObject: LWW at attribute level, LiveMap: LWW at entry level, LiveList: fractional indexing (for insertions) or LWW (for replacements)',
-    WhereResolutionOccurs: 'Server',
-    WhatGetsSynced: {
-      ClientToServer: 'ops',
-      ServerToClient: 'ops, acks, and fix-ops (when conflict was resolved)'
-    },
-    Authority: 'Centralized',
+    data: {
+      ConflictHandling: {
+        data: 'Custom: values: LWW, LiveObject: LWW at attribute level, LiveMap: LWW at entry level, LiveList: fractional indexing (for insertions) or LWW (for replacements)'
+      },
+      WhereResolutionOccurs: {
+        data: 'Server'
+      },
+      WhatGetsSynced: {
+        data: {
+          ClientToServer: 'ops',
+          ServerToClient: 'ops, acks, and fix-ops (when conflict was resolved)'
+        }
+      },
+      Authority: {
+        data: 'Centralized'
+      }
+    }
   },
   AuthIdentity: {
-    Encryption: 'transport-level (wss:// or https://)',
-    AuthenticationMethod: ['JWT tokens', 'Public key'],
-    AuthorizationPermissions: 'ID tokens and Access tokens',
+    data: {
+      Encryption: {
+        data: 'transport-level (wss:// or https://)'
+      },
+      AuthenticationMethod: {
+        data: ['JWT tokens', 'Public key']
+      },
+      AuthorizationPermissions: {
+        data: 'ID tokens and Access tokens'
+      }
+    }
   },
   UIRelated: {
-    Components: ['Comments/Threads', 'Notifications'],
+    data: {
+      Components: {
+        data: ['Comments/Threads', 'Notifications']
+      }
+    }
   },
   DevelopmentWorkflowsDX: {
-    DebuggingTools: ['DevTools', 'Dashboard', 'Data Inspector'],
-    CLI: 'CLI for installing examples, updating packages, creating your typescript config',
-    TypeSupport: 'Full type support (via liveblocks.config.ts)',
-  },
+    data: {
+      DebuggingTools: {
+        data: ['DevTools', 'Dashboard', 'Data Inspector']
+      },
+      CLI: {
+        data: 'CLI for installing examples, updating packages, creating your typescript config'
+      },
+      TypeSupport: {
+        data: 'Full type support (via liveblocks.config.ts)'
+      }
+    }
+  }
 })

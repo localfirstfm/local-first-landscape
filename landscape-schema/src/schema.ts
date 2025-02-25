@@ -3,289 +3,339 @@ import { Schema } from 'effect'
 const orString = <A>(_stringLitSchema: Schema.Schema<A>) =>
   Schema.String as Schema.Schema<A | (string & Record<never, never>)>
 
+const DataWithComment = <A, I>(_dataSchema: Schema.Schema<A, I>) =>
+  Schema.Struct({
+    data: _dataSchema,
+    comment: Schema.String.pipe(Schema.optional),
+  })
+
 export const AppTarget = Schema.Struct({
-  Platform: Schema.Literal('Browser', 'Node', 'iOS', 'Android', 'macOS', 'WASM')
-    .pipe(orString, Schema.Array)
-    .annotations({ description: 'The platform the app is targeting' }),
-  LanguageSDK: Schema.Literal(
-    'TypeScript',
-    'JavaScript',
-    'Swift',
-    'Kotlin',
-    'C#',
-    'Rust',
-    'Java',
-    'Python',
-  )
-    .pipe(orString, Schema.Array, Schema.optional)
-    .annotations({
-      description: 'The language(s) the app is written in',
-    }),
-  FrameworkIntegrations: Schema.Literal(
-    'React',
-    'Vue',
-    'Svelte',
-    'React Native',
-    'Flutter',
-    'SwiftUI',
-    'Zustand',
-    'Jetpack Compose',
-  ).pipe(orString, Schema.Array, Schema.optional),
+  Platform: DataWithComment(
+    Schema.Literal('Browser', 'Node', 'iOS', 'Android', 'macOS', 'WASM')
+      .pipe(orString, Schema.Array)
+      .annotations({ description: 'The platform the app is targeting' }),
+  ),
+  LanguageSDK: DataWithComment(
+    Schema.Literal(
+      'TypeScript',
+      'JavaScript',
+      'Swift',
+      'Kotlin',
+      'C#',
+      'Rust',
+      'Java',
+      'Python',
+    )
+      .pipe(orString, Schema.Array)
+      .annotations({
+        description: 'The language(s) the app is written in',
+      }),
+  ).pipe(Schema.optional),
+  FrameworkIntegrations: DataWithComment(
+    Schema.Literal(
+      'React',
+      'Vue',
+      'Svelte',
+      'React Native',
+      'Flutter',
+      'SwiftUI',
+      'Zustand',
+      'Jetpack Compose',
+    )
+      .pipe(orString, Schema.Array)
+      .annotations({}),
+  ).pipe(Schema.optional),
 })
 
 export const Networking = Schema.Struct({
-  Protocol: Schema.Literal(
-    'WebSockets',
-    'HTTP',
-    'SSE',
-    'WiFi LAN',
-    'Bluetooth',
-    'P2P WiFi',
-    'TCP',
-    'Quic',
-  )
-    .pipe(orString, Schema.Array, Schema.optional)
-    .annotations({
-      description:
-        'Supported networking protocols for synchronizing changes between clients.',
-    }),
-  Topology: Schema.Literal('P2P', 'P2P via Relay Servers', 'Client-Server')
-    .pipe(orString, Schema.optional)
-    .annotations({
-      description:
-        'Whether clients synchronize with each other directly or through a server.',
-    }),
+  Protocol: DataWithComment(
+    Schema.Literal(
+      'WebSockets',
+      'HTTP',
+      'SSE',
+      'WiFi LAN',
+      'Bluetooth',
+      'P2P WiFi',
+      'TCP',
+      'Quic',
+    )
+      .pipe(orString, Schema.Array)
+      .annotations({
+        description:
+          'Supported networking protocols for synchronizing changes between clients.',
+      }),
+  ).pipe(Schema.optional),
+  Topology: DataWithComment(
+    Schema.Literal('P2P', 'P2P via Relay Servers', 'Client-Server')
+      .pipe(orString)
+      .annotations({
+        description:
+          'Whether clients synchronize with each other directly or through a server.',
+      }),
+  ).pipe(Schema.optional),
 })
 
 export const ServerSideData = Schema.Struct({
-  PersistenceMechanism: Schema.Literal(
-    'S3 (or compatible)',
-    'Postgres',
-    'MongoDB',
-    'MySQL',
-    'SQLite',
-    'Custom',
-    'N/A',
-    'Cloudflare Durable Object Storage',
-  )
-    .pipe(orString, Schema.Array, Schema.optional)
-    .annotations({
-      description: '',
-    }),
-  DataSize: Schema.Literal(
-    '100MB',
-    '1GB',
-    '10GB',
-    '100GB',
-    '1TB',
-    '10TB',
-    '100TB',
-    '1PB',
-    '10PB',
-    '100PB',
-  )
-    .pipe(orString, Schema.optional)
-    .annotations({
-      description: 'The size of the data the server supports.',
-    }),
-  DataModelParadigm: Schema.Literal('Relational', 'Document')
-    .pipe(orString, Schema.optional)
-    .annotations({
+  PersistenceMechanism: DataWithComment(
+    Schema.Literal(
+      'S3 (or compatible)',
+      'Postgres',
+      'MongoDB',
+      'MySQL',
+      'SQLite',
+      'Custom',
+      'N/A',
+      'Cloudflare Durable Object Storage',
+    )
+      .pipe(orString, Schema.Array)
+      .annotations({
+        description: '',
+      }),
+  ).pipe(Schema.optional),
+  DataSize: DataWithComment(
+    Schema.Literal(
+      '100MB',
+      '1GB',
+      '10GB',
+      '100GB',
+      '1TB',
+      '10TB',
+      '100TB',
+      '1PB',
+      '10PB',
+      '100PB',
+    )
+      .pipe(orString)
+      .annotations({
+        description: 'The size of the data the server supports.',
+      }),
+  ).pipe(Schema.optional),
+  DataModelParadigm: DataWithComment(
+    Schema.Literal('Relational', 'Document').pipe(orString).annotations({
       description: 'The paradigm used to interact with persisted data.',
     }),
-  SchemaManagement: Schema.Literal(
-    'Schema definition',
-    'Validate schemas on write',
-    'Schema migrations',
-  )
-    .pipe(orString, Schema.Array, Schema.optional)
-    .annotations({
-      description: 'Supported features for working with schemas on the server.',
+  ).pipe(Schema.optional),
+  SchemaManagement: DataWithComment(
+    Schema.Literal(
+      'Schema definition',
+      'Validate schemas on write',
+      'Schema migrations',
+    )
+      .pipe(orString, Schema.Array)
+      .annotations({
+        description:
+          'Supported features for working with schemas on the server.',
+      }),
+  ).pipe(Schema.optional),
+  ExistingDatabaseSupport: DataWithComment(
+    Schema.String.annotations({
+      description: 'How the server integrates with existing databases.',
     }),
-  ExistingDatabaseSupport: Schema.String.pipe(Schema.optional).annotations({
-    description: 'How the server integrates with existing databases.',
-  }),
+  ).pipe(Schema.optional),
 })
 
 export const ClientSideData = Schema.Struct({
-  QueryAPI: Schema.Literal(
-    'Async',
-    'Sync',
-    'Signals-based Reactivity',
-    'Reactive relational queries',
-  )
-    .pipe(orString, Schema.Array, Schema.optional)
-    .annotations({
-      description: 'How the client queries the server for data.',
-    }),
-  LocalRefreshLatency: Schema.Literal('~1ms', '~10-100ms', '~1s', '>10s')
-    .pipe(orString, Schema.optional)
-    .annotations({
-      description:
-        'The refresh rate for local changes, ignoring network latency.',
-    }),
-  PersistenceMechanism: Schema.Literal(
-    'Custom',
-    'IndexedDB',
-    'SQLite',
-    'PGLite via OPFS',
-    'Yjs',
-    'LevelDB',
-    'RocksDB',
-  )
-    .pipe(orString, Schema.Array, Schema.optional)
-    .annotations({
-      description: 'How the client persists data.',
-    }),
-  PersistenceFeatures: Schema.Literal(
-    'Full-text search',
-    'Indexes',
-    'Transactions',
-  )
-    .pipe(orString, Schema.optional)
-    .annotations({
-      description:
-        'Additional features supported by the persistence mechanism.',
-    }),
-  DataModel: Schema.Literal('Document', 'Relational')
-    .pipe(orString, Schema.optional)
-    .annotations({
+  QueryAPI: DataWithComment(
+    Schema.Literal(
+      'Async',
+      'Sync',
+      'Signals-based Reactivity',
+      'Reactive relational queries',
+    )
+      .pipe(orString, Schema.Array)
+      .annotations({
+        description: 'How the client queries the server for data.',
+      }),
+  ).pipe(Schema.optional),
+  LocalRefreshLatency: DataWithComment(
+    Schema.Literal('~1ms', '~10-100ms', '~1s', '>10s')
+      .pipe(orString)
+      .annotations({
+        description:
+          'The refresh rate for local changes, ignoring network latency.',
+      }),
+  ).pipe(Schema.optional),
+  PersistenceMechanism: DataWithComment(
+    Schema.Literal(
+      'Custom',
+      'IndexedDB',
+      'SQLite',
+      'PGLite via OPFS',
+      'Yjs',
+      'LevelDB',
+      'RocksDB',
+    )
+      .pipe(orString, Schema.Array)
+      .annotations({
+        description: 'How the client persists data.',
+      }),
+  ).pipe(Schema.optional),
+  PersistenceFeatures: DataWithComment(
+    Schema.Literal('Full-text search', 'Indexes', 'Transactions')
+      .pipe(orString)
+      .annotations({
+        description:
+          'Additional features supported by the persistence mechanism.',
+      }),
+  ).pipe(Schema.optional),
+  DataModel: DataWithComment(
+    Schema.Literal('Document', 'Relational').pipe(orString).annotations({
       description: 'The data model used by the client.',
     }),
-  SchemaManagement: Schema.Literal(
-    'Schema definition',
-    'Schema validation on write',
-    'Schema migrations',
-  )
-    .pipe(orString, Schema.Array, Schema.optional)
-    .annotations({
-      description: 'Supported features for working with schemas on the client.',
-    }),
-  OfflineReads: Schema.Literal('Full Support', 'Query Cache', 'No Support')
-    .pipe(orString, Schema.optional)
-    .annotations({
-      description: 'Whether client can read and query data when offline.',
-    }),
-  OptimisticUpdates: Schema.Literal('Yes', 'No')
-    .pipe(orString, Schema.optional)
-    .annotations({
+  ).pipe(Schema.optional),
+  SchemaManagement: DataWithComment(
+    Schema.Literal(
+      'Schema definition',
+      'Schema validation on write',
+      'Schema migrations',
+    )
+      .pipe(orString, Schema.Array)
+      .annotations({
+        description:
+          'Supported features for working with schemas on the client.',
+      }),
+  ).pipe(Schema.optional),
+  OfflineReads: DataWithComment(
+    Schema.Literal('Full Support', 'Query Cache', 'No Support')
+      .pipe(orString)
+      .annotations({
+        description: 'Whether client can read and query data when offline.',
+      }),
+  ).pipe(Schema.optional),
+  OptimisticUpdates: DataWithComment(
+    Schema.Literal('Yes', 'No').pipe(orString).annotations({
       description: 'Whether client optimistically updates on write.',
     }),
-  OfflineWrites: Schema.Literal(
-    'Local conflict resolution',
-    'Cached offline writes',
-    'No support',
-  )
-    .pipe(orString, Schema.optional)
-    .annotations({
-      description: 'How client handles writes when offline.',
+  ).pipe(Schema.optional),
+  OfflineWrites: DataWithComment(
+    Schema.Literal(
+      'Local conflict resolution',
+      'Cached offline writes',
+      'No support',
+    )
+      .pipe(orString)
+      .annotations({
+        description: 'How client handles writes when offline.',
+      }),
+  ).pipe(Schema.optional),
+  DataSize: DataWithComment(
+    Schema.String.annotations({
+      description: 'The size of the data the client supports.',
     }),
-  DataSize: Schema.String.pipe(Schema.optional).annotations({
-    description: 'The size of the data the client supports.',
-  }),
+  ).pipe(Schema.optional),
 })
 
 export const SynchronizationStrategy = Schema.Struct({
-  FullOrPartialReplication: Schema.Literal(
-    'Full Replication',
-    'Partial Replication',
-  )
-    .pipe(orString, Schema.Array, Schema.optional)
-    .annotations({
-      description:
-        'Whether the synchronization strategy supports full or partial replication.',
-    }),
-  ConflictHandling: Schema.Literal(
-    'Automatic via CRDT', // TODO: Capture data types that support CRDTs
-    'Rebase via mutations',
-    'Server reconciliation',
-    'No Support (Implicit LWW)',
-    'Custom conflict resolution supported',
-  )
-    .pipe(orString, Schema.optional)
-    .annotations({
-      description: 'How the synchronization strategy handles conflicts.',
-    }),
-  WhereResolutionOccurs: Schema.Literal('Server', 'Client')
-    .pipe(orString, Schema.optional)
-    .annotations({
+  FullOrPartialReplication: DataWithComment(
+    Schema.Literal('Full Replication', 'Partial Replication')
+      .pipe(orString, Schema.Array)
+      .annotations({
+        description:
+          'Whether the synchronization strategy supports full or partial replication.',
+      }),
+  ).pipe(Schema.optional),
+  ConflictHandling: DataWithComment(
+    Schema.Literal(
+      'Automatic via CRDT', // TODO: Capture data types that support CRDTs
+      'Rebase via mutations',
+      'Server reconciliation',
+      'No Support (Implicit LWW)',
+      'Custom conflict resolution supported',
+    )
+      .pipe(orString)
+      .annotations({
+        description: 'How the synchronization strategy handles conflicts.',
+      }),
+  ).pipe(Schema.optional),
+  WhereResolutionOccurs: DataWithComment(
+    Schema.Literal('Server', 'Client').pipe(orString).annotations({
       description: 'Where the resolution of conflicts occurs.',
     }),
-  WhatGetsSynced: Schema.Struct({
-    ClientToServer: Schema.String.pipe(Schema.optional),
-    ServerToClient: Schema.String.pipe(Schema.optional),
-    ClientToClient: Schema.String.pipe(Schema.optional),
-  })
-    .pipe(Schema.optional)
-    .annotations({
+  ).pipe(Schema.optional),
+  WhatGetsSynced: DataWithComment(
+    Schema.Struct({
+      ClientToServer: Schema.String.pipe(Schema.optional),
+      ServerToClient: Schema.String.pipe(Schema.optional),
+      ClientToClient: Schema.String.pipe(Schema.optional),
+    }).annotations({
       description: 'What gets synced between clients and servers.',
     }),
-  Authority: Schema.Literal('Decentralized', 'Centralized')
-    .pipe(orString, Schema.optional)
-    .annotations({
+  ).pipe(Schema.optional),
+  Authority: DataWithComment(
+    Schema.Literal('Decentralized', 'Centralized').pipe(orString).annotations({
       description:
         'Whether the synchronization strategy is decentralized or centralized.',
     }),
-  Latency: Schema.Literal('~1ms', '~10-100ms', '~1s', '>10s').pipe(
-    orString,
-    Schema.optional,
-  ),
-  Throughput: Schema.String.pipe(Schema.optional),
-  Concurrency: Schema.String.pipe(Schema.optional),
+  ).pipe(Schema.optional),
+  Latency: DataWithComment(
+    Schema.Literal('~1ms', '~10-100ms', '~1s', '>10s').pipe(orString),
+  ).pipe(Schema.optional),
+  Throughput: DataWithComment(Schema.String).pipe(Schema.optional),
+  Concurrency: DataWithComment(Schema.String).pipe(Schema.optional),
 })
 
 export const AuthIdentity = Schema.Struct({
-  Encryption: Schema.Literal('Yes', 'No')
-    .pipe(orString, Schema.optional)
-    .annotations({
+  Encryption: DataWithComment(
+    Schema.Literal('Yes', 'No').pipe(orString).annotations({
       description: 'Is encryption performed with user keys or server keys.',
     }),
-  AuthenticationMethod: Schema.Literal(
-    'Tokens',
-    'Built-in',
-    'Full Custom',
-    'JWT Tokens',
-    'Public keys',
-  )
-    .pipe(orString, Schema.Array, Schema.optional)
-    .annotations({
-      description: 'The method of authentication.',
-    }),
-  AuthorizationPermissions: Schema.Literal('ACLs', 'RBAC', 'Custom')
-    .pipe(orString, Schema.optional)
-    .annotations({
+  ).pipe(Schema.optional),
+  AuthenticationMethod: DataWithComment(
+    Schema.Literal(
+      'Tokens',
+      'Built-in',
+      'Full Custom',
+      'JWT Tokens',
+      'Public keys',
+    )
+      .pipe(orString, Schema.Array)
+      .annotations({
+        description: 'The method of authentication.',
+      }),
+  ).pipe(Schema.optional),
+  AuthorizationPermissions: DataWithComment(
+    Schema.Literal('ACLs', 'RBAC', 'Custom').pipe(orString).annotations({
       description: 'How authorization permissions are managed.',
     }),
+  ).pipe(Schema.optional),
 })
 
 export const UIRelated = Schema.Struct({
-  RichTextEditing: Schema.Literal('Yes', 'No')
-    .pipe(orString, Schema.optional)
-    .annotations({
+  RichTextEditing: DataWithComment(
+    Schema.Literal('Yes', 'No').pipe(orString).annotations({
       description: 'Whether the technology integrates with a rich text editor.',
     }),
-  Components: Schema.String.pipe(Schema.Array, Schema.optional).annotations({
-    description: 'Native components provided by the technology.',
-  }),
+  ).pipe(Schema.optional),
+  Components: DataWithComment(
+    Schema.String.pipe(Schema.Array).annotations({
+      description: 'Native components provided by the technology.',
+    }),
+  ).pipe(Schema.optional),
 })
 
 export const DevelopmentWorkflowsDX = Schema.Struct({
-  DebuggingTools: Schema.Literal(
-    'DevTools',
-    'Dashboard',
-    'Data Inspector',
-    'Network Inspector',
-  )
-    .pipe(orString, Schema.Array, Schema.optional)
-    .annotations({
-      description: 'Debugging tools for developers.',
+  DebuggingTools: DataWithComment(
+    Schema.Literal(
+      'DevTools',
+      'Dashboard',
+      'Data Inspector',
+      'Network Inspector',
+    )
+      .pipe(orString, Schema.Array)
+      .annotations({
+        description: 'Debugging tools for developers.',
+      }),
+  ).pipe(Schema.optional),
+  CLI: DataWithComment(
+    Schema.String.annotations({
+      description: 'Command line interface for developers.',
     }),
-  CLI: Schema.String.pipe(Schema.optional).annotations({
-    description: 'Command line interface for developers.',
-  }),
-  TypeSupport: Schema.String.pipe(Schema.optional).annotations({
-    description: 'Type support for developers.',
-  }),
+  ).pipe(Schema.optional),
+  TypeSupport: DataWithComment(
+    Schema.String.annotations({
+      description: 'Type support for developers.',
+    }),
+  ).pipe(Schema.optional),
 })
 
 export const Logo = Schema.Struct({
@@ -307,35 +357,41 @@ export const LandscapeSchema = Schema.Struct({
   Name: Schema.String.annotations({
     description: 'The name of the technology or product.',
   }),
-  Description: Schema.String.pipe(Schema.optional).annotations({
+  Description: Schema.String.annotations({
     description: 'A brief description of the technology or product.',
-  }),
+  }).pipe(Schema.optional),
   Logo: Logo.pipe(Schema.optional),
-  Website: Schema.String.pipe(Schema.optional).annotations({
-    description: 'The website of the technology or product.',
-  }),
-  Deployment: Schema.Literal('Self-hosted', 'Hosted')
-    .pipe(orString, Schema.Array)
-    .annotations({}),
-  License: Schema.Literal(
-    'Proprietary',
-    'MIT',
-    'GPL',
-    'Apache',
-    'FSL-Apach 2.0',
-  )
-    .pipe(orString, Schema.optional)
-    .annotations({}),
-  AppTarget: AppTarget.pipe(Schema.optional),
-  Networking: Networking.pipe(Schema.optional),
-  ServerSideData: ServerSideData.pipe(Schema.optional),
-  ClientSideData: ClientSideData.pipe(Schema.optional),
-  SynchronizationStrategy: SynchronizationStrategy.pipe(Schema.optional),
-  AuthIdentity: AuthIdentity.pipe(Schema.optional),
-  UIRelated: UIRelated.pipe(Schema.optional),
-  DevelopmentWorkflowsDX: DevelopmentWorkflowsDX.pipe(Schema.optional),
+  Website: DataWithComment(
+    Schema.String.annotations({
+      description: 'The website of the technology or product.',
+    }),
+  ).pipe(Schema.optional),
+  Deployment: DataWithComment(
+    Schema.Literal('Self-hosted', 'Hosted')
+      .pipe(orString, Schema.Array)
+      .annotations({}),
+  ),
+  License: DataWithComment(
+    Schema.Literal('Proprietary', 'MIT', 'GPL', 'Apache', 'FSL-Apach 2.0')
+      .pipe(orString)
+      .annotations({}),
+  ).pipe(Schema.optional),
+  AppTarget: DataWithComment(AppTarget).pipe(Schema.optional),
+  Networking: DataWithComment(Networking).pipe(Schema.optional),
+  ServerSideData: DataWithComment(ServerSideData).pipe(Schema.optional),
+  ClientSideData: DataWithComment(ClientSideData).pipe(Schema.optional),
+  SynchronizationStrategy: DataWithComment(SynchronizationStrategy).pipe(
+    Schema.optional,
+  ),
+  AuthIdentity: DataWithComment(AuthIdentity).pipe(Schema.optional),
+  UIRelated: DataWithComment(UIRelated).pipe(Schema.optional),
+  DevelopmentWorkflowsDX: DataWithComment(DevelopmentWorkflowsDX).pipe(
+    Schema.optional,
+  ),
 
-  UserControlDataOwnership: Schema.String.pipe(Schema.optional),
+  UserControlDataOwnership: DataWithComment(Schema.String).pipe(
+    Schema.optional,
+  ),
 })
 
 export type Landscape = typeof LandscapeSchema.Type

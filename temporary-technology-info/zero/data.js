@@ -1,42 +1,100 @@
+// @ts-check
 import { LandscapeSchema } from '@localfirstfm/landscape-schema'
 
 export const data = LandscapeSchema.make({
+  Version: '0.0.1',
   Id: 'zero',
   Name: 'Zero',
-  Website: 'https://getzero.dev',
-  Deployment: ['Self-hosted'],
+  Website: {
+    data: 'https://getzero.dev'
+  },
+  Deployment: {
+    data: ['Self-hosted']
+  },
   AppTarget: {
-    Platform: ['Browser', 'Node'],
-    FrameworkIntegrations: ['React Native'],
+    data: {
+      Platform: {
+        data: ['Browser', 'Node']
+      },
+      FrameworkIntegrations: {
+        data: ['React Native']
+      }
+    }
   },
   Networking: {
-    Protocol: ['WebSockets', 'HTTP'],
-    Topology: 'Client-Server',
+    data: {
+      Protocol: {
+        data: ['WebSockets', 'HTTP']
+      },
+      Topology: {
+        data: 'Client-Server'
+      }
+    }
   },
   ServerSideData: {
-    PersistenceMechanism: ['Postgres'],
-    DataModelParadigm: 'Relational',
-    SchemaManagement: ['Schema definition', 'Schema migrations'],
-    ExistingDatabaseSupport: 'Yes',
+    data: {
+      PersistenceMechanism: {
+        data: ['Postgres']
+      },
+      DataModelParadigm: {
+        data: 'Relational'
+      },
+      SchemaManagement: {
+        data: ['Schema definition', 'Schema migrations']
+      },
+      ExistingDatabaseSupport: {
+        data: 'Yes'
+      }
+    }
   },
   ClientSideData: {
-    QueryAPI: ['Reactive relational queries'],
-    LocalRefreshLatency: '<1ms',
-    PersistenceMechanism: ['IndexedDB'],
-    DataModel: 'Relational',
-    OfflineReads: 'Developers choose data to be cached via query. Data is available to be queried while offline (even with novel queries)',
-    OptimisticUpdates: 'Optimistic updates',
-    OfflineWrites: 'No offline writes',
-    DataSize: '25MB',
+    data: {
+      QueryAPI: {
+        data: ['Reactive relational queries']
+      },
+      LocalRefreshLatency: {
+        data: '<1ms'
+      },
+      PersistenceMechanism: {
+        data: ['IndexedDB']
+      },
+      DataModel: {
+        data: 'Relational'
+      },
+      OfflineReads: {
+        data: 'Developers choose data to be cached via query. Data is available to be queried while offline (even with novel queries)'
+      },
+      OptimisticUpdates: {
+        data: 'Optimistic updates'
+      },
+      OfflineWrites: {
+        data: 'No offline writes'
+      },
+      DataSize: {
+        data: '25MB'
+      }
+    }
   },
   SynchronizationStrategy: {
-    FullOrPartialReplication: ['Partial Replication'],
-    ConflictHandling: 'Automatic via either keywise lww or server reconciliation',
-    WhereResolutionOccurs: 'Server',
-    WhatGetsSynced: {
-      ClientToServer: 'mutations',
-      ServerToClient: 'query results'
-    },
-    Authority: 'Centralized',
-  },
+    data: {
+      FullOrPartialReplication: {
+        data: ['Partial Replication']
+      },
+      ConflictHandling: {
+        data: 'Automatic via either keywise lww or server reconciliation'
+      },
+      WhereResolutionOccurs: {
+        data: 'Server'
+      },
+      WhatGetsSynced: {
+        data: {
+          ClientToServer: 'mutations',
+          ServerToClient: 'query results'
+        }
+      },
+      Authority: {
+        data: 'Centralized'
+      }
+    }
+  }
 })

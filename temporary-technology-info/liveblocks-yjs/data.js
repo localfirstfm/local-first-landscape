@@ -1,48 +1,114 @@
+// @ts-check
 import { LandscapeSchema } from '@localfirstfm/landscape-schema'
 
 export const data = LandscapeSchema.make({
+  Version: '0.0.1',
   Id: 'liveblocks-yjs',
   Name: 'Liveblocks Yjs',
-  Website: 'https://liveblocks.io',
-  License: 'Proprietary',
-  Deployment: ['Hosted'],
+  Website: {
+    data: 'https://liveblocks.io'
+  },
+  License: {
+    data: 'Proprietary'
+  },
+  Deployment: {
+    data: ['Hosted']
+  },
   AppTarget: {
-    Platform: ['Browser', 'Node'],
-    LanguageSDK: ['TypeScript'],
-    FrameworkIntegrations: ['React'],
+    data: {
+      Platform: {
+        data: ['Browser', 'Node']
+      },
+      LanguageSDK: {
+        data: ['TypeScript']
+      },
+      FrameworkIntegrations: {
+        data: ['React']
+      }
+    }
   },
   Networking: {
-    Protocol: ['WebSockets', 'HTTP'],
-    Topology: 'Client-Server',
+    data: {
+      Protocol: {
+        data: ['WebSockets', 'HTTP']
+      },
+      Topology: {
+        data: 'Client-Server'
+      }
+    }
   },
   ServerSideData: {
-    PersistenceMechanism: ['Cloudflare Durable Object Storage', 'IndexedDB'],
-    DataModelParadigm: 'Document',
+    data: {
+      PersistenceMechanism: {
+        data: ['Cloudflare Durable Object Storage', 'IndexedDB']
+      },
+      DataModelParadigm: {
+        data: 'Document'
+      }
+    }
   },
   ClientSideData: {
-    LocalRefreshLatency: '<1ms',
-    PersistenceMechanism: ['Yjs'],
-    DataModel: 'Document',
-    DataSize: 'it depends on the in memory size of the yjs store and the history of the document',
+    data: {
+      LocalRefreshLatency: {
+        data: '<1ms'
+      },
+      PersistenceMechanism: {
+        data: ['Yjs']
+      },
+      DataModel: {
+        data: 'Document'
+      },
+      DataSize: {
+        data: 'it depends on the in memory size of the yjs store and the history of the document'
+      }
+    }
   },
   SynchronizationStrategy: {
-    ConflictHandling: 'Automatic via CRDT',
-    WhereResolutionOccurs: 'Server',
-    WhatGetsSynced: {
-      ClientToServer: 'yjs encoded updates'
-    },
-    Authority: 'Centralized',
+    data: {
+      ConflictHandling: {
+        data: 'Automatic via CRDT'
+      },
+      WhereResolutionOccurs: {
+        data: 'Server'
+      },
+      WhatGetsSynced: {
+        data: {
+          ClientToServer: 'yjs encoded updates'
+        }
+      },
+      Authority: {
+        data: 'Centralized'
+      }
+    }
   },
   AuthIdentity: {
-    AuthenticationMethod: ['Built-in', 'Full Custom'],
-    AuthorizationPermissions: 'ID tokens and Access tokens',
+    data: {
+      AuthenticationMethod: {
+        data: ['Built-in', 'Full Custom']
+      },
+      AuthorizationPermissions: {
+        data: 'ID tokens and Access tokens'
+      }
+    }
   },
   UIRelated: {
-    RichTextEditing: 'Liveblocks Text Editor (wrapper around Yjs with Lexical and TipTap plugins)',
-    Components: ['Comments/Threads', 'Notifications', 'Y.js plugins'],
+    data: {
+      RichTextEditing: {
+        data: 'Liveblocks Text Editor (wrapper around Yjs with Lexical and TipTap plugins)'
+      },
+      Components: {
+        data: ['Comments/Threads', 'Notifications', 'Y.js plugins']
+      }
+    }
   },
   DevelopmentWorkflowsDX: {
-    DebuggingTools: ['DevTools', 'Dashboard', 'Data Inspector'],
-    CLI: 'CLI for installing examples, updating packages, creating your typescript config',
-  },
+    data: {
+      DebuggingTools: {
+        data: ['DevTools', 'Dashboard', 'Data Inspector']
+      },
+      CLI: {
+        data: 'CLI for installing examples, updating packages, creating your typescript config'
+      }
+    }
+  }
 })

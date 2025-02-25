@@ -1,31 +1,71 @@
+// @ts-check
 import { LandscapeSchema } from '@localfirstfm/landscape-schema'
 
 export const data = LandscapeSchema.make({
+  Version: '0.0.1',
   Id: 'electricsql',
   Name: 'ElectricSQL',
-  Website: 'https://electric-sql.com',
-  License: 'Apache 2',
-  Deployment: ['Self-hosted'],
+  Website: {
+    data: 'https://electric-sql.com'
+  },
+  License: {
+    data: 'Apache 2'
+  },
+  Deployment: {
+    data: ['Self-hosted']
+  },
   AppTarget: {
-    Platform: ['Browser', 'Node'],
+    data: {
+      Platform: {
+        data: ['Browser', 'Node']
+      }
+    }
   },
   ServerSideData: {
-    PersistenceMechanism: ['Postgres'],
-    DataModelParadigm: 'Relational',
+    data: {
+      PersistenceMechanism: {
+        data: ['Postgres']
+      },
+      DataModelParadigm: {
+        data: 'Relational'
+      }
+    }
   },
   ClientSideData: {
-    PersistenceMechanism: ['IndexedDB', 'PGLite via OPFS'],
-    DataModel: 'Relational',
-    OfflineReads: 'Full Support',
-    DataSize: '10-100mb depending on storage chosen',
+    data: {
+      PersistenceMechanism: {
+        data: ['IndexedDB', 'PGLite via OPFS']
+      },
+      DataModel: {
+        data: 'Relational'
+      },
+      OfflineReads: {
+        data: 'Full Support'
+      },
+      DataSize: {
+        data: '10-100mb depending on storage chosen'
+      }
+    }
   },
   SynchronizationStrategy: {
-    FullOrPartialReplication: ['Partial Replication'],
-    ConflictHandling: 'No Support',
-    WhereResolutionOccurs: 'Server',
-    WhatGetsSynced: {
-      ServerToClient: 'shape updates'
-    },
-    Authority: 'Centralized',
-  },
+    data: {
+      FullOrPartialReplication: {
+        data: ['Partial Replication']
+      },
+      ConflictHandling: {
+        data: 'No Support'
+      },
+      WhereResolutionOccurs: {
+        data: 'Server'
+      },
+      WhatGetsSynced: {
+        data: {
+          ServerToClient: 'shape updates'
+        }
+      },
+      Authority: {
+        data: 'Centralized'
+      }
+    }
+  }
 })

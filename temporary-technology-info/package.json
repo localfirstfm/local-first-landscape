@@ -1,5 +1,8 @@
 {
   "name": "@localfirstfm/temporary-technology-info",
   "type": "module",
-  "version": "0.0.0"
+  "version": "0.0.0",
+  "dependencies": {
+    "@localfirstfm/landscape-schema": "workspace:*"
+  }
 }

@@ -1,45 +1,109 @@
+// @ts-check
 import { LandscapeSchema } from '@localfirstfm/landscape-schema'
 
 export const data = LandscapeSchema.make({
+  Version: '0.0.1',
   Id: 'triplit',
   Name: 'Triplit',
-  Website: 'https://www.triplit.dev',
-  License: 'GPL3',
-  Deployment: ['Self-hosted', 'Hosted'],
+  Website: {
+    data: 'https://www.triplit.dev'
+  },
+  License: {
+    data: 'GPL3'
+  },
+  Deployment: {
+    data: ['Self-hosted', 'Hosted']
+  },
   AppTarget: {
-    Platform: ['Browser', 'Node', 'Node'],
-    LanguageSDK: ['TypeScript'],
-    FrameworkIntegrations: ['React', 'Vue', 'Svelte', 'Angular', 'React Native'],
+    data: {
+      Platform: {
+        data: ['Browser', 'Node', 'Node']
+      },
+      LanguageSDK: {
+        data: ['TypeScript']
+      },
+      FrameworkIntegrations: {
+        data: ['React', 'Vue', 'Svelte', 'Angular', 'React Native']
+      }
+    }
   },
   Networking: {
-    Protocol: ['WebSockets', 'HTTP'],
-    Topology: 'Client-Server',
+    data: {
+      Protocol: {
+        data: ['WebSockets', 'HTTP']
+      },
+      Topology: {
+        data: 'Client-Server'
+      }
+    }
   },
   ServerSideData: {
-    PersistenceMechanism: ['IndexedDB', 'SQLite', 'LevelDB', 'RocksDB'],
-    DataModelParadigm: 'Document',
+    data: {
+      PersistenceMechanism: {
+        data: ['IndexedDB', 'SQLite', 'LevelDB', 'RocksDB']
+      },
+      DataModelParadigm: {
+        data: 'Document'
+      }
+    }
   },
   ClientSideData: {
-    QueryAPI: ['Async', 'Signals-based Reactivity'],
-    LocalRefreshLatency: '<1 ms',
-    PersistenceMechanism: ['IndexedDB', 'SQLite', 'LevelDB', 'RocksDB'],
-    DataModel: 'Relational',
-    SchemaManagement: ['Derived types'],
-    OfflineReads: 'Subscribed queries have full db support: novel queries, counts, sums, averages, etc',
-    OfflineWrites: 'Full cached writes',
-    DataSize: 'limited by device capabilities',
+    data: {
+      QueryAPI: {
+        data: ['Async', 'Signals-based Reactivity']
+      },
+      LocalRefreshLatency: {
+        data: '<1 ms'
+      },
+      PersistenceMechanism: {
+        data: ['IndexedDB', 'SQLite', 'LevelDB', 'RocksDB']
+      },
+      DataModel: {
+        data: 'Relational'
+      },
+      SchemaManagement: {
+        data: ['Derived types']
+      },
+      OfflineReads: {
+        data: 'Subscribed queries have full db support: novel queries, counts, sums, averages, etc'
+      },
+      OfflineWrites: {
+        data: 'Full cached writes'
+      },
+      DataSize: {
+        data: 'limited by device capabilities'
+      }
+    }
   },
   SynchronizationStrategy: {
-    FullOrPartialReplication: ['Partial Replication'],
-    ConflictHandling: 'LWW at the attribute level',
-    WhereResolutionOccurs: 'Server',
-    WhatGetsSynced: {
-      ClientToServer: 'triple writes'
-    },
-    Authority: 'Centralized',
+    data: {
+      FullOrPartialReplication: {
+        data: ['Partial Replication']
+      },
+      ConflictHandling: {
+        data: 'LWW at the attribute level'
+      },
+      WhereResolutionOccurs: {
+        data: 'Server'
+      },
+      WhatGetsSynced: {
+        data: {
+          ClientToServer: 'triple writes'
+        }
+      },
+      Authority: {
+        data: 'Centralized'
+      }
+    }
   },
   AuthIdentity: {
-    AuthenticationMethod: ['JWT Tokens'],
-    AuthorizationPermissions: 'Custom mapping from Schema to ACL roles',
-  },
+    data: {
+      AuthenticationMethod: {
+        data: ['JWT Tokens']
+      },
+      AuthorizationPermissions: {
+        data: 'Custom mapping from Schema to ACL roles'
+      }
+    }
+  }
 })

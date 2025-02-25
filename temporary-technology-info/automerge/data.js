@@ -1,34 +1,78 @@
+// @ts-check
 import { LandscapeSchema } from '@localfirstfm/landscape-schema'
 
 export const data = LandscapeSchema.make({
+  Version: '0.0.1',
   Id: 'automerge',
   Name: 'Automerge',
-  Website: 'https://automerge.org',
-  License: 'MIT',
-  Deployment: ['Self-hosted'],
+  Website: {
+    data: 'https://automerge.org'
+  },
+  License: {
+    data: 'MIT'
+  },
+  Deployment: {
+    data: ['Self-hosted']
+  },
   Networking: {
-    Topology: 'P2P via Relay Servers',
+    data: {
+      Topology: {
+        data: 'P2P via Relay Servers'
+      }
+    }
   },
   ServerSideData: {
-    PersistenceMechanism: ['N/A'],
-    DataModelParadigm: 'Document',
+    data: {
+      PersistenceMechanism: {
+        data: ['N/A']
+      },
+      DataModelParadigm: {
+        data: 'Document'
+      }
+    }
   },
   ClientSideData: {
-    QueryAPI: ['Async'],
-    PersistenceMechanism: ['IndexedDB'],
-    DataModel: 'Document',
-    OfflineReads: 'Full Support',
-    OfflineWrites: 'Full local conflict resolution',
-    DataSize: 'up to 5-10mb per doc',
+    data: {
+      QueryAPI: {
+        data: ['Async']
+      },
+      PersistenceMechanism: {
+        data: ['IndexedDB']
+      },
+      DataModel: {
+        data: 'Document'
+      },
+      OfflineReads: {
+        data: 'Full Support'
+      },
+      OfflineWrites: {
+        data: 'Full local conflict resolution'
+      },
+      DataSize: {
+        data: 'up to 5-10mb per doc'
+      }
+    }
   },
   SynchronizationStrategy: {
-    FullOrPartialReplication: ['Full Replication'],
-    ConflictHandling: 'Automatic via CRDT',
-    WhereResolutionOccurs: 'Client',
-    WhatGetsSynced: {
-      ClientToClient: 'ops',
-      ServerToClient: 'future: snapshots via relays'
-    },
-    Authority: 'Decentralized',
-  },
+    data: {
+      FullOrPartialReplication: {
+        data: ['Full Replication']
+      },
+      ConflictHandling: {
+        data: 'Automatic via CRDT'
+      },
+      WhereResolutionOccurs: {
+        data: 'Client'
+      },
+      WhatGetsSynced: {
+        data: {
+          ClientToClient: 'ops',
+          ServerToClient: 'future: snapshots via relays'
+        }
+      },
+      Authority: {
+        data: 'Decentralized'
+      }
+    }
+  }
 })
