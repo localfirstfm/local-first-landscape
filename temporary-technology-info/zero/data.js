@@ -20,7 +20,7 @@ export const data = LandscapeSchema.make({
       FrameworkIntegrations: {
         data: ['React Native']
       },
-      BundleSize: {
+      ClientBundleSize: {
         data: '~40kb'
       }
     }
