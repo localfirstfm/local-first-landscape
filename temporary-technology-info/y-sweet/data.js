@@ -17,7 +17,8 @@ export const data = LandscapeSchema.make({
   AppTarget: {
     data: {
       Platform: {
-        data: ['Browser', 'Node']
+        data: ['Browser', 'Node', 'iOS', 'Android', 'macOS', 'Linux'],
+        comment: 'Limited only by y.js support.'
       },
       LanguageSDK: {
         data: ['TypeScript', 'Python']
@@ -46,7 +47,8 @@ export const data = LandscapeSchema.make({
         data: 'Document'
       },
       ExistingDatabaseSupport: {
-        data: 'Yes, in the "Figma architecture" sense: ground-truth document data only lives on S3, but document metadata exists in your existing DB'
+        data: 'Yes',
+        comment: 'In the "Figma architecture" sense: ground-truth document data only lives on S3, but document metadata exists in your existing DB.'
       }
     }
   },
@@ -56,10 +58,13 @@ export const data = LandscapeSchema.make({
         data: '<1 ms'
       },
       PersistenceMechanism: {
-        data: ['Yes']
+        data: ['IndexedDB']
       },
       DataModel: {
         data: 'Document'
+      },
+      SchemaManagement: {
+        data: ['No support']
       },
       OfflineReads: {
         data: 'Yes'
@@ -75,7 +80,8 @@ export const data = LandscapeSchema.make({
   SynchronizationStrategy: {
     data: {
       ConflictHandling: {
-        data: 'CRDT (YATA)'
+        data: 'Automatic via CRDT',
+        comment: 'CRDT (YATA)'
       },
       WhereResolutionOccurs: {
         data: 'Server'
@@ -93,17 +99,20 @@ export const data = LandscapeSchema.make({
   AuthIdentity: {
     data: {
       Encryption: {
-        data: 'Subject to the underlying object store used; most encrypt at rest by default; AES-GCM encryption on the client'
+        data: 'Yes',
+        comment: 'Subject to the underlying object store used; most encrypt at rest by default; AES-GCM encryption on the client'
       },
       AuthenticationMethod: {
-        data: ['Auth delegation from your application server based on temporary tokens']
+        data: ['Tokens'],
+        comment: 'Auth delegation from your application server based on temporary tokens.'
       }
     }
   },
   UIRelated: {
     data: {
       Components: {
-        data: ['Yes\nAnything compatible with Yjs (Slate, BlockNote, Quill, Lexical, etc.)']
+        data: ['y.js plugins', 'Presence'],
+        comment: 'Anything compatible with Yjs (Slate, BlockNote, Quill, Lexical, etc.)'
       }
     }
   }

@@ -34,23 +34,27 @@ export const data = LandscapeSchema.make({
   ClientSideData: {
     data: {
       PersistenceMechanism: {
-        data: ['IndexedDB', 'PGLite via OPFS']
+        data: ['IndexedDB', 'PGLite via OPFS'],
+        comment: 'Depends on what you are syncing to.'
       },
       DataModel: {
-        data: 'Relational'
+        data: 'Relational',
+        comment: '`useShape` in react gives you an array of rows. Syncing to db gives you actual relations between tables.'
       },
       OfflineReads: {
-        data: 'Full Support'
+        data: 'Full Support',
+        comment: 'Full support when shape is synced.'
       },
       DataSize: {
-        data: '10-100mb depending on storage chosen'
+        data: 'Limited by size of hard drive'
       }
     }
   },
   SynchronizationStrategy: {
     data: {
       FullOrPartialReplication: {
-        data: ['Partial Replication']
+        data: ['Partial Replication'],
+        comment: 'Partial replication via shapes.'
       },
       ConflictHandling: {
         data: 'No Support'

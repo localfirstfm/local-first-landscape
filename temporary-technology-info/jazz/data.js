@@ -14,13 +14,17 @@ export const data = LandscapeSchema.make({
   AppTarget: {
     data: {
       Platform: {
-        data: ['Browser', 'Node', 'Node']
+        data: ['Browser', 'Node', 'iOS', 'Android'],
+        comment: 'iOS and Android support via React Native.'
       },
       LanguageSDK: {
         data: ['TypeScript']
       },
       FrameworkIntegrations: {
         data: ['React', 'React Native', 'Vue', 'Svelte']
+      },
+      ClientBundleSize: {
+        data: '112kb gzipped (jazz-react)'
       }
     }
   },
@@ -30,7 +34,8 @@ export const data = LandscapeSchema.make({
         data: ['WebSockets']
       },
       Topology: {
-        data: 'P2P'
+        data: 'P2P',
+        comment: 'P2P via sync & storage servers. Servers are not stateless.'
       }
     }
   },
@@ -62,7 +67,7 @@ export const data = LandscapeSchema.make({
         data: '~1ms'
       },
       PersistenceMechanism: {
-        data: ['IndexedDB', 'SQLite', 'Custom']
+        data: ['IndexedDB', 'SQLite']
       },
       DataModel: {
         data: 'Document'
@@ -77,14 +82,16 @@ export const data = LandscapeSchema.make({
         data: 'Full local conflict resolution'
       },
       DataSize: {
-        data: 'currently limited by RAM, soon only limited by disk'
-      }
+        data: 'limited by RAM',
+        comment: 'Soon limited only by disk.'
+      },
     }
   },
   SynchronizationStrategy: {
     data: {
       FullOrPartialReplication: {
-        data: ['Partial Replication']
+        data: ['Partial Replication'],
+        comment: 'Partial replication on-demand or with explicit load depths.'
       },
       ConflictHandling: {
         data: 'Automatic via CRDT'
@@ -99,6 +106,16 @@ export const data = LandscapeSchema.make({
       },
       Authority: {
         data: 'Decentralized'
+      },
+      Latency: {
+        data: 'Close to network latency'
+      },
+      Throughput: {
+        data: 'Roughly 5k transactions/s (structured data) or ~50MB/s (binary data)',
+        comment: 'Soon: limited only by number of participants (updates of any size by up to 5k participants/s)'
+      },
+      Concurrency: {
+        data: 'Support for granular prioritization'
       }
     }
   },
@@ -118,7 +135,7 @@ export const data = LandscapeSchema.make({
   UIRelated: {
     data: {
       RichTextEditing: {
-        data: 'coming soon (incl. ProseMirror/TipTap/Lexical integration)'
+        data: 'Coming soon (incl. ProseMirror/TipTap/Lexical integration)'
       },
       Components: {
         data: ['File upload', 'progressive image loading']

@@ -43,7 +43,8 @@ export const data = LandscapeSchema.make({
         data: 'Document'
       },
       OfflineReads: {
-        data: 'Full Support'
+        data: 'Full Support',
+        comment: 'Full support within an automerge document.'
       },
       OfflineWrites: {
         data: 'Full local conflict resolution'
@@ -56,19 +57,19 @@ export const data = LandscapeSchema.make({
   SynchronizationStrategy: {
     data: {
       FullOrPartialReplication: {
-        data: ['Full Replication']
+        data: ['Full Replication'],
+        comment: 'Full replication within documents.'
       },
       ConflictHandling: {
-        data: 'Automatic via CRDT'
+        data: 'Automatic via CRDT',
+        comment: 'Automatic via CRDTs for Maps, Lists, Text. If there are conflicts: LWW / MVCC.'
       },
       WhereResolutionOccurs: {
         data: 'Client'
       },
       WhatGetsSynced: {
-        data: {
-          ClientToClient: 'ops',
-          ServerToClient: 'future: snapshots via relays'
-        }
+        data: { ClientToClient: 'ops' },
+        comment: 'Future: snapshots via relays'
       },
       Authority: {
         data: 'Decentralized'

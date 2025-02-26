@@ -10,7 +10,8 @@ export const data = LandscapeSchema.make({
     data: 'https://ditto.live'
   },
   Deployment: {
-    data: ['Hosted', 'Self-hosted']
+    data: ['Hosted', 'Self-hosted'],
+    comment: 'Self-hosting is BYOC (Bring Your Own Cloud).'
   },
   License: {
     data: 'Proprietary',
@@ -56,7 +57,8 @@ export const data = LandscapeSchema.make({
         data: 'HTTP/Webhooks and real-time via CDC Connectors (Kafka-based)'
       },
       DataSize: {
-        data: 'No theoretical limit'
+        data: 'No theoretical limit',
+        comment: 'No theoretical limit, due to cloud scaling, but we offer benchmarking and performance services to validate & scale cloud resources for larger use cases.'
       }
     }
   },
@@ -66,13 +68,15 @@ export const data = LandscapeSchema.make({
         data: ['Async']
       },
       LocalRefreshLatency: {
-        data: '10ms-2s depends on cardinality, query optimization plan, and local data size'
+        data: '10ms-2s',
+        comment: 'Depends on cardinality, query optimization plan, and local data size.'
       },
       PersistenceMechanism: {
         data: ['SQLite']
       },
       DataModel: {
-        data: 'Document'
+        data: 'Document',
+        comment: 'Queries are SQL, records are document-oriented.'
       },
       OfflineReads: {
         data: 'Full Support'
@@ -99,10 +103,12 @@ export const data = LandscapeSchema.make({
       WhatGetsSynced: {
         data: {
           ClientToClient: 'document deltas'
-        }
+        },
+        comment: 'Ditto has client-to-client deltas, and the server is running the same CRDT as the client, and is not required.'
       },
       Authority: {
-        data: 'Decentralized'
+        data: 'Decentralized',
+        comment: 'Decentralized via authentication servers.'
       }
     }
   },
@@ -122,15 +128,17 @@ export const data = LandscapeSchema.make({
   UIRelated: {
     data: {
       Components: {
-        data: ['Presence']
+        data: ['Presence'],
+        comment: 'SDK provides which peers you are connected to, and over what transports.'
       }
     }
   },
   DevelopmentWorkflowsDX: {
     data: {
       DebuggingTools: {
-        data: ['DevTools', 'Data Inspector', 'Network Inspector']
-      }
+        data: ['DevTools', 'Data Inspector', 'Network Inspector'],
+        comment: 'Open source debugging and diagnostic tools for developers.'
+      },
     }
   },
   UserControlDataOwnership: {

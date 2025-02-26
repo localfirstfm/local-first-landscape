@@ -11,7 +11,7 @@ const DataWithComment = <A, I>(_dataSchema: Schema.Schema<A, I>) =>
 
 export const AppTarget = Schema.Struct({
   Platform: DataWithComment(
-    Schema.Literal('Browser', 'Node', 'iOS', 'Android', 'macOS', 'WASM')
+    Schema.Literal('Browser', 'Node', 'iOS', 'Android', 'macOS', 'WASM', 'Linux')
       .pipe(orString, Schema.Array)
       .annotations({ description: 'The platform the app is targeting' }),
   ),
@@ -44,6 +44,11 @@ export const AppTarget = Schema.Struct({
     )
       .pipe(orString, Schema.Array)
       .annotations({}),
+  ).pipe(Schema.optional),
+  ClientBundleSize: DataWithComment(
+    Schema.String.annotations({
+      description: 'The size of the client bundle.',
+    }),
   ).pipe(Schema.optional),
 })
 
@@ -140,7 +145,7 @@ export const ClientSideData = Schema.Struct({
       'Async',
       'Sync',
       'Signals-based Reactivity',
-      'Reactive relational queries',
+      'Reactive queries',
     )
       .pipe(orString, Schema.Array)
       .annotations({

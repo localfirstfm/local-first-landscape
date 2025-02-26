@@ -59,7 +59,8 @@ export const data = LandscapeSchema.make({
         data: 'Document'
       },
       OfflineReads: {
-        data: 'Full Support'
+        data: 'Full Support',
+        comment: 'Full support within a space.'
       },
       OfflineWrites: {
         data: 'Full local conflict resolution'
@@ -72,7 +73,8 @@ export const data = LandscapeSchema.make({
   SynchronizationStrategy: {
     data: {
       FullOrPartialReplication: {
-        data: ['Full Replication']
+        data: ['Full Replication'],
+        comment: 'Full replication within spaces.'
       },
       ConflictHandling: {
         data: 'Automatic via CRDT'
@@ -89,5 +91,13 @@ export const data = LandscapeSchema.make({
         data: 'Decentralized'
       }
     }
-  }
+  },
+  UIRelated: {
+    data: {
+      Components: {
+        data: ['Presence'],
+        comment: 'SDK provides which peers you are connected to.'
+      }
+    }
+  },
 })
