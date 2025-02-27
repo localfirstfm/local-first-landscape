@@ -369,7 +369,9 @@ export const LandscapeSchema = Schema.Struct({
   Deployment: DataWithComment(
     Schema.Literal('Self-hosted', 'Hosted')
       .pipe(orString, Schema.Array)
-      .annotations({}),
+      .annotations({
+        description: 'The deployment options for the technology or product.',
+      }),
   ),
   License: DataWithComment(
     Schema.Literal('Proprietary', 'MIT', 'GPL', 'Apache', 'FSL-Apach 2.0')

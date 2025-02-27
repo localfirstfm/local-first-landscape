@@ -1,14 +1,18 @@
-export type RepoInfo = {
-  id: string
-  owner: string
-  repo: string
-  /** @default 'main' */
-  branch?: string
-  /** @default '' */
-  basePath?: string
-}
+import { Schema } from 'effect'
 
-export const repos: ReadonlyArray<RepoInfo> = [
+export const RepoInfo = Schema.Struct({
+  id: Schema.String,
+  owner: Schema.String,
+  repo: Schema.String,
+  /** @default 'main' */
+  branch: Schema.optionalWith(Schema.String, { default: () => 'main' }),
+  /** @default '' */
+  basePath: Schema.optionalWith(Schema.String, { default: () => '' }),
+})
+
+export type RepoInfo = typeof RepoInfo.Type
+
+export const repos = Schema.decodeSync(Schema.Array(RepoInfo))([
   {
     id: 'automerge',
     owner: 'schickling',
@@ -92,4 +96,4 @@ export const repos: ReadonlyArray<RepoInfo> = [
     repo: 'local-first-landscape',
     basePath: 'temporary-technology-info/y-sweet',
   },
-]
+])
