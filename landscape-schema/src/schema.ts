@@ -3,18 +3,22 @@ import { Schema } from 'effect'
 const orString = <A>(_stringLitSchema: Schema.Schema<A>) =>
   Schema.String as Schema.Schema<A | (string & Record<never, never>)>
 
-const DataWithComment = <A, I>(_dataSchema: Schema.Schema<A, I>) =>
+export const DataWithComment = <A, I>(_dataSchema: Schema.Schema<A, I>) =>
   Schema.Struct({
     data: _dataSchema,
     comment: Schema.String.pipe(Schema.optional),
   })
+
+export type DataWithComment<A, I = A> = ReturnType<
+  typeof DataWithComment<A, I>
+>['Type']
 
 export const AppTarget = Schema.Struct({
   Platform: DataWithComment(
     Schema.Literal('Browser', 'Node', 'iOS', 'Android', 'macOS', 'WASM')
       .pipe(orString, Schema.Array)
       .annotations({ description: 'The platform the app is targeting' }),
-  ),
+  ).pipe(Schema.optional),
   LanguageSDK: DataWithComment(
     Schema.Literal(
       'TypeScript',
@@ -346,11 +350,9 @@ export const Logo = Schema.Struct({
 export const schemaVersion = '0.0.1'
 
 export const LandscapeSchema = Schema.Struct({
-  Version: Schema.Literal(schemaVersion)
-    .pipe(Schema.optionalWith({ default: () => schemaVersion }))
-    .annotations({
-      description: 'The version of the schema.',
-    }),
+  Version: Schema.Literal(schemaVersion).annotations({
+    description: 'The version of the schema.',
+  }),
   Id: Schema.String.annotations({
     description: 'The unique identifier of the technology or product.',
   }),
@@ -361,39 +363,32 @@ export const LandscapeSchema = Schema.Struct({
     description: 'A brief description of the technology or product.',
   }).pipe(Schema.optional),
   Logo: Logo.pipe(Schema.optional),
-  Website: DataWithComment(
-    Schema.String.annotations({
-      description: 'The website of the technology or product.',
+  Website: Schema.String.annotations({
+    description: 'The website of the technology or product.',
+  }).pipe(Schema.optional),
+  Deployment: Schema.Literal('Self-hosted', 'Hosted')
+    .pipe(orString, Schema.Array, Schema.optional)
+    .annotations({
+      description: 'The deployment options for the technology or product.',
     }),
-  ).pipe(Schema.optional),
-  Deployment: DataWithComment(
-    Schema.Literal('Self-hosted', 'Hosted')
-      .pipe(orString, Schema.Array)
-      .annotations({
-        description: 'The deployment options for the technology or product.',
-      }),
-  ),
-  License: DataWithComment(
-    Schema.Literal('Proprietary', 'MIT', 'GPL', 'Apache', 'FSL-Apach 2.0')
-      .pipe(orString)
-      .annotations({}),
-  ).pipe(Schema.optional),
-  AppTarget: DataWithComment(AppTarget).pipe(Schema.optional),
-  Networking: DataWithComment(Networking).pipe(Schema.optional),
-  ServerSideData: DataWithComment(ServerSideData).pipe(Schema.optional),
-  ClientSideData: DataWithComment(ClientSideData).pipe(Schema.optional),
-  SynchronizationStrategy: DataWithComment(SynchronizationStrategy).pipe(
-    Schema.optional,
-  ),
-  AuthIdentity: DataWithComment(AuthIdentity).pipe(Schema.optional),
-  UIRelated: DataWithComment(UIRelated).pipe(Schema.optional),
-  DevelopmentWorkflowsDX: DataWithComment(DevelopmentWorkflowsDX).pipe(
-    Schema.optional,
-  ),
-
-  UserControlDataOwnership: DataWithComment(Schema.String).pipe(
-    Schema.optional,
-  ),
+  License: Schema.Literal(
+    'Proprietary',
+    'MIT',
+    'GPL',
+    'Apache',
+    'FSL-Apach 2.0',
+  )
+    .pipe(orString, Schema.optional)
+    .annotations({}),
+  AppTarget: AppTarget.pipe(Schema.optional),
+  Networking: Networking.pipe(Schema.optional),
+  ServerSideData: ServerSideData.pipe(Schema.optional),
+  ClientSideData: ClientSideData.pipe(Schema.optional),
+  SynchronizationStrategy: SynchronizationStrategy.pipe(Schema.optional),
+  AuthIdentity: AuthIdentity.pipe(Schema.optional),
+  UIRelated: UIRelated.pipe(Schema.optional),
+  DevelopmentWorkflowsDX: DevelopmentWorkflowsDX.pipe(Schema.optional),
+  UserControlDataOwnership: Schema.String.pipe(Schema.optional),
 })
 
 export type Landscape = typeof LandscapeSchema.Type
