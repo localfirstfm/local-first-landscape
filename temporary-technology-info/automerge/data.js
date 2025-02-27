@@ -6,6 +6,7 @@ export const data = LandscapeSchema.make({
   Id: 'automerge',
   Name: 'Automerge',
   Website: 'https://automerge.org',
+  GetStarted: 'https://automerge.org/docs/hello/',
   License: 'MIT',
   Deployment: ['Self-hosted'],
   Networking: {

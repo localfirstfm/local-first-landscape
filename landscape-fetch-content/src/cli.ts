@@ -31,7 +31,9 @@ export const fetchContentCommand = Cli.Command.make(
     const fs = yield* FileSystem.FileSystem
 
     if (!process.env.GITHUB_TOKEN) {
-      throw new Error('GITHUB_TOKEN is not set')
+      yield* Effect.logError(
+        'GITHUB_TOKEN is not set. You might run into rate limiting issues.',
+      )
     }
 
     console.log('targetDir', targetDir)

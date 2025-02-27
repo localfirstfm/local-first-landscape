@@ -347,6 +347,24 @@ export const Logo = Schema.Struct({
   Dark: Schema.String.pipe(Schema.optional),
 })
 
+const UrlString = Schema.String.pipe(
+  Schema.filter(
+    (url) => {
+      try {
+        new URL(url)
+        return true
+      } catch (error) {
+        return false
+      }
+    },
+    {
+      title: 'UrlString',
+      description: 'A valid URL string.',
+      jsonSchema: { type: 'string', format: 'uri' },
+    },
+  ),
+)
+
 export const schemaVersion = '0.0.1'
 
 export const LandscapeSchema = Schema.Struct({
@@ -363,8 +381,11 @@ export const LandscapeSchema = Schema.Struct({
     description: 'A brief description of the technology or product.',
   }).pipe(Schema.optional),
   Logo: Logo.pipe(Schema.optional),
-  Website: Schema.String.annotations({
+  Website: UrlString.annotations({
     description: 'The website of the technology or product.',
+  }).pipe(Schema.optional),
+  GetStarted: UrlString.annotations({
+    description: 'Link to get started with the technology or product.',
   }).pipe(Schema.optional),
   Deployment: Schema.Literal('Self-hosted', 'Hosted')
     .pipe(orString, Schema.Array, Schema.optional)
