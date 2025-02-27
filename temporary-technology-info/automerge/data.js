@@ -10,7 +10,8 @@ export const data = LandscapeSchema.make({
   Deployment: ['Self-hosted'],
   Networking: {
     Topology: {
-      data: 'P2P via Relay Servers'
+      data: 'P2P via Relay Servers',
+      comment: 'Coming soon: Beelay'
     }
   },
   ServerSideData: {
