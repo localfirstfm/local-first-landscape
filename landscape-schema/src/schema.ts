@@ -49,7 +49,7 @@ export const AppTarget = Schema.Struct({
       .pipe(orString, Schema.Array)
       .annotations({}),
   ).pipe(Schema.optional),
-})
+}).annotations({ title: 'AppTarget' })
 
 export const Networking = Schema.Struct({
   Protocol: DataWithComment(
@@ -77,7 +77,7 @@ export const Networking = Schema.Struct({
           'Whether clients synchronize with each other directly or through a server.',
       }),
   ).pipe(Schema.optional),
-})
+}).annotations({ title: 'Networking' })
 
 export const ServerSideData = Schema.Struct({
   PersistenceMechanism: DataWithComment(
@@ -136,7 +136,7 @@ export const ServerSideData = Schema.Struct({
       description: 'How the server integrates with existing databases.',
     }),
   ).pipe(Schema.optional),
-})
+}).annotations({ title: 'ServerSideData' })
 
 export const ClientSideData = Schema.Struct({
   QueryAPI: DataWithComment(
@@ -227,7 +227,7 @@ export const ClientSideData = Schema.Struct({
       description: 'The size of the data the client supports.',
     }),
   ).pipe(Schema.optional),
-})
+}).annotations({ title: 'ClientSideData' })
 
 export const SynchronizationStrategy = Schema.Struct({
   FullOrPartialReplication: DataWithComment(
@@ -276,7 +276,7 @@ export const SynchronizationStrategy = Schema.Struct({
   ).pipe(Schema.optional),
   Throughput: DataWithComment(Schema.String).pipe(Schema.optional),
   Concurrency: DataWithComment(Schema.String).pipe(Schema.optional),
-})
+}).annotations({ title: 'SynchronizationStrategy' })
 
 export const AuthIdentity = Schema.Struct({
   Encryption: DataWithComment(
@@ -302,7 +302,7 @@ export const AuthIdentity = Schema.Struct({
       description: 'How authorization permissions are managed.',
     }),
   ).pipe(Schema.optional),
-})
+}).annotations({ title: 'AuthIdentity' })
 
 export const UIRelated = Schema.Struct({
   RichTextEditing: DataWithComment(
@@ -315,7 +315,7 @@ export const UIRelated = Schema.Struct({
       description: 'Native components provided by the technology.',
     }),
   ).pipe(Schema.optional),
-})
+}).annotations({ title: 'UIRelated' })
 
 export const DevelopmentWorkflowsDX = Schema.Struct({
   DebuggingTools: DataWithComment(
@@ -340,12 +340,12 @@ export const DevelopmentWorkflowsDX = Schema.Struct({
       description: 'Type support for developers.',
     }),
   ).pipe(Schema.optional),
-})
+}).annotations({ title: 'DevelopmentWorkflowsDX' })
 
 export const Logo = Schema.Struct({
   Light: Schema.String.pipe(Schema.optional),
   Dark: Schema.String.pipe(Schema.optional),
-})
+}).annotations({ title: 'Logo' })
 
 const UrlString = Schema.String.pipe(
   Schema.filter(
@@ -365,7 +365,7 @@ const UrlString = Schema.String.pipe(
   ),
 )
 
-export const schemaVersion = '0.0.1'
+export const schemaVersion = 1
 
 export const LandscapeSchema = Schema.Struct({
   Version: Schema.Literal(schemaVersion).annotations({
@@ -410,6 +410,6 @@ export const LandscapeSchema = Schema.Struct({
   UIRelated: UIRelated.pipe(Schema.optional),
   DevelopmentWorkflowsDX: DevelopmentWorkflowsDX.pipe(Schema.optional),
   UserControlDataOwnership: Schema.String.pipe(Schema.optional),
-})
+}).annotations({ title: 'Root' })
 
 export type Landscape = typeof LandscapeSchema.Type

@@ -2,7 +2,7 @@
 import { LandscapeSchema } from '@localfirstfm/landscape-schema'
 
 export const data = LandscapeSchema.make({
-  Version: '0.0.1',
+  Version: 1,
   Id: 'triplit',
   Name: 'Triplit',
   Website: 'https://www.triplit.dev',
