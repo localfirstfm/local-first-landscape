@@ -16,7 +16,7 @@ const showFullErrorsOption = Cli.Options.boolean('show-full-errors').pipe(
   Cli.Options.withDefault(false),
 )
 
-const fetchContentCommand = Cli.Command.make(
+export const fetchContentCommand = Cli.Command.make(
   'fetch-content',
   {
     targetDir: targetDirOption,
@@ -137,18 +137,22 @@ export const data = [
 `
 
     yield* fs.writeFileString(path.join(targetDir, 'mod.ts'), modFileContent)
+
+    yield* Effect.log(`Successfully wrote content to ${targetDir}`)
   }),
 )
 
-const cli = Cli.Command.run(fetchContentCommand, {
-  name: 'Localfirst.fm Landscape CLI',
-  version: packageJson.version,
-})
+if (import.meta.main) {
+  const cli = Cli.Command.run(fetchContentCommand, {
+    name: 'Localfirst.fm Landscape CLI',
+    version: packageJson.version,
+  })
 
-const layer = Layer.mergeAll(PlatformNode.NodeContext.layer, Logger.pretty)
+  const layer = Layer.mergeAll(PlatformNode.NodeContext.layer, Logger.pretty)
 
-cli(process.argv).pipe(
-  Effect.annotateLogs({ thread: 'cli-main' }),
-  Effect.provide(layer),
-  PlatformNode.NodeRuntime.runMain,
-)
+  cli(process.argv).pipe(
+    Effect.annotateLogs({ thread: 'cli-main' }),
+    Effect.provide(layer),
+    PlatformNode.NodeRuntime.runMain,
+  )
+}

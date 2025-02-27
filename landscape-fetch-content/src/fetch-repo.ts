@@ -1,6 +1,8 @@
 import { Array as ReadonlyArray, Effect, Option, Schema, Cause } from 'effect'
 import { RepoInfo } from './repos.js'
-import { Script } from 'node:vm'
+import path from 'node:path'
+import * as fs from 'node:fs'
+const dirname = import.meta.dirname
 
 const FileResponseSuccessSchema = Schema.Struct({
   name: Schema.String,
@@ -46,6 +48,20 @@ export const fetchRepo = Effect.fn('fetchRepo')(function* (repoInfo: RepoInfo) {
 
   const results = yield* Effect.forEach(filesToFetch, (file) =>
     Effect.gen(function* () {
+      // Special case for "local content" to short-circuit via local FS
+      if (
+        owner === 'localfirstfm' &&
+        repo === 'local-first-landscape' &&
+        basePath.startsWith('temporary-technology-info')
+      ) {
+        const filePath = path.join(dirname, '..', '..', basePath, file)
+        const exists = fs.existsSync(filePath)
+        if (exists) {
+          const content = fs.readFileSync(filePath)
+          return { name: file, content }
+        }
+      }
+
       const pathPrefix = basePath ? `${basePath}/` : ''
       const url = `https://api.github.com/repos/${owner}/${repo}/contents/${pathPrefix}${file}`
       const response = yield* Effect.tryPromise(() =>
@@ -83,9 +99,6 @@ export const fetchRepo = Effect.fn('fetchRepo')(function* (repoInfo: RepoInfo) {
     })
   }
 
-  const stringFromUint8Array = (uint8Array: Uint8Array) =>
-    new TextDecoder().decode(uint8Array)
-
   yield* validateCode(stringFromUint8Array(data.content), repoInfo)
 
   return { files: { data, logoLight, logoDark }, repoInfo }
@@ -122,3 +135,6 @@ export class FetchRepoError extends Schema.Union(
   FetchRepoErrorBadCode,
   FetchRepoErrorMissingFiles,
 ) {}
+
+const stringFromUint8Array = (uint8Array: Uint8Array) =>
+  new TextDecoder().decode(uint8Array)

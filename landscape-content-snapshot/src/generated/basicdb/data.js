@@ -5,17 +5,12 @@ export const data = LandscapeSchema.make({
   Version: '0.0.1',
   Id: 'basicdb',
   Name: 'BasicDB',
-  Website: {
-    data: 'https://basic.tech'
-  },
-  Deployment: {
-    data: ['Self-hosted']
-  },
+  Website: 'https://basic.tech',
+  License: 'MIT',
+  Deployment: ['Self-hosted'],
   AppTarget: {
-    data: {
-      Platform: {
-        data: ['Browser']
-      }
+    Platform: {
+      data: ['Browser']
     }
   }
 })

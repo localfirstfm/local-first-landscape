@@ -5,17 +5,12 @@ export const data = LandscapeSchema.make({
   Version: '0.0.1',
   Id: 'convex',
   Name: 'Convex',
-  Website: {
-    data: 'https://convex.dev'
-  },
-  Deployment: {
-    data: ['Hosted']
-  },
+  Website: 'https://convex.dev',
+  License: 'MIT',
+  Deployment: ['Hosted'],
   AppTarget: {
-    data: {
-      Platform: {
-        data: ['Browser']
-      }
+    Platform: {
+      data: ['Browser']
     }
   }
 })
