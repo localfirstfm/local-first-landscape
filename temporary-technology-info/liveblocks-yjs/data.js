@@ -15,130 +15,114 @@ export const data = LandscapeSchema.make({
     data: ['Hosted']
   },
   AppTarget: {
-    data: {
-      Platform: {
-        data: ['Browser', 'Node']
-      },
-      LanguageSDK: {
-        data: ['TypeScript']
-      },
-      FrameworkIntegrations: {
-        data: ['React']
-      }
+    Platform: {
+      data: ['Browser', 'Node']
+    },
+    LanguageSDK: {
+      data: ['TypeScript']
+    },
+    FrameworkIntegrations: {
+      data: ['React']
     }
   },
   Networking: {
-    data: {
-      Protocol: {
-        data: ['WebSockets', 'HTTP']
-      },
-      Topology: {
-        data: 'Client-Server'
-      }
+    Protocol: {
+      data: ['WebSockets', 'HTTP']
+    },
+    Topology: {
+      data: 'Client-Server'
     }
   },
   ServerSideData: {
-    data: {
-      PersistenceMechanism: {
-        data: ['Cloudflare Durable Object Storage', 'IndexedDB']
-      },
-      DataModelParadigm: {
-        data: 'Document'
-      },
-      SchemaManagement: {
-        data: ['None']
-      },
-      ExistingDatabaseSupport: {
-        data: 'manual sync to existing DBs',
-        comment: 'Does not require a datastore, but you can migrate or automatically sync to your database with webhooks/REST API'
-      }
+    PersistenceMechanism: {
+      data: ['Cloudflare Durable Object Storage', 'IndexedDB']
+    },
+    DataModelParadigm: {
+      data: 'Document'
+    },
+    SchemaManagement: {
+      data: ['None']
+    },
+    ExistingDatabaseSupport: {
+      data: 'manual sync to existing DBs',
+      comment: 'Does not require a datastore, but you can migrate or automatically sync to your database with webhooks/REST API'
     }
   },
   ClientSideData: {
-    data: {
-      QueryAPI: {
-        data: ['Yjs'],
-        comment: 'Standard Yjs API'
-      },
-      LocalRefreshLatency: {
-        data: '<1ms',
-        comment: 'Changes on the client: <1ms. Other clients receive updates up to 60 times per second(16ms), configurable.'
-      },
-      PersistenceMechanism: {
-        data: ['Yjs']
-      },
-      DataModel: {
-        data: 'Document'
-      },
-      SchemaManagement: {
-        data: ['None']
-      },
-      OfflineReads: {
-        data: 'in beta'
-      },
-      OptimisticUpdates: {
-        data: 'Yes',
-      },
-      OfflineWrites: {
-        data: 'in beta',
-        comment: '`offlineSupport_experimental: true`'
-      },
-      DataSize: {
-        data: 'limited by memory',
-        comment: 'It depends on the in memory size of the yjs store and the history of the document.'
-      }
+    QueryAPI: {
+      data: ['Yjs'],
+      comment: 'Standard Yjs API'
+    },
+    LocalRefreshLatency: {
+      data: '<1ms',
+      comment: 'Changes on the client: <1ms. Other clients receive updates up to 60 times per second(16ms), configurable.'
+    },
+    PersistenceMechanism: {
+      data: ['Yjs']
+    },
+    DataModel: {
+      data: 'Document'
+    },
+    SchemaManagement: {
+      data: ['None']
+    },
+    OfflineReads: {
+      data: 'in beta'
+    },
+    OptimisticUpdates: {
+      data: 'Yes',
+    },
+    OfflineWrites: {
+      data: 'in beta',
+      comment: '`offlineSupport_experimental: true`'
+    },
+    DataSize: {
+      data: 'limited by memory',
+      comment: 'It depends on the in memory size of the yjs store and the history of the document.'
     }
   },
   SynchronizationStrategy: {
-    data: {
-      ConflictHandling: {
-        data: 'Automatic via CRDT'
-      },
-      WhereResolutionOccurs: {
-        data: 'Server'
-      },
-      WhatGetsSynced: {
-        data: {
-          ClientToServer: 'yjs encoded updates'
-        }
-      },
-      Authority: {
-        data: 'Centralized'
+    ConflictHandling: {
+      data: 'Automatic via CRDT'
+    },
+    WhereResolutionOccurs: {
+      data: 'Server'
+    },
+    WhatGetsSynced: {
+      data: {
+        ClientToServer: 'yjs encoded updates'
       }
+    },
+    Authority: {
+      data: 'Centralized'
     }
   },
   AuthIdentity: {
-    data: {
-      AuthenticationMethod: {
-        data: ['Built-in', 'Full Custom']
-      },
-      AuthorizationPermissions: {
-        data: 'ID tokens and Access tokens',
-        comment: 'ID tokens (= permissions based on whats allowed on a per-room basis). Access tokens (= permissions granted in the token directly)'
-      }
+    AuthenticationMethod: {
+      data: ['Built-in', 'Full Custom']
+    },
+    AuthorizationPermissions: {
+      data: 'ID tokens and Access tokens',
+      comment: 'ID tokens (= permissions based on whats allowed on a per-room basis). Access tokens (= permissions granted in the token directly)'
     }
   },
   UIRelated: {
-    data: {
-      RichTextEditing: {
-        data: 'Liveblocks Text Editor',
-        comment: 'Wrapper around Yjs with Lexical and TipTap plugins.'
-      },
-      Components: {
-        data: ['Comments/Threads', 'Notifications', 'Y.js plugins', 'Presence'],
-        comment: 'Presence support via yjs-awareness.'
-      }
+    RichTextEditing: {
+      data: 'Liveblocks Text Editor',
+      comment: 'Wrapper around Yjs with Lexical and TipTap plugins.'
+    },
+    Components: {
+      data: ['Comments/Threads', 'Notifications', 'Y.js plugins', 'Presence'],
+      comment: 'Presence support via yjs-awareness.'
     }
   },
   DevelopmentWorkflowsDX: {
-    data: {
-      DebuggingTools: {
-        data: ['DevTools', 'Dashboard', 'Data Inspector'],
-        comment: 'Viewing/editing data, events, usage, etc.'
-      },
-      CLI: {
-        data: 'CLI for installing examples, updating packages, creating your typescript config'
-      }
+    DebuggingTools: {
+      data: ['DevTools', 'Dashboard', 'Data Inspector'],
+      comment: 'Viewing/editing data, events, usage, etc.'
+    },
+    CLI: {
+      data: 'CLI for installing examples, updating packages, creating your typescript config'
     }
   }
 })

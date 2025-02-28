@@ -15,124 +15,110 @@ export const data = LandscapeSchema.make({
     data: ['Self-hosted', 'Hosted']
   },
   AppTarget: {
-    data: {
-      Platform: {
-        data: ['Browser', 'iOS', 'Android', 'macOS', 'WASM', 'Linux']
-      },
-      LanguageSDK: {
-        data: ['TypeScript', 'Swift', 'Kotlin', 'Rust', 'Dart']
-      },
-      FrameworkIntegrations: {
-        data: ['React', 'React Native', 'Vue', 'Svelte', 'SolidJS', 'Flutter']
-      }
+    Platform: {
+      data: ['Browser', 'iOS', 'Android', 'macOS', 'WASM', 'Linux']
+    },
+    LanguageSDK: {
+      data: ['TypeScript', 'Swift', 'Kotlin', 'Rust', 'Dart']
+    },
+    FrameworkIntegrations: {
+      data: ['React', 'React Native', 'Vue', 'Svelte', 'SolidJS', 'Flutter']
     }
   },
   Networking: {
-    data: {
-      Protocol: {
-        data: ['WebSockets', 'HTTP']
-      },
-      Topology: {
-        data: 'Client-Server'
-      }
+    Protocol: {
+      data: ['WebSockets', 'HTTP']
+    },
+    Topology: {
+      data: 'Client-Server'
     }
   },
   ServerSideData: {
-    data: {
-      PersistenceMechanism: {
-        data: ['Postgres', 'MongoDB', 'MySQL'],
-        comment: 'Backend source databases: Postgres, MongoDB, MySQL. Storage of sync bucket data: MongoDB, Postgres'
-      },
-      DataModelParadigm: {
-        data: 'Relational'
-      },
-      ExistingDatabaseSupport: {
-        data: 'Works with backend source databases: Postgres, MongoDB, MySQL'
-      },
-      DataSize: {
-        data: 'No theoretical limit'
-      }
+    PersistenceMechanism: {
+      data: ['Postgres', 'MongoDB', 'MySQL'],
+      comment: 'Backend source databases: Postgres, MongoDB, MySQL. Storage of sync bucket data: MongoDB, Postgres'
+    },
+    DataModelParadigm: {
+      data: 'Relational'
+    },
+    ExistingDatabaseSupport: {
+      data: 'Works with backend source databases: Postgres, MongoDB, MySQL'
+    },
+    DataSize: {
+      data: 'No theoretical limit'
     }
   },
   ClientSideData: {
-    data: {
-      QueryAPI: {
-        data: ['Async', 'Reactive queries']
-      },
-      PersistenceMechanism: {
-        data: ['SQLite', 'IndexedDB', 'OPFS']
-      },
-      PersistenceFeatures: {
-        data: 'FTS, Indexes, Transactions'
-      },
-      DataModel: {
-        data: 'Relational',
-        comment: 'Schemaless JSON synced and stored in SQLite and exposed as views to allow for relational queries based on client-side schema.'
-      },
-      SchemaManagement: {
-        data: ['Schema definition'],
-        comment: 'Client-side schema definition. Schema is used to expose views in SQLite based on schemaless synced data, generally avoiding the need for schema migrations.'
-      },
-      OfflineReads: {
-        data: 'Full Support',
-        comment: 'Dynamic query support.'
-      },
-      OptimisticUpdates: {
-        data: 'Yes'
-      },
-      OfflineWrites: {
-        data: 'Yes'
-      }
+    QueryAPI: {
+      data: ['Async', 'Reactive queries']
+    },
+    PersistenceMechanism: {
+      data: ['SQLite', 'IndexedDB', 'OPFS']
+    },
+    PersistenceFeatures: {
+      data: 'FTS, Indexes, Transactions'
+    },
+    DataModel: {
+      data: 'Relational',
+      comment: 'Schemaless JSON synced and stored in SQLite and exposed as views to allow for relational queries based on client-side schema.'
+    },
+    SchemaManagement: {
+      data: ['Schema definition'],
+      comment: 'Client-side schema definition. Schema is used to expose views in SQLite based on schemaless synced data, generally avoiding the need for schema migrations.'
+    },
+    OfflineReads: {
+      data: 'Full Support',
+      comment: 'Dynamic query support.'
+    },
+    OptimisticUpdates: {
+      data: 'Yes'
+    },
+    OfflineWrites: {
+      data: 'Yes'
     }
   },
   SynchronizationStrategy: {
-    data: {
-      FullOrPartialReplication: {
-        data: ['Full Replication', 'Partial Replication'],
-        comment: 'Partial or full replica defined using [Sync Rules](https://docs.powersync.com/usage/sync-rules). Sync Rules can make use of authenticated JWT parameters or client parameters.'
-      },
-      ConflictHandling: {
-        data: 'Custom conflict resolution supported',
-        comment: 'Developer defines an upload function which writes local mutations to backend database. Simplest implementation of this results in LWW. Can be customized by developer, including using CRDT data structures like [Yjs](https://www.powersync.com/blog/postgres-and-yjs-crdt-collaborative-text-editing-using-powersync), e.g.'
-      },
-      WhereResolutionOccurs: {
-        data: 'Server'
-      },
-      WhatGetsSynced: {
-        data: {
-          ServerToClient: 'ops',
-          ClientToServer: 'mutations'
-        }
-      },
-      Authority: {
-        data: 'Centralized'
+    FullOrPartialReplication: {
+      data: ['Full Replication', 'Partial Replication'],
+      comment: 'Partial or full replica defined using [Sync Rules](https://docs.powersync.com/usage/sync-rules). Sync Rules can make use of authenticated JWT parameters or client parameters.'
+    },
+    ConflictHandling: {
+      data: 'Custom conflict resolution supported',
+      comment: 'Developer defines an upload function which writes local mutations to backend database. Simplest implementation of this results in LWW. Can be customized by developer, including using CRDT data structures like [Yjs](https://www.powersync.com/blog/postgres-and-yjs-crdt-collaborative-text-editing-using-powersync), e.g.'
+    },
+    WhereResolutionOccurs: {
+      data: 'Server'
+    },
+    WhatGetsSynced: {
+      data: {
+        ServerToClient: 'ops',
+        ClientToServer: 'mutations'
       }
+    },
+    Authority: {
+      data: 'Centralized'
     }
   },
   AuthIdentity: {
-    data: {
-      Encryption: {
-        data: 'Yes',
-        comment: 'transport-level and storage-level locally on the device using SQLCipher; E2EE can also be accomplished by syncing encrypted data and decrypting on client'
-      },
-      AuthenticationMethod: {
-        data: ['JWT Tokens']
-      },
-      AuthorizationPermissions: {
-        data: 'Custom',
-        comment: 'Reads: Access to data is controlled by authenticated parameters in JWT used in Sync Rules\nWrites: Access controlled using developer\'s own backend (through which writes go to)'
-      }
+    Encryption: {
+      data: 'Yes',
+      comment: 'transport-level and storage-level locally on the device using SQLCipher; E2EE can also be accomplished by syncing encrypted data and decrypting on client'
+    },
+    AuthenticationMethod: {
+      data: ['JWT Tokens']
+    },
+    AuthorizationPermissions: {
+      data: 'Custom',
+      comment: 'Reads: Access to data is controlled by authenticated parameters in JWT used in Sync Rules\nWrites: Access controlled using developer\'s own backend (through which writes go to)'
     }
   },
   DevelopmentWorkflowsDX: {
-    data: {
-      DebuggingTools: {
-        data: ['Dashboard', 'Data Inspector'],
-        comment: '[Dashboard](https://docs.powersync.com/usage/tools/powersync-dashboard), [Diagnostic tool to inspect synced data](https://github.com/powersync-ja/powersync-js/tree/main/tools/diagnostics-app)'
-      },
-      CLI: {
-        data: 'CLI for managing cloud instances of PowerSync Service'
-      }
+    DebuggingTools: {
+      data: ['Dashboard', 'Data Inspector'],
+      comment: '[Dashboard](https://docs.powersync.com/usage/tools/powersync-dashboard), [Diagnostic tool to inspect synced data](https://github.com/powersync-ja/powersync-js/tree/main/tools/diagnostics-app)'
+    },
+    CLI: {
+      data: 'CLI for managing cloud instances of PowerSync Service'
     }
   }
 })

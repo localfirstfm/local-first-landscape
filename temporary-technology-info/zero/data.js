@@ -12,100 +12,90 @@ export const data = LandscapeSchema.make({
     data: ['Self-hosted']
   },
   AppTarget: {
-    data: {
-      Platform: {
-        data: ['Browser', 'Node', 'iOS', 'Android'],
-        comment: 'Basically any JS environment.'
-      },
-      FrameworkIntegrations: {
-        data: ['React Native']
-      },
-      ClientBundleSize: {
-        data: '~40kb'
-      }
+    Platform: {
+      data: ['Browser', 'Node', 'iOS', 'Android'],
+      comment: 'Basically any JS environment.'
+    },
+    FrameworkIntegrations: {
+      data: ['React Native']
+    },
+    ClientBundleSize: {
+      data: '~40kb'
     }
   },
   Networking: {
-    data: {
-      Protocol: {
-        data: ['WebSockets', 'HTTP']
-      },
-      Topology: {
-        data: 'Client-Server'
-      }
+    Protocol: {
+      data: ['WebSockets', 'HTTP']
+    },
+    Topology: {
+      data: 'Client-Server'
     }
   },
   ServerSideData: {
-    data: {
-      PersistenceMechanism: {
-        data: ['Postgres']
-      },
-      DataModelParadigm: {
-        data: 'Relational'
-      },
-      SchemaManagement: {
-        data: ['Schema definition', 'Schema migrations'],
-        comment: 'Zero has built-in support for migrating schemas seamlessly across client and server.'
-      },
-      ExistingDatabaseSupport: {
-        data: 'Yes'
-      }
+    PersistenceMechanism: {
+      data: ['Postgres']
+    },
+    DataModelParadigm: {
+      data: 'Relational'
+    },
+    SchemaManagement: {
+      data: ['Schema definition', 'Schema migrations'],
+      comment: 'Zero has built-in support for migrating schemas seamlessly across client and server.'
+    },
+    ExistingDatabaseSupport: {
+      data: 'Yes'
     }
   },
   ClientSideData: {
-    data: {
-      QueryAPI: {
-        data: ['Reactive queries']
-      },
-      LocalRefreshLatency: {
-        data: '<1ms'
-      },
-      PersistenceMechanism: {
-        data: ['IndexedDB']
-      },
-      DataModel: {
-        data: 'Relational'
-      },
-      OfflineReads: {
-        data: 'Query Cache',
-        comment: 'Developers choose data to be cached via query. Data is available to be queried while offline (even with novel queries)'
-      },
-      OptimisticUpdates: {
-        data: 'Yes'
-      },
-      OfflineWrites: {
-        data: 'No'
-      },
-      DataSize: {
-        data: '25MB'
-      }
+    QueryAPI: {
+      data: ['Reactive queries']
+    },
+    LocalRefreshLatency: {
+      data: '<1ms'
+    },
+    PersistenceMechanism: {
+      data: ['IndexedDB']
+    },
+    DataModel: {
+      data: 'Relational'
+    },
+    OfflineReads: {
+      data: 'Query Cache',
+      comment: 'Developers choose data to be cached via query. Data is available to be queried while offline (even with novel queries)'
+    },
+    OptimisticUpdates: {
+      data: 'Yes'
+    },
+    OfflineWrites: {
+      data: 'No'
+    },
+    DataSize: {
+      data: '25MB'
     }
   },
   SynchronizationStrategy: {
-    data: {
-      FullOrPartialReplication: {
-        data: ['Partial Replication'],
-        comment: 'Via query caching.'
-      },
-      ConflictHandling: {
-        data: 'Server reconciliation or LWW',
-        comment: 'Automatic via keywise LWW or server reconciliation.'
-      },
-      WhereResolutionOccurs: {
-        data: 'Server'
-      },
-      WhatGetsSynced: {
-        data: {
-          ClientToServer: 'mutations',
-          ServerToClient: 'query results'
-        }
-      },
-      Authority: {
-        data: 'Centralized'
-      },
-      Latency: {
-        data: 'Typically ~10ms over network time client<->server.'
+    FullOrPartialReplication: {
+      data: ['Partial Replication'],
+      comment: 'Via query caching.'
+    },
+    ConflictHandling: {
+      data: 'Server reconciliation or LWW',
+      comment: 'Automatic via keywise LWW or server reconciliation.'
+    },
+    WhereResolutionOccurs: {
+      data: 'Server'
+    },
+    WhatGetsSynced: {
+      data: {
+        ClientToServer: 'mutations',
+        ServerToClient: 'query results'
       }
+    },
+    Authority: {
+      data: 'Centralized'
+    },
+    Latency: {
+      data: 'Typically ~10ms over network time client<->server.'
     }
   }
 })

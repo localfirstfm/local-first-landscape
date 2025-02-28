@@ -12,147 +12,131 @@ export const data = LandscapeSchema.make({
     data: ['Self-hosted', 'Hosted']
   },
   AppTarget: {
-    data: {
-      Platform: {
-        data: ['Browser', 'Node', 'iOS', 'Android'],
-        comment: 'iOS and Android support via React Native.'
-      },
-      LanguageSDK: {
-        data: ['TypeScript']
-      },
-      FrameworkIntegrations: {
-        data: ['React', 'React Native', 'Vue', 'Svelte']
-      },
-      ClientBundleSize: {
-        data: '112kb gzipped (jazz-react)'
-      }
+    Platform: {
+      data: ['Browser', 'Node', 'iOS', 'Android'],
+      comment: 'iOS and Android support via React Native.'
+    },
+    LanguageSDK: {
+      data: ['TypeScript']
+    },
+    FrameworkIntegrations: {
+      data: ['React', 'React Native', 'Vue', 'Svelte']
+    },
+    ClientBundleSize: {
+      data: '112kb gzipped (jazz-react)'
     }
   },
   Networking: {
-    data: {
-      Protocol: {
-        data: ['WebSockets']
-      },
-      Topology: {
-        data: 'P2P',
-        comment: 'P2P via sync & storage servers. Servers are not stateless.'
-      }
+    Protocol: {
+      data: ['WebSockets']
+    },
+    Topology: {
+      data: 'P2P',
+      comment: 'P2P via sync & storage servers. Servers are not stateless.'
     }
   },
   ServerSideData: {
-    data: {
-      PersistenceMechanism: {
-        data: ['SQLite', 'Custom']
-      },
-      DataModelParadigm: {
-        data: 'Document'
-      },
-      SchemaManagement: {
-        data: ['Schema definition', 'Derived types', 'Schema migrations']
-      },
-      ExistingDatabaseSupport: {
-        data: 'manual sync to existing DBs'
-      },
-      DataSize: {
-        data: 'Unlimited, granular load & sync'
-      }
+    PersistenceMechanism: {
+      data: ['SQLite', 'Custom']
+    },
+    DataModelParadigm: {
+      data: 'Document'
+    },
+    SchemaManagement: {
+      data: ['Schema definition', 'Derived types', 'Schema migrations']
+    },
+    ExistingDatabaseSupport: {
+      data: 'manual sync to existing DBs'
+    },
+    DataSize: {
+      data: 'Unlimited, granular load & sync'
     }
   },
   ClientSideData: {
-    data: {
-      QueryAPI: {
-        data: ['Sync', 'Signals-based Reactivity']
-      },
-      LocalRefreshLatency: {
-        data: '~1ms'
-      },
-      PersistenceMechanism: {
-        data: ['IndexedDB', 'SQLite']
-      },
-      DataModel: {
-        data: 'Document'
-      },
-      SchemaManagement: {
-        data: ['Schema definition', 'Derived types', 'Schema migrations']
-      },
-      OfflineReads: {
-        data: 'Full Support'
-      },
-      OfflineWrites: {
-        data: 'Full local conflict resolution'
-      },
-      DataSize: {
-        data: 'limited by RAM',
-        comment: 'Soon limited only by disk.'
-      },
-    }
+    QueryAPI: {
+      data: ['Sync', 'Signals-based Reactivity']
+    },
+    LocalRefreshLatency: {
+      data: '~1ms'
+    },
+    PersistenceMechanism: {
+      data: ['IndexedDB', 'SQLite']
+    },
+    DataModel: {
+      data: 'Document'
+    },
+    SchemaManagement: {
+      data: ['Schema definition', 'Derived types', 'Schema migrations']
+    },
+    OfflineReads: {
+      data: 'Full Support'
+    },
+    OfflineWrites: {
+      data: 'Full local conflict resolution'
+    },
+    DataSize: {
+      data: 'limited by RAM',
+      comment: 'Soon limited only by disk.'
+    },
   },
   SynchronizationStrategy: {
-    data: {
-      FullOrPartialReplication: {
-        data: ['Partial Replication'],
-        comment: 'Partial replication on-demand or with explicit load depths.'
-      },
-      ConflictHandling: {
-        data: 'Automatic via CRDT'
-      },
-      WhereResolutionOccurs: {
-        data: 'Client'
-      },
-      WhatGetsSynced: {
-        data: {
-          ClientToClient: 'CoValue headers, CoValue session diffs (transactions)'
-        }
-      },
-      Authority: {
-        data: 'Decentralized'
-      },
-      Latency: {
-        data: 'Close to network latency'
-      },
-      Throughput: {
-        data: 'Roughly 5k transactions/s (structured data) or ~50MB/s (binary data)',
-        comment: 'Soon: limited only by number of participants (updates of any size by up to 5k participants/s)'
-      },
-      Concurrency: {
-        data: 'Support for granular prioritization'
+    FullOrPartialReplication: {
+      data: ['Partial Replication'],
+      comment: 'Partial replication on-demand or with explicit load depths.'
+    },
+    ConflictHandling: {
+      data: 'Automatic via CRDT'
+    },
+    WhereResolutionOccurs: {
+      data: 'Client'
+    },
+    WhatGetsSynced: {
+      data: {
+        ClientToClient: 'CoValue headers, CoValue session diffs (transactions)'
       }
+    },
+    Authority: {
+      data: 'Decentralized'
+    },
+    Latency: {
+      data: 'Close to network latency'
+    },
+    Throughput: {
+      data: 'Roughly 5k transactions/s (structured data) or ~50MB/s (binary data)',
+      comment: 'Soon: limited only by number of participants (updates of any size by up to 5k participants/s)'
+    },
+    Concurrency: {
+      data: 'Support for granular prioritization'
     }
   },
   AuthIdentity: {
-    data: {
-      Encryption: {
-        data: 'Built-in e2ee'
-      },
-      AuthenticationMethod: {
-        data: ['Built-in']
-      },
-      AuthorizationPermissions: {
-        data: 'Built-in cryptographical hierarchical RBAC'
-      }
+    Encryption: {
+      data: 'Built-in e2ee'
+    },
+    AuthenticationMethod: {
+      data: ['Built-in']
+    },
+    AuthorizationPermissions: {
+      data: 'Built-in cryptographical hierarchical RBAC'
     }
   },
   UIRelated: {
-    data: {
-      RichTextEditing: {
-        data: 'Coming soon (incl. ProseMirror/TipTap/Lexical integration)'
-      },
-      Components: {
-        data: ['File upload', 'progressive image loading']
-      }
+    RichTextEditing: {
+      data: 'Coming soon (incl. ProseMirror/TipTap/Lexical integration)'
+    },
+    Components: {
+      data: ['File upload', 'progressive image loading']
     }
   },
   DevelopmentWorkflowsDX: {
-    data: {
-      DebuggingTools: {
-        data: ['Data Inspector']
-      },
-      CLI: {
-        data: 'CLI for running local sync & storage server, for creating worker account'
-      },
-      TypeSupport: {
-        data: 'Full type support without extra config'
-      }
+    DebuggingTools: {
+      data: ['Data Inspector']
+    },
+    CLI: {
+      data: 'CLI for running local sync & storage server, for creating worker account'
+    },
+    TypeSupport: {
+      data: 'Full type support without extra config'
     }
   }
 })
