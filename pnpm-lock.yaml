@@ -59,7 +59,11 @@ importers:
         specifier: ^5.7.2
         version: 5.7.2
 
-  temporary-technology-info: {}
+  temporary-technology-info:
+    dependencies:
+      '@localfirstfm/landscape-schema':
+        specifier: workspace:*
+        version: link:../landscape-schema
 
 packages:
 
