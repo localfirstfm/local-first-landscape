@@ -2,23 +2,17 @@
 import { LandscapeSchema } from '@localfirstfm/landscape-schema'
 
 export const data = LandscapeSchema.make({
-  Version: '0.0.1',
+  Version: 1,
   Id: 'automerge',
   Name: 'Automerge',
-  Website: {
-    data: 'https://automerge.org'
-  },
-  License: {
-    data: 'MIT'
-  },
-  Deployment: {
-    data: ['Self-hosted']
-  },
+  Website: 'https://automerge.org',
+  GetStarted: 'https://automerge.org/docs/hello/',
+  License: 'MIT',
+  Deployment: ['Self-hosted'],
   Networking: {
-    data: {
-      Topology: {
-        data: 'P2P via Relay Servers'
-      }
+    Topology: {
+      data: 'P2P via Relay Servers',
+      comment: 'Coming soon: Beelay'
     }
   },
   ServerSideData: {

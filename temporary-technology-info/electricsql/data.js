@@ -2,18 +2,12 @@
 import { LandscapeSchema } from '@localfirstfm/landscape-schema'
 
 export const data = LandscapeSchema.make({
-  Version: '0.0.1',
+  Version: 1,
   Id: 'electricsql',
   Name: 'ElectricSQL',
-  Website: {
-    data: 'https://electric-sql.com'
-  },
-  License: {
-    data: 'Apache 2'
-  },
-  Deployment: {
-    data: ['Self-hosted']
-  },
+  Website: 'https://electric-sql.com',
+  License: 'Apache',
+  Deployment: ['Self-hosted'],
   AppTarget: {
     Platform: {
       data: ['Browser', 'Node']

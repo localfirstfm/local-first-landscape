@@ -2,18 +2,12 @@
 import { LandscapeSchema } from '@localfirstfm/landscape-schema'
 
 export const data = LandscapeSchema.make({
-  Version: '0.0.1',
+  Version: 1,
   Id: 'liveblocks-yjs',
   Name: 'Liveblocks Yjs',
-  Website: {
-    data: 'https://liveblocks.io'
-  },
-  License: {
-    data: 'Proprietary'
-  },
-  Deployment: {
-    data: ['Hosted']
-  },
+  Website: 'https://liveblocks.io',
+  License: 'Proprietary',
+  Deployment: ['Hosted'],
   AppTarget: {
     Platform: {
       data: ['Browser', 'Node']

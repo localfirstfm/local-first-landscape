@@ -1,6 +1,8 @@
-import { Array as ReadonlyArray, Effect, Option, Schema } from 'effect'
-import type { RepoInfo } from './repos.js'
-import { Script } from 'node:vm'
+import { Array as ReadonlyArray, Effect, Option, Schema, Cause } from 'effect'
+import { RepoInfo } from './repos.js'
+import path from 'node:path'
+import * as fs from 'node:fs'
+const dirname = import.meta.dirname
 
 const FileResponseSuccessSchema = Schema.Struct({
   name: Schema.String,
@@ -32,76 +34,107 @@ const FileResponseSchema = Schema.Union(
   FileResponseErrorSchema,
 )
 
-export const fetchRepo = (repoInfo: RepoInfo) =>
-  Effect.gen(function* () {
-    const { owner, repo, basePath } = repoInfo
-    const filesToFetch = [
-      'data.js',
-      'logo.light.svg',
-      'logo.dark.svg',
-      'logo.light.png',
-      'logo.dark.png',
-    ]
+export const fetchRepo = Effect.fn('fetchRepo')(function* (repoInfo: RepoInfo) {
+  yield* Effect.annotateCurrentSpan({ repoInfo })
 
-    const results = yield* Effect.forEach(filesToFetch, (file) =>
-      Effect.gen(function* () {
-        const pathPrefix = basePath ? `${basePath}/` : ''
-        const url = `https://api.github.com/repos/${owner}/${repo}/contents/${pathPrefix}${file}`
-        const response = yield* Effect.tryPromise(() =>
-          fetch(url, {
-            headers: { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` },
-          }).then((response) => response.json()),
-        )
+  const { owner, repo, basePath } = repoInfo
+  const filesToFetch = [
+    'data.js',
+    'logo.light.svg',
+    'logo.dark.svg',
+    'logo.light.png',
+    'logo.dark.png',
+  ]
 
-        const decoded = yield* Schema.decodeUnknown(FileResponseSuccessSchema)(
-          response,
-        )
-
-        return {
-          name: file,
-          content: decoded.content,
+  const results = yield* Effect.forEach(filesToFetch, (file) =>
+    Effect.gen(function* () {
+      // Special case for "local content" to short-circuit via local FS
+      if (
+        owner === 'localfirstfm' &&
+        repo === 'local-first-landscape' &&
+        basePath.startsWith('temporary-technology-info')
+      ) {
+        const filePath = path.join(dirname, '..', '..', basePath, file)
+        const exists = fs.existsSync(filePath)
+        if (exists) {
+          const content = fs.readFileSync(filePath)
+          return { name: file, content }
         }
-      }).pipe(
-        // Effect.tapErrorCause(Effect.logError),
-        Effect.option,
-      ),
-    ).pipe(Effect.map((_) => ReadonlyArray.filterMap(_, (_) => _)))
+      }
 
-    const data = results.find((_) => _.name === 'data.js')
-    const logoLight = results.find((_) => _.name.includes('logo.light'))
-    const logoDark = results.find((_) => _.name.includes('logo.dark'))
+      const pathPrefix = basePath ? `${basePath}/` : ''
+      const url = `https://api.github.com/repos/${owner}/${repo}/contents/${pathPrefix}${file}`
+      const response = yield* Effect.tryPromise(() =>
+        fetch(url, {
+          headers: { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` },
+        }).then((response) => response.json()),
+      )
 
-    if (!data || !logoLight || !logoDark) {
-      return Option.none()
-    }
+      const decoded = yield* Schema.decodeUnknown(FileResponseSuccessSchema)(
+        response,
+      )
 
-    const stringFromUint8Array = (uint8Array: Uint8Array) =>
-      new TextDecoder().decode(uint8Array)
+      return {
+        name: file,
+        content: decoded.content,
+      }
+    }).pipe(
+      // Effect.tapErrorCause(Effect.logError),
+      Effect.option,
+    ),
+  ).pipe(Effect.map((_) => ReadonlyArray.filterMap(_, (_) => _)))
 
-    if ((yield* isCodeValid(stringFromUint8Array(data.content))) === false) {
-      return Option.none()
-    }
+  const data = results.find((_) => _.name === 'data.js')
+  const logoLight = results.find((_) => _.name.includes('logo.light'))
+  const logoDark = results.find((_) => _.name.includes('logo.dark'))
 
-    return Option.some({ files: { data, logoLight, logoDark }, repoInfo })
-  })
+  if (!data || !logoLight || !logoDark) {
+    return yield* new FetchRepoErrorMissingFiles({
+      repoInfo,
+      missingFiles: [
+        data ? [] : ['data.js'],
+        logoLight ? [] : ['logo.light.*'],
+        logoDark ? [] : ['logo.dark.*'],
+      ].flat(),
+    })
+  }
 
-const isCodeValid = (code: string) =>
-  Effect.gen(function* () {
-    const evaluated = yield* Effect.tryPromise(() => {
+  yield* validateCode(stringFromUint8Array(data.content), repoInfo)
+
+  return { files: { data, logoLight, logoDark }, repoInfo }
+})
+
+const validateCode = (code: string, repoInfo: RepoInfo) =>
+  Effect.tryPromise({
+    try: () => {
       const blob = new Blob([code], { type: 'text/javascript' })
       const url = URL.createObjectURL(blob)
       return import(url).finally(() => URL.revokeObjectURL(url))
-    }).pipe(Effect.either)
-
-    if (evaluated._tag === 'Left') {
-      yield* Effect.logError(
-        'Failed to evaluate repository code:',
-        evaluated.left,
-        code,
-      )
-
-      return false
-    }
-
-    return true
+    },
+    catch: (cause) => new FetchRepoErrorBadCode({ cause, repoInfo, code }),
   })
+
+export class FetchRepoErrorBadCode extends Schema.TaggedError<FetchRepoErrorBadCode>()(
+  'FetchRepoErrorBadCode',
+  {
+    cause: Schema.Defect,
+    repoInfo: RepoInfo,
+    code: Schema.String,
+  },
+) {}
+
+export class FetchRepoErrorMissingFiles extends Schema.TaggedError<FetchRepoErrorMissingFiles>()(
+  'FetchRepoErrorMissingFiles',
+  {
+    repoInfo: RepoInfo,
+    missingFiles: Schema.Array(Schema.String),
+  },
+) {}
+
+export class FetchRepoError extends Schema.Union(
+  FetchRepoErrorBadCode,
+  FetchRepoErrorMissingFiles,
+) {}
+
+const stringFromUint8Array = (uint8Array: Uint8Array) =>
+  new TextDecoder().decode(uint8Array)

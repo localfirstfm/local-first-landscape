@@ -2,18 +2,12 @@
 import { LandscapeSchema } from '@localfirstfm/landscape-schema'
 
 export const data = LandscapeSchema.make({
-  Version: '0.0.1',
+  Version: 1,
   Id: 'triplit',
   Name: 'Triplit',
-  Website: {
-    data: 'https://www.triplit.dev'
-  },
-  License: {
-    data: 'GPL3'
-  },
-  Deployment: {
-    data: ['Self-hosted', 'Hosted']
-  },
+  Website: 'https://www.triplit.dev',
+  License: 'GPL3',
+  Deployment: ['Self-hosted', 'Hosted'],
   AppTarget: {
     data: {
       Platform: {

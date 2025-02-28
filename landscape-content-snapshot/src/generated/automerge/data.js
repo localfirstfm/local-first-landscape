@@ -1,34 +1,66 @@
+// @ts-check
 import { LandscapeSchema } from '@localfirstfm/landscape-schema'
 
 export const data = LandscapeSchema.make({
+  Version: 1,
   Id: 'automerge',
   Name: 'Automerge',
   Website: 'https://automerge.org',
+  GetStarted: 'https://automerge.org/docs/hello/',
   License: 'MIT',
   Deployment: ['Self-hosted'],
   Networking: {
-    Topology: 'P2P via Relay Servers',
+    Topology: {
+      data: 'P2P via Relay Servers',
+      comment: 'Coming soon: Beelay'
+    }
   },
   ServerSideData: {
-    PersistenceMechanism: ['N/A'],
-    DataModelParadigm: 'Document',
+    PersistenceMechanism: {
+      data: ['N/A']
+    },
+    DataModelParadigm: {
+      data: 'Document'
+    }
   },
   ClientSideData: {
-    QueryAPI: ['Async'],
-    PersistenceMechanism: ['IndexedDB'],
-    DataModel: 'Document',
-    OfflineReads: 'Full Support',
-    OfflineWrites: 'Full local conflict resolution',
-    DataSize: 'up to 5-10mb per doc',
+    QueryAPI: {
+      data: ['Async']
+    },
+    PersistenceMechanism: {
+      data: ['IndexedDB']
+    },
+    DataModel: {
+      data: 'Document'
+    },
+    OfflineReads: {
+      data: 'Full Support'
+    },
+    OfflineWrites: {
+      data: 'Full local conflict resolution'
+    },
+    DataSize: {
+      data: 'up to 5-10mb per doc'
+    }
   },
   SynchronizationStrategy: {
-    FullOrPartialReplication: ['Full Replication'],
-    ConflictHandling: 'Automatic via CRDT',
-    WhereResolutionOccurs: 'Client',
-    WhatGetsSynced: {
-      ClientToClient: 'ops',
-      ServerToClient: 'future: snapshots via relays'
+    FullOrPartialReplication: {
+      data: ['Full Replication']
     },
-    Authority: 'Decentralized',
-  },
+    ConflictHandling: {
+      data: 'Automatic via CRDT'
+    },
+    WhereResolutionOccurs: {
+      data: 'Client'
+    },
+    WhatGetsSynced: {
+      data: {
+        ClientToClient: 'ops',
+        ServerToClient: 'future: snapshots via relays'
+      }
+    },
+    Authority: {
+      data: 'Decentralized'
+    }
+  }
 })

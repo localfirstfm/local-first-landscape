@@ -1,31 +1,57 @@
+// @ts-check
 import { LandscapeSchema } from '@localfirstfm/landscape-schema'
 
 export const data = LandscapeSchema.make({
+  Version: 1,
   Id: 'electricsql',
   Name: 'ElectricSQL',
   Website: 'https://electric-sql.com',
-  License: 'Apache 2',
+  License: 'Apache',
   Deployment: ['Self-hosted'],
   AppTarget: {
-    Platform: ['Browser', 'Node'],
+    Platform: {
+      data: ['Browser', 'Node']
+    }
   },
   ServerSideData: {
-    PersistenceMechanism: ['Postgres'],
-    DataModelParadigm: 'Relational',
+    PersistenceMechanism: {
+      data: ['Postgres']
+    },
+    DataModelParadigm: {
+      data: 'Relational'
+    }
   },
   ClientSideData: {
-    PersistenceMechanism: ['IndexedDB', 'PGLite via OPFS'],
-    DataModel: 'Relational',
-    OfflineReads: 'Full Support',
-    DataSize: '10-100mb depending on storage chosen',
+    PersistenceMechanism: {
+      data: ['IndexedDB', 'PGLite via OPFS']
+    },
+    DataModel: {
+      data: 'Relational'
+    },
+    OfflineReads: {
+      data: 'Full Support'
+    },
+    DataSize: {
+      data: '10-100mb depending on storage chosen'
+    }
   },
   SynchronizationStrategy: {
-    FullOrPartialReplication: ['Partial Replication'],
-    ConflictHandling: 'No Support',
-    WhereResolutionOccurs: 'Server',
-    WhatGetsSynced: {
-      ServerToClient: 'shape updates'
+    FullOrPartialReplication: {
+      data: ['Partial Replication']
     },
-    Authority: 'Centralized',
-  },
+    ConflictHandling: {
+      data: 'No Support'
+    },
+    WhereResolutionOccurs: {
+      data: 'Server'
+    },
+    WhatGetsSynced: {
+      data: {
+        ServerToClient: 'shape updates'
+      }
+    },
+    Authority: {
+      data: 'Centralized'
+    }
+  }
 })

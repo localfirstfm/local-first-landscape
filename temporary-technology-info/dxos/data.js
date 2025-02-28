@@ -2,18 +2,12 @@
 import { LandscapeSchema } from '@localfirstfm/landscape-schema'
 
 export const data = LandscapeSchema.make({
-  Version: '0.0.1',
+  Version: 1,
   Id: 'dxos',
   Name: 'DXOS',
-  Website: {
-    data: 'https://dxos.org'
-  },
-  License: {
-    data: 'MIT'
-  },
-  Deployment: {
-    data: ['Self-hosted']
-  },
+  Website: 'https://dxos.org',
+  License: 'MIT',
+  Deployment: ['Self-hosted'],
   AppTarget: {
     Platform: {
       data: ['Browser', 'Node']

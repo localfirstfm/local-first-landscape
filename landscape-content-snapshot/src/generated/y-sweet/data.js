@@ -1,46 +1,90 @@
+// @ts-check
 import { LandscapeSchema } from '@localfirstfm/landscape-schema'
 
 export const data = LandscapeSchema.make({
+  Version: 1,
   Id: 'y-sweet',
   Name: 'Y-Sweet',
   Website: 'https://y-sweet.dev',
   License: 'MIT',
   Deployment: ['Self-hosted', 'Hosted'],
   AppTarget: {
-    Platform: ['Browser', 'Node'],
-    LanguageSDK: ['TypeScript', 'Python'],
-    FrameworkIntegrations: ['React'],
+    Platform: {
+      data: ['Browser', 'Node']
+    },
+    LanguageSDK: {
+      data: ['TypeScript', 'Python']
+    },
+    FrameworkIntegrations: {
+      data: ['React']
+    }
   },
   Networking: {
-    Protocol: ['WebSockets', 'HTTP'],
-    Topology: 'Client-Server',
+    Protocol: {
+      data: ['WebSockets', 'HTTP']
+    },
+    Topology: {
+      data: 'Client-Server'
+    }
   },
   ServerSideData: {
-    PersistenceMechanism: ['S3-compatible object store'],
-    DataModelParadigm: 'Document',
-    ExistingDatabaseSupport: 'Yes, in the "Figma architecture" sense: ground-truth document data only lives on S3, but document metadata exists in your existing DB',
+    PersistenceMechanism: {
+      data: ['S3-compatible object store']
+    },
+    DataModelParadigm: {
+      data: 'Document'
+    },
+    ExistingDatabaseSupport: {
+      data: 'Yes, in the "Figma architecture" sense: ground-truth document data only lives on S3, but document metadata exists in your existing DB'
+    }
   },
   ClientSideData: {
-    LocalRefreshLatency: '<1 ms',
-    PersistenceMechanism: ['Yes'],
-    DataModel: 'Document',
-    OfflineReads: 'Yes',
-    OptimisticUpdates: 'Yes',
-    OfflineWrites: 'Yes',
+    LocalRefreshLatency: {
+      data: '<1 ms'
+    },
+    PersistenceMechanism: {
+      data: ['Yes']
+    },
+    DataModel: {
+      data: 'Document'
+    },
+    OfflineReads: {
+      data: 'Yes'
+    },
+    OptimisticUpdates: {
+      data: 'Yes'
+    },
+    OfflineWrites: {
+      data: 'Yes'
+    }
   },
   SynchronizationStrategy: {
-    ConflictHandling: 'CRDT (YATA)',
-    WhereResolutionOccurs: 'Server',
-    WhatGetsSynced: {
-      ClientToServer: 'mutations'
+    ConflictHandling: {
+      data: 'CRDT (YATA)'
     },
-    Authority: 'Centralized',
+    WhereResolutionOccurs: {
+      data: 'Server'
+    },
+    WhatGetsSynced: {
+      data: {
+        ClientToServer: 'mutations'
+      }
+    },
+    Authority: {
+      data: 'Centralized'
+    }
   },
   AuthIdentity: {
-    Encryption: 'Subject to the underlying object store used; most encrypt at rest by default; AES-GCM encryption on the client',
-    AuthenticationMethod: ['Auth delegation from your application server based on temporary tokens'],
+    Encryption: {
+      data: 'Subject to the underlying object store used; most encrypt at rest by default; AES-GCM encryption on the client'
+    },
+    AuthenticationMethod: {
+      data: ['Auth delegation from your application server based on temporary tokens']
+    }
   },
   UIRelated: {
-    Components: ['Yes\nAnything compatible with Yjs (Slate, BlockNote, Quill, Lexical, etc.)'],
-  },
+    Components: {
+      data: ['Yes\nAnything compatible with Yjs (Slate, BlockNote, Quill, Lexical, etc.)']
+    }
+  }
 })

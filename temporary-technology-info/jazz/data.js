@@ -2,15 +2,11 @@
 import { LandscapeSchema } from '@localfirstfm/landscape-schema'
 
 export const data = LandscapeSchema.make({
-  Version: '0.0.1',
+  Version: 1,
   Id: 'jazz',
   Name: 'Jazz',
-  License: {
-    data: 'MIT'
-  },
-  Deployment: {
-    data: ['Self-hosted', 'Hosted']
-  },
+  License: 'MIT',
+  Deployment: ['Self-hosted', 'Hosted'],
   AppTarget: {
     Platform: {
       data: ['Browser', 'Node', 'iOS', 'Android'],

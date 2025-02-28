@@ -2,21 +2,13 @@
 import { LandscapeSchema } from '@localfirstfm/landscape-schema'
 
 export const data = LandscapeSchema.make({
-  Version: '0.0.1',
+  Version: 1,
   Id: 'ditto',
   Name: 'Ditto',
   Description: 'Real-time, peer-to-peer data synchronization across devices and platforms without relying on the cloud, even in offline or unreliable network conditions.',
-  Website: {
-    data: 'https://ditto.live'
-  },
-  Deployment: {
-    data: ['Hosted', 'Self-hosted'],
-    comment: 'Self-hosting is BYOC (Bring Your Own Cloud).'
-  },
-  License: {
-    data: 'Proprietary',
-    comment: 'Ditto is a proprietary software.',
-  },
+  Website: 'https://ditto.live',
+  Deployment: ['Hosted', 'Self-hosted'],
+  License: 'Proprietary',
   Logo: {
     Light: 'https://path-to-light-logo.png',
     Dark: 'https://path-to-dark-logo.png'
@@ -125,7 +117,5 @@ export const data = LandscapeSchema.make({
       comment: 'Open source debugging and diagnostic tools for developers.'
     },
   },
-  UserControlDataOwnership: {
-    data: 'User has full control over their data'
-  }
+  UserControlDataOwnership: 'User has full control over their data'
 })

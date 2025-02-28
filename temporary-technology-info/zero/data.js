@@ -2,15 +2,11 @@
 import { LandscapeSchema } from '@localfirstfm/landscape-schema'
 
 export const data = LandscapeSchema.make({
-  Version: '0.0.1',
+  Version: 1,
   Id: 'zero',
   Name: 'Zero',
-  Website: {
-    data: 'https://getzero.dev'
-  },
-  Deployment: {
-    data: ['Self-hosted']
-  },
+  Website: 'https://getzero.dev',
+  Deployment: ['Self-hosted'],
   AppTarget: {
     Platform: {
       data: ['Browser', 'Node', 'iOS', 'Android'],

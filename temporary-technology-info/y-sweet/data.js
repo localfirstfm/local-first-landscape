@@ -2,18 +2,12 @@
 import { LandscapeSchema } from '@localfirstfm/landscape-schema'
 
 export const data = LandscapeSchema.make({
-  Version: '0.0.1',
+  Version: 1,
   Id: 'y-sweet',
   Name: 'Y-Sweet',
-  Website: {
-    data: 'https://y-sweet.dev'
-  },
-  License: {
-    data: 'MIT'
-  },
-  Deployment: {
-    data: ['Self-hosted', 'Hosted']
-  },
+  Website: 'https://y-sweet.dev',
+  License: 'MIT',
+  Deployment: ['Self-hosted', 'Hosted'],
   AppTarget: {
     Platform: {
       data: ['Browser', 'Node', 'iOS', 'Android', 'macOS', 'Linux'],

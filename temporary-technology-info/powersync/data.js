@@ -2,18 +2,12 @@
 import { LandscapeSchema } from '@localfirstfm/landscape-schema'
 
 export const data = LandscapeSchema.make({
-  Version: '0.0.1',
+  Version: 1,
   Id: 'powersync',
   Name: 'PowerSync',
-  Website: {
-    data: 'https://powersync.com'
-  },
-  License: {
-    data: 'FSL-1.1-Apache-2.0'
-  },
-  Deployment: {
-    data: ['Self-hosted', 'Hosted']
-  },
+  Website: 'https://powersync.com',
+  License: 'FSL-Apach 2.0',
+  Deployment: ['Self-hosted', 'Hosted'],
   AppTarget: {
     Platform: {
       data: ['Browser', 'iOS', 'Android', 'macOS', 'WASM', 'Linux']
