@@ -9,10 +9,14 @@ export const data = LandscapeSchema.make({
   Deployment: ['Self-hosted'],
   AppTarget: {
     Platform: {
-      data: ['Browser', 'Node']
+      data: ['Browser', 'Node', 'iOS', 'Android'],
+      comment: 'Basically any JS environment.'
     },
     FrameworkIntegrations: {
       data: ['React Native']
+    },
+    ClientBundleSize: {
+      data: '~40kb'
     }
   },
   Networking: {
@@ -31,7 +35,8 @@ export const data = LandscapeSchema.make({
       data: 'Relational'
     },
     SchemaManagement: {
-      data: ['Schema definition', 'Schema migrations']
+      data: ['Schema definition', 'Schema migrations'],
+      comment: 'Zero has built-in support for migrating schemas seamlessly across client and server.'
     },
     ExistingDatabaseSupport: {
       data: 'Yes'
@@ -39,7 +44,7 @@ export const data = LandscapeSchema.make({
   },
   ClientSideData: {
     QueryAPI: {
-      data: ['Reactive relational queries']
+      data: ['Reactive queries']
     },
     LocalRefreshLatency: {
       data: '<1ms'
@@ -51,13 +56,14 @@ export const data = LandscapeSchema.make({
       data: 'Relational'
     },
     OfflineReads: {
-      data: 'Developers choose data to be cached via query. Data is available to be queried while offline (even with novel queries)'
+      data: 'Query Cache',
+      comment: 'Developers choose data to be cached via query. Data is available to be queried while offline (even with novel queries)'
     },
     OptimisticUpdates: {
-      data: 'Optimistic updates'
+      data: 'Yes'
     },
     OfflineWrites: {
-      data: 'No offline writes'
+      data: 'No'
     },
     DataSize: {
       data: '25MB'
@@ -65,10 +71,12 @@ export const data = LandscapeSchema.make({
   },
   SynchronizationStrategy: {
     FullOrPartialReplication: {
-      data: ['Partial Replication']
+      data: ['Partial Replication'],
+      comment: 'Via query caching.'
     },
     ConflictHandling: {
-      data: 'Automatic via either keywise lww or server reconciliation'
+      data: 'Server reconciliation or LWW',
+      comment: 'Automatic via keywise LWW or server reconciliation.'
     },
     WhereResolutionOccurs: {
       data: 'Server'
@@ -81,6 +89,9 @@ export const data = LandscapeSchema.make({
     },
     Authority: {
       data: 'Centralized'
+    },
+    Latency: {
+      data: 'Typically ~10ms over network time client<->server.'
     }
   }
 })

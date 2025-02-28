@@ -38,10 +38,15 @@ export const data = LandscapeSchema.make({
       data: ['Schema definition', 'Schema validation']
     },
     ExistingDatabaseSupport: {
-      data: 'Webhooks and REST API'
+      data: 'Webhooks and REST API',
+      comment: 'Does not require a datastore, but you can migrate or automatically sync to your database with webhooks/REST API'
     }
   },
   ClientSideData: {
+    QueryAPI: {
+      data: ['Signals-based Reactivity', 'Reactive queries'],
+      comment: 'JS: via subscription. React: via selector hooks, mutation callbacks. Automatically converts live data structures to JSON for easy UI.hook updates automatically on changes.can retrieve deep into the data structure without causing unnecessary renders.'
+    },
     LocalRefreshLatency: {
       data: '16ms'
     },
@@ -49,16 +54,22 @@ export const data = LandscapeSchema.make({
       data: ['Liveblocks Storage']
     },
     DataModel: {
-      data: 'Document'
+      data: 'Document',
+      comment: 'LiveObject'
     },
     SchemaManagement: {
       data: ['Schema definition']
     },
     OfflineReads: {
-      data: 'Previously accessed data is stored in-memory'
+      data: 'Query Cache',
+      comment: 'Previously accessed data is stored in-memory'
+    },
+    OptimisticUpdates: {
+      data: 'Yes',
     },
     OfflineWrites: {
-      data: 'Full cached writes, stored in-memory, server will resolve conflict'
+      data: 'Cached offline writes',
+      comment: 'Full cached writes, stored in-memory, server will resolve conflict.'
     },
     DataSize: {
       data: 'limited by device capabilities'
@@ -66,7 +77,8 @@ export const data = LandscapeSchema.make({
   },
   SynchronizationStrategy: {
     ConflictHandling: {
-      data: 'Custom: values: LWW, LiveObject: LWW at attribute level, LiveMap: LWW at entry level, LiveList: fractional indexing (for insertions) or LWW (for replacements)'
+      data: 'Automatic via LWW or fractional indexing',
+      comment: 'Values: LWW, LiveObject: LWW at attribute level, LiveMap: LWW at entry level, LiveList: fractional indexing (for insertions) or LWW (for replacements)'
     },
     WhereResolutionOccurs: {
       data: 'Server'
@@ -89,23 +101,26 @@ export const data = LandscapeSchema.make({
       data: ['JWT tokens', 'Public key']
     },
     AuthorizationPermissions: {
-      data: 'ID tokens and Access tokens'
+      data: 'ID tokens and Access tokens',
+      comment: 'ID tokens (= permissions based on whats allowed on a per-room basis). Access tokens (= permissions granted in the token directly)'
     }
   },
   UIRelated: {
     Components: {
-      data: ['Comments/Threads', 'Notifications']
+      data: ['Comments/Threads', 'Notifications', 'Presence']
     }
   },
   DevelopmentWorkflowsDX: {
     DebuggingTools: {
-      data: ['DevTools', 'Dashboard', 'Data Inspector']
+      data: ['DevTools', 'Dashboard', 'Data Inspector'],
+      comment: 'Viewing/editing data, events, usage, etc.'
     },
     CLI: {
       data: 'CLI for installing examples, updating packages, creating your typescript config'
     },
     TypeSupport: {
-      data: 'Full type support (via liveblocks.config.ts)'
+      data: 'Full type support',
+      comment: 'Via `liveblocks.config.ts`.'
     }
   }
 })

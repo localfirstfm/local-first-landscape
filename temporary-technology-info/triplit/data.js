@@ -9,14 +9,16 @@ export const data = LandscapeSchema.make({
   License: 'GPL3',
   Deployment: ['Self-hosted', 'Hosted'],
   AppTarget: {
-    Platform: {
-      data: ['Browser', 'Node', 'Node']
-    },
-    LanguageSDK: {
-      data: ['TypeScript']
-    },
-    FrameworkIntegrations: {
-      data: ['React', 'Vue', 'Svelte', 'Angular', 'React Native']
+    data: {
+      Platform: {
+        data: ['Browser', 'Node']
+      },
+      LanguageSDK: {
+        data: ['TypeScript']
+      },
+      FrameworkIntegrations: {
+        data: ['React', 'Vue', 'Svelte', 'Angular', 'React Native']
+      }
     }
   },
   Networking: {
@@ -29,7 +31,8 @@ export const data = LandscapeSchema.make({
   },
   ServerSideData: {
     PersistenceMechanism: {
-      data: ['IndexedDB', 'SQLite', 'LevelDB', 'RocksDB']
+      data: ['IndexedDB', 'SQLite', 'LevelDB', 'RocksDB'],
+      comment: 'Adapter for k-v stores.'
     },
     DataModelParadigm: {
       data: 'Document'
@@ -43,7 +46,8 @@ export const data = LandscapeSchema.make({
       data: '<1 ms'
     },
     PersistenceMechanism: {
-      data: ['IndexedDB', 'SQLite', 'LevelDB', 'RocksDB']
+      data: ['IndexedDB', 'SQLite', 'LevelDB', 'RocksDB'],
+      comment: 'Adapter for k-v stores.'
     },
     DataModel: {
       data: 'Relational'
@@ -52,10 +56,11 @@ export const data = LandscapeSchema.make({
       data: ['Derived types']
     },
     OfflineReads: {
-      data: 'Subscribed queries have full db support: novel queries, counts, sums, averages, etc'
+      data: 'Query Cache',
+      comment: 'Subscribed queries have full db support: novel queries, counts, sums, averages, etc'
     },
     OfflineWrites: {
-      data: 'Full cached writes'
+      data: 'Cached offline writes',
     },
     DataSize: {
       data: 'limited by device capabilities'
@@ -63,7 +68,8 @@ export const data = LandscapeSchema.make({
   },
   SynchronizationStrategy: {
     FullOrPartialReplication: {
-      data: ['Partial Replication']
+      data: ['Partial Replication'],
+      comment: 'Partial replica only, via query caching.'
     },
     ConflictHandling: {
       data: 'LWW at the attribute level'
