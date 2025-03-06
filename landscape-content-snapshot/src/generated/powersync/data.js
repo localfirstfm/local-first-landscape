@@ -10,10 +10,10 @@ export const data = LandscapeSchema.make({
   Deployment: ['Self-hosted', 'Hosted'],
   AppTarget: {
     Platform: {
-      data: ['Browser', 'iOS', 'Android', 'macOS', 'WASM']
+      data: ['Browser', 'iOS', 'Android', 'macOS', 'WASM', 'Linux']
     },
     LanguageSDK: {
-      data: ['TypeScript', 'Swift', 'Kotlin', 'Rust', 'dart']
+      data: ['TypeScript', 'Swift', 'Kotlin', 'Rust', 'Dart']
     },
     FrameworkIntegrations: {
       data: ['React', 'React Native', 'Vue', 'Svelte', 'SolidJS', 'Flutter']
@@ -29,7 +29,8 @@ export const data = LandscapeSchema.make({
   },
   ServerSideData: {
     PersistenceMechanism: {
-      data: ['Postgres', 'MongoDB', 'MySQL']
+      data: ['Postgres', 'MongoDB', 'MySQL'],
+      comment: 'Backend source databases: Postgres, MongoDB, MySQL. Storage of sync bucket data: MongoDB, Postgres'
     },
     DataModelParadigm: {
       data: 'Relational'
@@ -43,7 +44,7 @@ export const data = LandscapeSchema.make({
   },
   ClientSideData: {
     QueryAPI: {
-      data: ['Async', 'Signals-based Reactivity']
+      data: ['Async', 'Reactive queries']
     },
     PersistenceMechanism: {
       data: ['SQLite', 'IndexedDB', 'OPFS']
@@ -52,10 +53,16 @@ export const data = LandscapeSchema.make({
       data: 'FTS, Indexes, Transactions'
     },
     DataModel: {
-      data: 'Relational'
+      data: 'Relational',
+      comment: 'Schemaless JSON synced and stored in SQLite and exposed as views to allow for relational queries based on client-side schema.'
+    },
+    SchemaManagement: {
+      data: ['Schema definition'],
+      comment: 'Client-side schema definition. Schema is used to expose views in SQLite based on schemaless synced data, generally avoiding the need for schema migrations.'
     },
     OfflineReads: {
-      data: 'Full Support'
+      data: 'Full Support',
+      comment: 'Dynamic query support.'
     },
     OptimisticUpdates: {
       data: 'Yes'
@@ -66,10 +73,12 @@ export const data = LandscapeSchema.make({
   },
   SynchronizationStrategy: {
     FullOrPartialReplication: {
-      data: ['Full Replication', 'Partial Replication']
+      data: ['Full Replication', 'Partial Replication'],
+      comment: 'Partial or full replica defined using [Sync Rules](https://docs.powersync.com/usage/sync-rules). Sync Rules can make use of authenticated JWT parameters or client parameters.'
     },
     ConflictHandling: {
-      data: 'Custom business logic'
+      data: 'Custom conflict resolution supported',
+      comment: 'Developer defines an upload function which writes local mutations to backend database. Simplest implementation of this results in LWW. Can be customized by developer, including using CRDT data structures like [Yjs](https://www.powersync.com/blog/postgres-and-yjs-crdt-collaborative-text-editing-using-powersync), e.g.'
     },
     WhereResolutionOccurs: {
       data: 'Server'
@@ -86,18 +95,21 @@ export const data = LandscapeSchema.make({
   },
   AuthIdentity: {
     Encryption: {
-      data: 'transport-level and storage-level locally on the device using SQLCipher; E2EE can also be accomplished by syncing encrypted data and decrypting on client'
+      data: 'Yes',
+      comment: 'transport-level and storage-level locally on the device using SQLCipher; E2EE can also be accomplished by syncing encrypted data and decrypting on client'
     },
     AuthenticationMethod: {
       data: ['JWT Tokens']
     },
     AuthorizationPermissions: {
-      data: 'Reads: Access to data is controlled by authenticated parameters in JWT used in Sync Rules\n\nWrites: Access controlled using developer\'s own backend (through which writes go to)'
+      data: 'Custom',
+      comment: 'Reads: Access to data is controlled by authenticated parameters in JWT used in Sync Rules\nWrites: Access controlled using developer\'s own backend (through which writes go to)'
     }
   },
   DevelopmentWorkflowsDX: {
     DebuggingTools: {
-      data: ['Dashboard', 'Data Inspector']
+      data: ['Dashboard', 'Data Inspector'],
+      comment: '[Dashboard](https://docs.powersync.com/usage/tools/powersync-dashboard), [Diagnostic tool to inspect synced data](https://github.com/powersync-ja/powersync-js/tree/main/tools/diagnostics-app)'
     },
     CLI: {
       data: 'CLI for managing cloud instances of PowerSync Service'

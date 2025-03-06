@@ -40,6 +40,7 @@ export const fetchRepo = Effect.fn('fetchRepo')(function* (repoInfo: RepoInfo) {
   const { owner, repo, basePath } = repoInfo
   const filesToFetch = [
     'data.js',
+    'details.md',
     'logo.light.svg',
     'logo.dark.svg',
     'logo.light.png',
@@ -85,6 +86,7 @@ export const fetchRepo = Effect.fn('fetchRepo')(function* (repoInfo: RepoInfo) {
   ).pipe(Effect.map((_) => ReadonlyArray.filterMap(_, (_) => _)))
 
   const data = results.find((_) => _.name === 'data.js')
+  const details = results.find((_) => _.name === 'details.md')
   const logoLight = results.find((_) => _.name.includes('logo.light'))
   const logoDark = results.find((_) => _.name.includes('logo.dark'))
 
@@ -93,6 +95,7 @@ export const fetchRepo = Effect.fn('fetchRepo')(function* (repoInfo: RepoInfo) {
       repoInfo,
       missingFiles: [
         data ? [] : ['data.js'],
+        details ? [] : ['details.md'],
         logoLight ? [] : ['logo.light.*'],
         logoDark ? [] : ['logo.dark.*'],
       ].flat(),
@@ -101,7 +104,7 @@ export const fetchRepo = Effect.fn('fetchRepo')(function* (repoInfo: RepoInfo) {
 
   yield* validateCode(stringFromUint8Array(data.content), repoInfo)
 
-  return { files: { data, logoLight, logoDark }, repoInfo }
+  return { files: { data, details, logoLight, logoDark }, repoInfo }
 })
 
 const validateCode = (code: string, repoInfo: RepoInfo) =>
