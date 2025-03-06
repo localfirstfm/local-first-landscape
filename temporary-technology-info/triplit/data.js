@@ -9,16 +9,14 @@ export const data = LandscapeSchema.make({
   License: 'GPL3',
   Deployment: ['Self-hosted', 'Hosted'],
   AppTarget: {
-    data: {
-      Platform: {
-        data: ['Browser', 'Node']
-      },
-      LanguageSDK: {
-        data: ['TypeScript']
-      },
-      FrameworkIntegrations: {
-        data: ['React', 'Vue', 'Svelte', 'Angular', 'React Native']
-      }
+    Platform: {
+      data: ['Browser', 'Node']
+    },
+    LanguageSDK: {
+      data: ['TypeScript']
+    },
+    FrameworkIntegrations: {
+      data: ['React', 'Vue', 'Svelte', 'Angular', 'React Native']
     }
   },
   Networking: {

@@ -58,7 +58,7 @@ export const fetchRepo = Effect.fn('fetchRepo')(function* (repoInfo: RepoInfo) {
         const filePath = path.join(dirname, '..', '..', basePath, file)
         const exists = fs.existsSync(filePath)
         if (exists) {
-          const content = fs.readFileSync(filePath)
+          const content = new Uint8Array(fs.readFileSync(filePath))
           return { name: file, content }
         }
       }
@@ -90,7 +90,7 @@ export const fetchRepo = Effect.fn('fetchRepo')(function* (repoInfo: RepoInfo) {
   const logoLight = results.find((_) => _.name.includes('logo.light'))
   const logoDark = results.find((_) => _.name.includes('logo.dark'))
 
-  if (!data || !logoLight || !logoDark) {
+  if (!data || !logoLight || !logoDark || !details) {
     return yield* new FetchRepoErrorMissingFiles({
       repoInfo,
       missingFiles: [
