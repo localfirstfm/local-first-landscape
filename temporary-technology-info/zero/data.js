@@ -6,7 +6,11 @@ export const data = LandscapeSchema.make({
   Id: 'zero',
   Name: 'Zero',
   Website: 'https://getzero.dev',
+  GitHub: 'https://github.com/rocicorp/mono',
+  UniquenessNote: 'Zero uses IVM which is a very unique approach.',
+  InitialReleaseDate: new Date('2024-01-01'),
   Deployment: ['Self-hosted'],
+  MaturityLevel: 'Beta',
   AppTarget: {
     Platform: {
       data: ['Browser', 'Node', 'iOS', 'Android'],

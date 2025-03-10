@@ -3,6 +3,7 @@ import { Array, Effect, Either, Layer, Logger, Option, pipe } from 'effect'
 import * as PlatformNode from '@effect/platform-node'
 import { FileSystem } from '@effect/platform'
 import packageJson from '../package.json' with { type: 'json' }
+import * as childProcess from 'node:child_process'
 import { repos } from './repos.js'
 import { fetchRepo } from './fetch-repo.js'
 import path from 'node:path'
@@ -50,6 +51,8 @@ export const fetchContentCommand = Cli.Command.make(
         }))
 
       if (confirmed) {
+        // Make the target directory writable before removing it
+        yield* fs.chmod(targetDir, 0o755)
         yield* fs.remove(targetDir, { recursive: true })
       } else {
         yield* Effect.log('Aborting')
@@ -85,6 +88,7 @@ export const fetchContentCommand = Cli.Command.make(
       yield* fs.makeDirectory(dir, { recursive: true })
       for (const { name, content } of Object.values(result.files)) {
         yield* fs.writeFile(path.join(dir, name), content)
+        yield* fs.chmod(path.join(dir, name), 0o444)
       }
     }
 
@@ -106,6 +110,7 @@ declare module '*.png' {
       path.join(targetDir, 'ambient.d.ts'),
       ambientDtsContent,
     )
+    yield* fs.chmod(path.join(targetDir, 'ambient.d.ts'), 0o444)
 
     // Replace all invalid characters with underscores
     const idToVarName = (id: string) => id.replace(/[^a-zA-Z0-9]/g, '_')
@@ -139,6 +144,7 @@ export const data = [
 `
 
     yield* fs.writeFileString(path.join(targetDir, 'mod.ts'), modFileContent)
+    yield* fs.chmod(path.join(targetDir, 'mod.ts'), 0o444)
 
     yield* Effect.log(`Successfully wrote content to ${targetDir}`)
   }),
