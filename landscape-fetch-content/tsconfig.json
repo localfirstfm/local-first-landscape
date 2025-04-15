@@ -20,7 +20,7 @@
     /* AND if you're building for a library: */
     "declaration": true,
     /* If your code doesn't run in the DOM: */
-    "lib": ["es2022"],
+    "lib": ["es2022", "dom"],
     "rootDir": "./src",
     "outDir": "./dist",
     "tsBuildInfoFile": "./dist/.tsbuildinfo",

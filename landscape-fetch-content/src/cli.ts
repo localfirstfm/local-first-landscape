@@ -7,6 +7,7 @@ import * as childProcess from 'node:child_process'
 import { repos } from './repos.js'
 import { fetchRepo } from './fetch-repo.js'
 import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 const targetDirOption = Cli.Options.directory('target-dir')
 const overrideTargetDirOption = Cli.Options.boolean('override-target-dir').pipe(
@@ -150,7 +151,10 @@ export const data = [
   }),
 )
 
-if (import.meta.main) {
+// Check if the module is the main module executed
+const isMain = process.argv[1] === fileURLToPath(import.meta.url)
+
+if (isMain) {
   const cli = Cli.Command.run(fetchContentCommand, {
     name: 'Localfirst.fm Landscape CLI',
     version: packageJson.version,
