@@ -68,9 +68,9 @@ export const repos = Schema.decodeSync(Schema.Array(RepoInfo))([
   },
   {
     id: 'convex',
-    owner: 'localfirstfm',
-    repo: 'local-first-landscape',
-    basePath: 'temporary-technology-info/convex',
+    owner: 'get-convex',
+    repo: 'localfirst-landscape-data',
+    basePath: '',
   },
   {
     id: 'ditto',
