@@ -85,9 +85,9 @@ export const repos = Schema.decodeSync(Schema.Array(RepoInfo))([
   },
   {
     id: 'triplit',
-    owner: 'localfirstfm',
-    repo: 'local-first-landscape',
-    basePath: 'temporary-technology-info/triplit',
+    owner: 'aspen-cloud',
+    repo: 'local-first-landscape-data',
+    basePath: '',
   },
   {
     id: 'y-sweet',
