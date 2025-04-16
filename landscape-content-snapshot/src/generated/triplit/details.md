@@ -1,16 +1,15 @@
-## General
+# SuperSync
 
-Lorem ipsum dolor sit amet consectetur. Penatibus viverra quam massa leo suspendisse. Est porttitor donec integer luctus sed sed ipsum in adipiscing. Nunc pharetra lacus iaculis tristique penatibus dolor sit.
+SuperSync is a cool way to sync your data.
 
-![Architecture diagram](https://i.imgur.com/xCOK0b7.jpeg)
+## Features
 
-## The Story
+- **SuperSync**: Sync your data with ease.
+- **Local-first**: Your data is stored locally, ensuring privacy and security.
+- **Cross-platform**: Works on all major platforms.
+- **Open-source**: The code is available for anyone to use and contribute to.
+- **Community-driven**: Join our community and help us improve the project.
 
-Lorem ipsum dolor sit amet consectetur. Penatibus viverra quam massa leo suspendisse. Est porttitor donec integer luctus sed sed ipsum in adipiscing. Nunc pharetra lacus iaculis tristique penatibus dolor sit. Lorem ipsum dolor sit amet consectetur. Penatibus viverra quam massa leo suspendisse. Est porttitor donec integer luctus sed sed ipsum in adipiscing. Nunc pharetra lacus iaculis tristique penatibus dolor sit. Lorem ipsum dolor sit amet consectetur. Penatibus viverra quam massa leo suspendisse. Est porttitor donec integer luctus sed sed ipsum in adipiscing. Nunc pharetra lacus iaculis tristique penatibus dolor sit.
+## More info
 
-## Resources
-
-Lorem ipsum dolor sit amet consectetur. Penatibus viverra quam massa leo suspendisse.
-
-- [Website](https://www.triplit.dev)
-- [Documentation](https://www.triplit.dev/docs)
+...

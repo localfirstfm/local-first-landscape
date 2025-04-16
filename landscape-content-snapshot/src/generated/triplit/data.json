@@ -2,7 +2,8 @@
   "Version": 1,
   "Id": "triplit",
   "Name": "Triplit",
-  "Website": "https://www.triplit.dev",
+  "Description": "The Typescript-first database that handles caching and syncing for your app automatically",
+  "Website": "https://triplit.dev",
   "Deployment": [
     "Self-hosted",
     "Hosted"
@@ -17,7 +18,7 @@
     },
     "LanguageSDK": {
       "data": [
-        "TypeScript"
+        "typescript"
       ]
     },
     "FrameworkIntegrations": {
@@ -44,15 +45,14 @@
   "ServerSideData": {
     "PersistenceMechanism": {
       "data": [
-        "IndexedDB",
         "SQLite",
-        "LevelDB",
-        "RocksDB"
+        "Cloudflare Durable Object Storage",
+        "Custom"
       ],
       "comment": "Adapter for k-v stores."
     },
     "DataModelParadigm": {
-      "data": "Document"
+      "data": "Relational"
     }
   },
   "ClientSideData": {
@@ -62,17 +62,16 @@
         "Signals-based Reactivity"
       ]
     },
-    "LocalRefreshLatency": {
-      "data": "<1 ms"
-    },
     "PersistenceMechanism": {
       "data": [
         "IndexedDB",
         "SQLite",
-        "LevelDB",
-        "RocksDB"
+        "Custom"
       ],
       "comment": "Adapter for k-v stores."
+    },
+    "PersistenceFeatures": {
+      "data": "Indexes"
     },
     "DataModel": {
       "data": "Relational"
@@ -84,7 +83,7 @@
     },
     "OfflineReads": {
       "data": "Query Cache",
-      "comment": "Subscribed queries have full db support: novel queries, counts, sums, averages, etc"
+      "comment": "Subscribed queries have full db support including novel queries"
     },
     "OfflineWrites": {
       "data": "Cached offline writes"
@@ -97,8 +96,7 @@
     "FullOrPartialReplication": {
       "data": [
         "Partial Replication"
-      ],
-      "comment": "Partial replica only, via query caching."
+      ]
     },
     "ConflictHandling": {
       "data": "LWW at the attribute level"
@@ -108,7 +106,8 @@
     },
     "WhatGetsSynced": {
       "data": {
-        "ClientToServer": "triple writes"
+        "ClientToServer": "Only changes",
+        "ServerToClient": "Only changes"
       }
     },
     "Authority": {
@@ -122,10 +121,10 @@
       ]
     },
     "AuthorizationPermissions": {
-      "data": "Custom mapping from Schema to ACL roles"
+      "data": "Custom mapping from token attributes to query filters"
     }
   },
   "__generated": {
-    "lastUpdated": "2025-04-16T15:29:26.845Z"
+    "lastUpdated": "2025-04-16T19:15:34.000Z"
   }
 }
