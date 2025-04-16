@@ -26,8 +26,8 @@
       "data": [
         "React",
         "React Native",
-        "Vue",
-        "Svelte"
+        "Vue (experimental)",
+        "Svelte (experimental)"
       ]
     },
     "ClientBundleSize": {
@@ -158,7 +158,8 @@
     "Components": {
       "data": [
         "File upload",
-        "progressive image loading"
+        "progressive image loading",
+        "multiplayer cursors"
       ]
     }
   },
@@ -176,6 +177,6 @@
     }
   },
   "__generated": {
-    "lastUpdated": "2025-02-28T16:24:14.720Z"
+    "lastUpdated": "2025-04-16T09:39:00.000Z"
   }
 }
