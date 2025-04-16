@@ -3,19 +3,48 @@
   "Id": "livestore",
   "Name": "LiveStore",
   "Description": "Client-centric local-first data layer for high-performance apps",
+  "MaturityLevel": "Beta",
   "Website": "https://livestore.dev",
+  "GitHub": "https://github.com/livestore-dev/livestore",
+  "GetStarted": "https://livestore.dev",
   "Deployment": [
     "Self-hosted"
   ],
-  "License": "MIT",
   "AppTarget": {
+    "Platform": {
+      "data": [
+        "Browser",
+        "Node",
+        "iOS",
+        "Android"
+      ]
+    },
     "LanguageSDK": {
       "data": [
         "typescript"
       ]
+    },
+    "FrameworkIntegrations": {
+      "data": [
+        "React",
+        "React Native",
+        "Solid"
+      ]
+    },
+    "ClientBundleSize": {
+      "data": "~500kb gzipped",
+      "comment": "For web apps, LiveStore ships with a SQLite WASM build (~600kb / 300kb gzipped) and the library itself is around 500kb / 170kb gzipped."
     }
   },
   "Networking": {
+    "Protocol": {
+      "data": [
+        "WebSockets",
+        "HTTP",
+        "SSE"
+      ],
+      "comment": "Given LiveStore supports arbitrary sync backends, any kind of network protocol can be used."
+    },
     "Topology": {
       "data": "Client-Server"
     }
@@ -23,11 +52,19 @@
   "ServerSideData": {
     "PersistenceMechanism": {
       "data": [
-        "N/A"
-      ]
+        "Cloudflare D1",
+        "Postgres",
+        "SQLite",
+        "Custom"
+      ],
+      "comment": "Almost anything works as long as it can persist an eventlog."
+    },
+    "DataSize": {
+      "data": "10GB",
+      "comment": "Theoretically there isn't an upper limit to the eventlog size however at some point it might become impractical to sync the eventlog over the network."
     },
     "DataModelParadigm": {
-      "data": "Relational"
+      "data": "Eventlog"
     }
   },
   "ClientSideData": {
@@ -35,6 +72,10 @@
       "data": [
         "Async"
       ]
+    },
+    "LocalRefreshLatency": {
+      "data": "~1ms",
+      "comment": "LiveStore is designed to enable next-frame refresh latency by using an in-memory SQLite database with a signals-based reactivivity system."
     },
     "PersistenceMechanism": {
       "data": [
@@ -46,7 +87,8 @@
       "data": "Indexes"
     },
     "DataModel": {
-      "data": "Document"
+      "data": "Event Sourcing",
+      "comment": "LiveStore follows the event sourcing pattern which separates writes into an eventlog and materializes state into a local SQLite database."
     },
     "OfflineReads": {
       "data": "Full Support"
@@ -55,7 +97,8 @@
       "data": "Local conflict resolution"
     },
     "DataSize": {
-      "data": "Up to 5-10 MB per document"
+      "data": "<1GB",
+      "comment": "The upper limit is mostly determined by the used browser or client device. SQLite stores data fairly efficiently, so you should rarely hit any limits in regards to size."
     }
   },
   "SynchronizationStrategy": {
@@ -76,7 +119,16 @@
       }
     }
   },
+  "DevelopmentWorkflowsDX": {
+    "DebuggingTools": {
+      "data": [
+        "DevTools",
+        "Data Inspector",
+        "Network Inspector"
+      ]
+    }
+  },
   "__generated": {
-    "lastUpdated": "2025-02-27T20:07:55.000Z"
+    "lastUpdated": "2025-04-16T15:27:54.000Z"
   }
 }
