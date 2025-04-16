@@ -6,6 +6,10 @@ on:
     - cron: '0 0 * * *'
   # Allow manual trigger
   workflow_dispatch:
+  # Also when pushing to main
+  push:
+    branches:
+      - main
 
 jobs:
   generate:

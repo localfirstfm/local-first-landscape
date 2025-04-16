@@ -20,6 +20,9 @@ importers:
       '@localfirstfm/landscape-schema':
         specifier: workspace:*
         version: link:../landscape-schema
+      effect:
+        specifier: 3.12.0
+        version: 3.12.0
     devDependencies:
       typescript:
         specifier: ^5.7.2

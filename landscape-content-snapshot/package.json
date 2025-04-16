@@ -4,6 +4,7 @@
 	"type": "module",
 	"private": true,
 	"dependencies": {
+		"effect": "3.12.0",
 		"@localfirstfm/landscape-schema": "workspace:*"
 	},
 	"devDependencies": {
