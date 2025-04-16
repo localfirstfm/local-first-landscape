@@ -1,17 +1,20 @@
-import { data as automerge } from './automerge/data.js'
-import { data as electricsql } from './electricsql/data.js'
-import { data as jazz } from './jazz/data.js'
-import { data as zero } from './zero/data.js'
-import { data as liveblocks_yjs } from './liveblocks-yjs/data.js'
-import { data as liveblocks_storage } from './liveblocks-storage/data.js'
-import { data as livestore } from './livestore/data.js'
-import { data as dxos } from './dxos/data.js'
-import { data as basicdb } from './basicdb/data.js'
-import { data as convex } from './convex/data.js'
-import { data as ditto } from './ditto/data.js'
-import { data as powersync } from './powersync/data.js'
-import { data as triplit } from './triplit/data.js'
-import { data as y_sweet } from './y-sweet/data.js'
+import { LandscapeSchema } from '@localfirstfm/landscape-schema'
+import { Schema } from 'effect'
+
+import automergeJson from './automerge/data.json' with { type: 'json' }
+import electricsqlJson from './electricsql/data.json' with { type: 'json' }
+import jazzJson from './jazz/data.json' with { type: 'json' }
+import zeroJson from './zero/data.json' with { type: 'json' }
+import liveblocks_yjsJson from './liveblocks-yjs/data.json' with { type: 'json' }
+import liveblocks_storageJson from './liveblocks-storage/data.json' with { type: 'json' }
+import livestoreJson from './livestore/data.json' with { type: 'json' }
+import dxosJson from './dxos/data.json' with { type: 'json' }
+import basicdbJson from './basicdb/data.json' with { type: 'json' }
+import convexJson from './convex/data.json' with { type: 'json' }
+import dittoJson from './ditto/data.json' with { type: 'json' }
+import powersyncJson from './powersync/data.json' with { type: 'json' }
+import triplitJson from './triplit/data.json' with { type: 'json' }
+import y_sweetJson from './y-sweet/data.json' with { type: 'json' }
 
 import automergeLogoLight from './automerge/logo.light.png'
 import automergeLogoDark from './automerge/logo.dark.png'
@@ -41,6 +44,21 @@ import triplitLogoLight from './triplit/logo.light.png'
 import triplitLogoDark from './triplit/logo.dark.png'
 import y_sweetLogoLight from './y-sweet/logo.light.png'
 import y_sweetLogoDark from './y-sweet/logo.dark.png'
+
+const automerge = Schema.decodeUnknownSync(LandscapeSchema)(automergeJson)
+const electricsql = Schema.decodeUnknownSync(LandscapeSchema)(electricsqlJson)
+const jazz = Schema.decodeUnknownSync(LandscapeSchema)(jazzJson)
+const zero = Schema.decodeUnknownSync(LandscapeSchema)(zeroJson)
+const liveblocks_yjs = Schema.decodeUnknownSync(LandscapeSchema)(liveblocks_yjsJson)
+const liveblocks_storage = Schema.decodeUnknownSync(LandscapeSchema)(liveblocks_storageJson)
+const livestore = Schema.decodeUnknownSync(LandscapeSchema)(livestoreJson)
+const dxos = Schema.decodeUnknownSync(LandscapeSchema)(dxosJson)
+const basicdb = Schema.decodeUnknownSync(LandscapeSchema)(basicdbJson)
+const convex = Schema.decodeUnknownSync(LandscapeSchema)(convexJson)
+const ditto = Schema.decodeUnknownSync(LandscapeSchema)(dittoJson)
+const powersync = Schema.decodeUnknownSync(LandscapeSchema)(powersyncJson)
+const triplit = Schema.decodeUnknownSync(LandscapeSchema)(triplitJson)
+const y_sweet = Schema.decodeUnknownSync(LandscapeSchema)(y_sweetJson)
 
 export const data = [
   { ...automerge, Logo: { Light: automergeLogoLight, Dark: automergeLogoDark } },

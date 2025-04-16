@@ -27,9 +27,8 @@ export const repos = Schema.decodeSync(Schema.Array(RepoInfo))([
   },
   {
     id: 'jazz',
-    owner: 'localfirstfm',
-    repo: 'local-first-landscape',
-    basePath: 'temporary-technology-info/jazz',
+    owner: 'garden-co',
+    repo: 'jazz-lofi-landscape',
   },
   {
     id: 'zero',

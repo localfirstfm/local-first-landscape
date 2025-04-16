@@ -1,0 +1,20 @@
+{
+  "Version": 1,
+  "Id": "basicdb",
+  "Name": "BasicDB",
+  "Website": "https://basic.tech",
+  "Deployment": [
+    "Self-hosted"
+  ],
+  "License": "MIT",
+  "AppTarget": {
+    "Platform": {
+      "data": [
+        "Browser"
+      ]
+    }
+  },
+  "__generated": {
+    "lastUpdated": "2025-02-27T20:01:15.501Z"
+  }
+}
