@@ -21,9 +21,9 @@ export const repos = Schema.decodeSync(Schema.Array(RepoInfo))([
   },
   {
     id: 'electricsql',
-    owner: 'localfirstfm',
-    repo: 'local-first-landscape',
-    basePath: 'temporary-technology-info/electricsql',
+    owner: 'electric-sql',
+    repo: 'local-first-landscape-data',
+    basePath: '',
   },
   {
     id: 'jazz',
