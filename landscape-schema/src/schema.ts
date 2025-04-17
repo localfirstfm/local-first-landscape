@@ -25,7 +25,10 @@ export const AppTarget = Schema.Struct({
       'Linux',
     )
       .pipe(orString, Schema.Array)
-      .annotations({ description: 'The platform the app is targeting' }),
+      .annotations({
+        description:
+          'The platform(s) available to apps created with the technology.',
+      }),
   ).pipe(Schema.optional),
   LanguageSDK: DataWithComment(
     Schema.Literal(
@@ -40,7 +43,7 @@ export const AppTarget = Schema.Struct({
     )
       .pipe(orString, Schema.Array)
       .annotations({
-        description: 'The language(s) the app is written in',
+        description: 'The language(s) the app can be written in.',
       }),
   ).pipe(Schema.optional),
   FrameworkIntegrations: DataWithComment(
@@ -55,7 +58,9 @@ export const AppTarget = Schema.Struct({
       'Jetpack Compose',
     )
       .pipe(orString, Schema.Array)
-      .annotations({}),
+      .annotations({
+        description: 'The framework(s) the app can be built with.',
+      }),
   ).pipe(Schema.optional),
   ClientBundleSize: DataWithComment(
     Schema.String.annotations({
@@ -106,7 +111,7 @@ export const ServerSideData = Schema.Struct({
     )
       .pipe(orString, Schema.Array)
       .annotations({
-        description: '',
+        description: 'How the technology persists data on a server.',
       }),
   ).pipe(Schema.optional),
   DataSize: DataWithComment(
@@ -124,7 +129,7 @@ export const ServerSideData = Schema.Struct({
     )
       .pipe(orString)
       .annotations({
-        description: 'The size of the data the server supports.',
+        description: 'The size of the data supported on a server.',
       }),
   ).pipe(Schema.optional),
   DataModelParadigm: DataWithComment(
@@ -146,7 +151,7 @@ export const ServerSideData = Schema.Struct({
   ).pipe(Schema.optional),
   ExistingDatabaseSupport: DataWithComment(
     Schema.String.annotations({
-      description: 'How the server integrates with existing databases.',
+      description: 'How the technology integrates with existing databases.',
     }),
   ).pipe(Schema.optional),
 }).annotations({ title: 'ServerSideData' })
@@ -184,7 +189,7 @@ export const ClientSideData = Schema.Struct({
     )
       .pipe(orString, Schema.Array)
       .annotations({
-        description: 'How the client persists data.',
+        description: 'How the technology persists data on a client.',
       }),
   ).pipe(Schema.optional),
   PersistenceFeatures: DataWithComment(
@@ -192,12 +197,12 @@ export const ClientSideData = Schema.Struct({
       .pipe(orString)
       .annotations({
         description:
-          'Additional features supported by the persistence mechanism.',
+          'Additional features supported by the client-side persistence mechanism.',
       }),
   ).pipe(Schema.optional),
   DataModel: DataWithComment(
     Schema.Literal('Document', 'Relational').pipe(orString).annotations({
-      description: 'The data model used by the client.',
+      description: 'The data model used on the client.',
     }),
   ).pipe(Schema.optional),
   SchemaManagement: DataWithComment(
@@ -237,7 +242,7 @@ export const ClientSideData = Schema.Struct({
   ).pipe(Schema.optional),
   DataSize: DataWithComment(
     Schema.String.annotations({
-      description: 'The size of the data the client supports.',
+      description: 'The size of the data supported on a client.',
     }),
   ).pipe(Schema.optional),
 }).annotations({ title: 'ClientSideData' })
@@ -248,7 +253,7 @@ export const SynchronizationStrategy = Schema.Struct({
       .pipe(orString, Schema.Array)
       .annotations({
         description:
-          'Whether the synchronization strategy supports full or partial replication.',
+          'Whether the technology supports full or partial replication.',
       }),
   ).pipe(Schema.optional),
   ConflictHandling: DataWithComment(
@@ -261,7 +266,7 @@ export const SynchronizationStrategy = Schema.Struct({
     )
       .pipe(orString)
       .annotations({
-        description: 'How the synchronization strategy handles conflicts.',
+        description: 'How the technology handles conflicts.',
       }),
   ).pipe(Schema.optional),
   WhereResolutionOccurs: DataWithComment(
@@ -275,13 +280,13 @@ export const SynchronizationStrategy = Schema.Struct({
       ServerToClient: Schema.String.pipe(Schema.optional),
       ClientToClient: Schema.String.pipe(Schema.optional),
     }).annotations({
-      description: 'What gets synced between clients and servers.',
+      description:
+        'What gets synced between clients and (potentially) servers.',
     }),
   ).pipe(Schema.optional),
   Authority: DataWithComment(
     Schema.Literal('Decentralized', 'Centralized').pipe(orString).annotations({
-      description:
-        'Whether the synchronization strategy is decentralized or centralized.',
+      description: 'Whether the technology is decentralized or centralized.',
     }),
   ).pipe(Schema.optional),
   Latency: DataWithComment(
@@ -312,7 +317,7 @@ export const AuthIdentity = Schema.Struct({
   ).pipe(Schema.optional),
   AuthorizationPermissions: DataWithComment(
     Schema.Literal('ACLs', 'RBAC', 'Custom').pipe(orString).annotations({
-      description: 'How authorization permissions are managed.',
+      description: 'How authorization and permissions are managed.',
     }),
   ).pipe(Schema.optional),
 }).annotations({ title: 'AuthIdentity' })
@@ -340,17 +345,17 @@ export const DevelopmentWorkflowsDX = Schema.Struct({
     )
       .pipe(orString, Schema.Array)
       .annotations({
-        description: 'Debugging tools for developers.',
+        description: 'Tools provided for developers.',
       }),
   ).pipe(Schema.optional),
   CLI: DataWithComment(
     Schema.String.annotations({
-      description: 'Command line interface for developers.',
+      description: 'Command line interface tools for developers.',
     }),
   ).pipe(Schema.optional),
   TypeSupport: DataWithComment(
     Schema.String.annotations({
-      description: 'Type support for developers.',
+      description: 'Type support.',
     }),
   ).pipe(Schema.optional),
 }).annotations({ title: 'DevelopmentWorkflowsDX' })
