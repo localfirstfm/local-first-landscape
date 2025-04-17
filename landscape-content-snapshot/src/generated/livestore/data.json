@@ -7,6 +7,7 @@
   "Website": "https://livestore.dev",
   "GitHub": "https://github.com/livestore-dev/livestore",
   "GetStarted": "https://livestore.dev",
+  "InitialReleaseDate": "2021-12-01T00:00:00.000Z",
   "Deployment": [
     "Self-hosted"
   ],
@@ -70,7 +71,9 @@
   "ClientSideData": {
     "QueryAPI": {
       "data": [
-        "Async"
+        "Reactive queries",
+        "Signals-based Reactivity",
+        "Sync"
       ]
     },
     "LocalRefreshLatency": {
@@ -92,6 +95,10 @@
     },
     "OfflineReads": {
       "data": "Full Support"
+    },
+    "OptimisticUpdates": {
+      "data": "Yes",
+      "comment": "There isn't an explicit concept of \"optimistic updates\" in LiveStore. Events are always executed locally first and then synced to other clients. In case of a conflict, the event is rebased and replayed. This is similar to how Git works."
     },
     "OfflineWrites": {
       "data": "Local conflict resolution"
@@ -129,6 +136,6 @@
     }
   },
   "__generated": {
-    "lastUpdated": "2025-04-16T15:27:54.000Z"
+    "lastUpdated": "2025-04-17T06:22:24.000Z"
   }
 }

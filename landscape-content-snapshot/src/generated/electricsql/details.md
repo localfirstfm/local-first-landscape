@@ -6,7 +6,7 @@ Electric handles read-path sync, [partial replication](https://electric-sql.com/
 
 Electric works with [any Postgres](https://electric-sql.com/docs/guides/deployment#_1-running-postgres), [any data model](https://electric-sql.com/docs/guides/deployment#data-model-compatibility) and [any web framework](https://electric-sql.com/docs/guides/client-development). Data syncs [over HTTP](https://electric-sql.com/docs/api/http), allowing you to use your existing API and web stack to handle auth, writes and any arbitrary stream transformation. Because it's HTTP, it works with standard CDNs, allowing you to easily scale out low-latancy data delivery to [millions of concurrent clients](https://electric-sql.com/docs/reference/benchmarks#cloud).
 
-![Architecture diagram](./architecture.png)
+
 
 ## The Story
 

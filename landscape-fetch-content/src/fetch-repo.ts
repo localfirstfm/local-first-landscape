@@ -133,6 +133,8 @@ export const fetchRepo = Effect.fn('fetchRepo')(function* (repoInfo: RepoInfo) {
     })
   }
 
+  const sanitizedDetails = yield* sanitizeDetails(details.content, repoInfo)
+
   const dataJson = yield* getDataJson(
     stringFromUint8Array(dataJs.content),
     dataJs.lastUpdated,
@@ -146,7 +148,11 @@ export const fetchRepo = Effect.fn('fetchRepo')(function* (repoInfo: RepoInfo) {
         content: dataJson,
         lastUpdated: dataJs.lastUpdated,
       },
-      details,
+      details: {
+        name: 'details.md',
+        content: sanitizedDetails,
+        lastUpdated: details.lastUpdated,
+      },
       logoLight,
       logoDark,
     },
@@ -184,6 +190,29 @@ const getDataJson = (code: string, lastUpdated: Date, repoInfo: RepoInfo) =>
     )({ ...data, __generated: { lastUpdated } })
 
     return dataJson
+  })
+
+const sanitizeDetails = (details: Uint8Array, repoInfo: RepoInfo) =>
+  Effect.gen(function* () {
+    let markdown = stringFromUint8Array(details)
+
+    const imageRegex = /!\[.*?\]\((.*?)\)/g
+    const matches = markdown.matchAll(imageRegex)
+    const images = Array.from(matches, (match) => ({
+      fullMatch: match[0]!,
+      url: match[1]!,
+    }))
+
+    for (const image of images) {
+      if (!image.url.startsWith('http')) {
+        yield* Effect.logWarning(
+          `Image URL "${image.url}" in repo ${repoInfo.owner}/${repoInfo.repo} has to be a hosted URL starting with http(s)://. Removing image.`,
+        )
+        markdown = markdown.replace(image.fullMatch, '')
+      }
+    }
+
+    return markdown
   })
 
 export class FetchRepoErrorBadCode extends Schema.TaggedError<FetchRepoErrorBadCode>()(
