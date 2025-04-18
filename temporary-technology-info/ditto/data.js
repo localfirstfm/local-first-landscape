@@ -117,5 +117,4 @@ export const data = LandscapeSchema.make({
       comment: 'Open source debugging and diagnostic tools for developers.'
     },
   },
-  UserControlDataOwnership: 'User has full control over their data'
 })

@@ -457,7 +457,6 @@ export const LandscapeSchema = Schema.Struct({
   AuthIdentity: AuthIdentity.pipe(Schema.optional),
   UIRelated: UIRelated.pipe(Schema.optional),
   DevelopmentWorkflowsDX: DevelopmentWorkflowsDX.pipe(Schema.optional),
-  UserControlDataOwnership: Schema.String.pipe(Schema.optional),
   /** This data is generated. Please do not provide this data, as it will be overwritten. */
   __generated: Schema.Struct({
     lastUpdated: Schema.Date.annotations({
