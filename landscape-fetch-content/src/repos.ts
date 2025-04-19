@@ -101,4 +101,10 @@ export const repos = Schema.decodeSync(Schema.Array(RepoInfo))([
     repo: 'local-first-landscape',
     basePath: 'temporary-technology-info/y-sweet',
   },
+  {
+    id: 'legend-state',
+    owner: 'legendapp',
+    repo: 'legend-state-landscape',
+    basePath: '',
+  },
 ])
