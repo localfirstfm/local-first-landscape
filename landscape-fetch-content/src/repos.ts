@@ -90,6 +90,12 @@ export const repos = Schema.decodeSync(Schema.Array(RepoInfo))([
     basePath: '',
   },
   {
+    id: 'tinybase',
+    owner: 'tinyplex',
+    repo: 'tinybase-landscape-data',
+    basePath: '',
+  },
+  {
     id: 'y-sweet',
     owner: 'localfirstfm',
     repo: 'local-first-landscape',
