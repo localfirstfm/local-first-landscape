@@ -14,6 +14,7 @@ import convexJson from './convex/data.json' with { type: 'json' }
 import dittoJson from './ditto/data.json' with { type: 'json' }
 import powersyncJson from './powersync/data.json' with { type: 'json' }
 import triplitJson from './triplit/data.json' with { type: 'json' }
+import tinybaseJson from './tinybase/data.json' with { type: 'json' }
 import y_sweetJson from './y-sweet/data.json' with { type: 'json' }
 
 import automergeLogoLight from './automerge/logo.light.png'
@@ -42,6 +43,8 @@ import powersyncLogoLight from './powersync/logo.light.png'
 import powersyncLogoDark from './powersync/logo.dark.png'
 import triplitLogoLight from './triplit/logo.light.svg'
 import triplitLogoDark from './triplit/logo.dark.svg'
+import tinybaseLogoLight from './tinybase/logo.light.svg'
+import tinybaseLogoDark from './tinybase/logo.dark.svg'
 import y_sweetLogoLight from './y-sweet/logo.light.png'
 import y_sweetLogoDark from './y-sweet/logo.dark.png'
 
@@ -58,6 +61,7 @@ const convex = Schema.decodeUnknownSync(LandscapeSchema)(convexJson)
 const ditto = Schema.decodeUnknownSync(LandscapeSchema)(dittoJson)
 const powersync = Schema.decodeUnknownSync(LandscapeSchema)(powersyncJson)
 const triplit = Schema.decodeUnknownSync(LandscapeSchema)(triplitJson)
+const tinybase = Schema.decodeUnknownSync(LandscapeSchema)(tinybaseJson)
 const y_sweet = Schema.decodeUnknownSync(LandscapeSchema)(y_sweetJson)
 
 export const data = [
@@ -74,5 +78,6 @@ export const data = [
   { ...ditto, Logo: { Light: dittoLogoLight, Dark: dittoLogoDark } },
   { ...powersync, Logo: { Light: powersyncLogoLight, Dark: powersyncLogoDark } },
   { ...triplit, Logo: { Light: triplitLogoLight, Dark: triplitLogoDark } },
+  { ...tinybase, Logo: { Light: tinybaseLogoLight, Dark: tinybaseLogoDark } },
   { ...y_sweet, Logo: { Light: y_sweetLogoLight, Dark: y_sweetLogoDark } }
 ]
