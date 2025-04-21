@@ -60,10 +60,10 @@ export const repos = Schema.decodeSync(Schema.Array(RepoInfo))([
     basePath: 'temporary-technology-info/dxos',
   },
   {
-    id: 'basicdb',
-    owner: 'localfirstfm',
-    repo: 'local-first-landscape',
-    basePath: 'temporary-technology-info/basicdb',
+    id: 'basic',
+    owner: 'basicdb',
+    repo: 'local-first-landscape-data',
+    basePath: '',
   },
   {
     id: 'convex',
