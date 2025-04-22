@@ -78,7 +78,7 @@ export const fetchRepo = Effect.fn('fetchRepo')(function* (repoInfo: RepoInfo) {
         if (exists) {
           const content = new Uint8Array(fs.readFileSync(filePath))
           const lastUpdated = fs.statSync(filePath).mtime
-          return { name: file, content, lastUpdated }
+          return Option.some({ name: file, content, lastUpdated })
         }
       }
 
@@ -90,9 +90,21 @@ export const fetchRepo = Effect.fn('fetchRepo')(function* (repoInfo: RepoInfo) {
         }).then((response) => response.json()),
       )
 
-      const decodedContent = yield* Schema.decodeUnknown(
-        FileResponseSuccessSchema,
-      )(contentResponse)
+      const decodedContent =
+        yield* Schema.decodeUnknown(FileResponseSchema)(contentResponse)
+
+      if (Schema.is(FileResponseErrorSchema)(decodedContent)) {
+        if (decodedContent.status === '404') {
+          return Option.none()
+        }
+
+        return yield* new UnexpectedError({
+          cause: new Error(
+            `Failed to fetch content for ${owner}/${repo}/${pathPrefix}${file}`,
+          ),
+          payload: contentResponse,
+        })
+      }
 
       const commitsUrl = `https://api.github.com/repos/${owner}/${repo}/commits?path=${pathPrefix}${file}&page=1&per_page=1`
       const commitsResponse = yield* Effect.tryPromise(() =>
@@ -105,14 +117,14 @@ export const fetchRepo = Effect.fn('fetchRepo')(function* (repoInfo: RepoInfo) {
         CommitsResponseSchema.pipe(Schema.headOrElse()),
       )(commitsResponse)
 
-      return {
+      return Option.some({
         name: file,
         content: decodedContent.content,
         lastUpdated: decodedCommit.commit.committer.date,
-      }
+      })
     }).pipe(
       // Effect.tapErrorCause(Effect.logError),
-      Effect.option,
+      // Effect.catchTag('')
     ),
   ).pipe(Effect.map((_) => ReadonlyArray.filterMap(_, (_) => _)))
 
@@ -185,6 +197,16 @@ const getDataJson = (code: string, lastUpdated: Date, repoInfo: RepoInfo) =>
 
     const data = yield* Schema.validate(LandscapeSchema)(module.data)
 
+    if (data.Id !== repoInfo.id) {
+      return yield* new FetchRepoErrorBadCode({
+        cause: new Error(
+          `id mismatch: ${data.Id} (from remote data.js) !== ${repoInfo.id} (from repos.ts)`,
+        ),
+        repoInfo,
+        code,
+      })
+    }
+
     const dataJson = yield* Schema.encodeUnknown(
       Schema.parseJson(LandscapeSchema, { space: 2 }),
     )({ ...data, __generated: { lastUpdated } })
@@ -232,9 +254,18 @@ export class FetchRepoErrorMissingFiles extends Schema.TaggedError<FetchRepoErro
   },
 ) {}
 
+export class UnexpectedError extends Schema.TaggedError<UnexpectedError>()(
+  'UnexpectedError',
+  {
+    cause: Schema.Defect,
+    payload: Schema.Any,
+  },
+) {}
+
 export class FetchRepoError extends Schema.Union(
   FetchRepoErrorBadCode,
   FetchRepoErrorMissingFiles,
+  UnexpectedError,
 ) {}
 
 const stringFromUint8Array = (uint8Array: Uint8Array) =>
