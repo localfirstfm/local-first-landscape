@@ -38,15 +38,15 @@ export const repos = Schema.decodeSync(Schema.Array(RepoInfo))([
   },
   {
     id: 'liveblocks-yjs',
-    owner: 'localfirstfm',
-    repo: 'local-first-landscape',
-    basePath: 'temporary-technology-info/liveblocks-yjs',
+    owner: 'liveblocks',
+    repo: 'local-first-landscape-data',
+    basePath: 'liveblocks-yjs',
   },
   {
     id: 'liveblocks-storage',
-    owner: 'localfirstfm',
-    repo: 'local-first-landscape',
-    basePath: 'temporary-technology-info/liveblocks-storage',
+    owner: 'liveblocks',
+    repo: 'local-first-landscape-data',
+    basePath: 'liveblocks-storage',
   },
   {
     id: 'livestore',
