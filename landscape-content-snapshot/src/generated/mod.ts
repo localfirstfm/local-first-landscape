@@ -9,6 +9,7 @@ import liveblocks_yjsJson from './liveblocks-yjs/data.json' with { type: 'json' 
 import liveblocks_storageJson from './liveblocks-storage/data.json' with { type: 'json' }
 import livestoreJson from './livestore/data.json' with { type: 'json' }
 import dxosJson from './dxos/data.json' with { type: 'json' }
+import basicJson from './basic/data.json' with { type: 'json' }
 import convexJson from './convex/data.json' with { type: 'json' }
 import dittoJson from './ditto/data.json' with { type: 'json' }
 import powersyncJson from './powersync/data.json' with { type: 'json' }
@@ -32,6 +33,8 @@ import livestoreLogoLight from './livestore/logo.light.svg'
 import livestoreLogoDark from './livestore/logo.dark.svg'
 import dxosLogoLight from './dxos/logo.light.png'
 import dxosLogoDark from './dxos/logo.dark.png'
+import basicLogoLight from './basic/logo.light.svg'
+import basicLogoDark from './basic/logo.dark.svg'
 import convexLogoLight from './convex/logo.light.svg'
 import convexLogoDark from './convex/logo.dark.svg'
 import dittoLogoLight from './ditto/logo.light.png'
@@ -53,6 +56,7 @@ const liveblocks_yjs = Schema.decodeUnknownSync(LandscapeSchema)(liveblocks_yjsJ
 const liveblocks_storage = Schema.decodeUnknownSync(LandscapeSchema)(liveblocks_storageJson)
 const livestore = Schema.decodeUnknownSync(LandscapeSchema)(livestoreJson)
 const dxos = Schema.decodeUnknownSync(LandscapeSchema)(dxosJson)
+const basic = Schema.decodeUnknownSync(LandscapeSchema)(basicJson)
 const convex = Schema.decodeUnknownSync(LandscapeSchema)(convexJson)
 const ditto = Schema.decodeUnknownSync(LandscapeSchema)(dittoJson)
 const powersync = Schema.decodeUnknownSync(LandscapeSchema)(powersyncJson)
@@ -69,6 +73,7 @@ export const data = [
   { ...liveblocks_storage, Logo: { Light: liveblocks_storageLogoLight, Dark: liveblocks_storageLogoDark } },
   { ...livestore, Logo: { Light: livestoreLogoLight, Dark: livestoreLogoDark } },
   { ...dxos, Logo: { Light: dxosLogoLight, Dark: dxosLogoDark } },
+  { ...basic, Logo: { Light: basicLogoLight, Dark: basicLogoDark } },
   { ...convex, Logo: { Light: convexLogoLight, Dark: convexLogoDark } },
   { ...ditto, Logo: { Light: dittoLogoLight, Dark: dittoLogoDark } },
   { ...powersync, Logo: { Light: powersyncLogoLight, Dark: powersyncLogoDark } },
