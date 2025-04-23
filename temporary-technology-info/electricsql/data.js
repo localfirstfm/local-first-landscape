@@ -23,7 +23,7 @@ export const data = LandscapeSchema.make({
   },
   ClientSideData: {
     PersistenceMechanism: {
-      data: ['IndexedDB', 'PGLite via OPFS'],
+      data: ['HTTP cache (default)', 'IndexedDB', 'PGLite via OPFS'],
       comment: 'Depends on what you are syncing to.'
     },
     DataModel: {
@@ -44,7 +44,7 @@ export const data = LandscapeSchema.make({
       comment: 'Partial replication via shapes.'
     },
     ConflictHandling: {
-      data: 'No Support'
+      data: 'Handled by server or by using a CRDT library'
     },
     WhereResolutionOccurs: {
       data: 'Server'
