@@ -1,16 +1,14 @@
-## General
+# Liveblocks
 
-Lorem ipsum dolor sit amet consectetur. Penatibus viverra quam massa leo suspendisse. Est porttitor donec integer luctus sed sed ipsum in adipiscing. Nunc pharetra lacus iaculis tristique penatibus dolor sit.
+[Liveblocks](https://liveblocks.io) provides customizable pre-built features for human and AI collaboration, used to make your product multiplayer, engaging, and AI‑ready. All without derailing your roadmap.
 
-![Architecture diagram](https://i.imgur.com/xCOK0b7.jpeg)
+## Liveblocks Yjs
 
-## The Story
+[Liveblocks Yjs](https://liveblocks.io/sync-datastore/yjs) is a realtime sync engine designed for building collaborative text editors such as Notion and Google Docs. Liveblocks permanently stores Yjs data in each room, handling scaling and maintenance for you.
 
-Lorem ipsum dolor sit amet consectetur. Penatibus viverra quam massa leo suspendisse. Est porttitor donec integer luctus sed sed ipsum in adipiscing. Nunc pharetra lacus iaculis tristique penatibus dolor sit. Lorem ipsum dolor sit amet consectetur. Penatibus viverra quam massa leo suspendisse. Est porttitor donec integer luctus sed sed ipsum in adipiscing. Nunc pharetra lacus iaculis tristique penatibus dolor sit. Lorem ipsum dolor sit amet consectetur. Penatibus viverra quam massa leo suspendisse. Est porttitor donec integer luctus sed sed ipsum in adipiscing. Nunc pharetra lacus iaculis tristique penatibus dolor sit.
+### Links
 
-## Resources
-
-Lorem ipsum dolor sit amet consectetur. Penatibus viverra quam massa leo suspendisse.
-
-- [Website](https://liveblocks.io)
-- [Documentation](https://liveblocks.io/docs)
+- [Get started](https://liveblocks.io/docs/get-started/text-editor)
+- [API reference](https://liveblocks.io/docs/api-reference/liveblocks-yjs)
+- [Examples](https://liveblocks.io/examples)
+- [More info](https://liveblocks.io/docs/platform/sync-datastore/liveblocks-yjs)

@@ -2,7 +2,7 @@
   "Version": 1,
   "Id": "liveblocks-yjs",
   "Name": "Liveblocks Yjs",
-  "Website": "https://liveblocks.io",
+  "Website": "https://liveblocks.io/sync-datastore/yjs",
   "Deployment": [
     "Hosted"
   ],
@@ -44,7 +44,8 @@
       ]
     },
     "DataModelParadigm": {
-      "data": "Document"
+      "data": "Document",
+      "comment": "Each room is a digital space where people colalborate, and it corresponds with a document."
     },
     "SchemaManagement": {
       "data": [
@@ -52,7 +53,7 @@
       ]
     },
     "ExistingDatabaseSupport": {
-      "data": "manual sync to existing DBs",
+      "data": "One-way sync with DBs",
       "comment": "Does not require a datastore, but you can migrate or automatically sync to your database with webhooks/REST API"
     }
   },
@@ -81,18 +82,19 @@
       ]
     },
     "OfflineReads": {
-      "data": "in beta"
+      "data": "Yes",
+      "comment": "Beta option: `offlineSupport_experimental: true`"
     },
     "OptimisticUpdates": {
       "data": "Yes"
     },
     "OfflineWrites": {
-      "data": "in beta",
-      "comment": "`offlineSupport_experimental: true`"
+      "data": "Yes",
+      "comment": "Beta option: `offlineSupport_experimental: true`"
     },
     "DataSize": {
-      "data": "limited by memory",
-      "comment": "It depends on the in memory size of the yjs store and the history of the document."
+      "data": "Limited by memory",
+      "comment": "It depends on the in memory size of the Yjs store and the history of the document."
     }
   },
   "SynchronizationStrategy": {
@@ -104,7 +106,7 @@
     },
     "WhatGetsSynced": {
       "data": {
-        "ClientToServer": "yjs encoded updates"
+        "ClientToServer": "Yjs encoded updates"
       }
     },
     "Authority": {
@@ -119,23 +121,24 @@
       ]
     },
     "AuthorizationPermissions": {
-      "data": "ID tokens and Access tokens",
-      "comment": "ID tokens (= permissions based on whats allowed on a per-room basis). Access tokens (= permissions granted in the token directly)"
+      "data": "ID tokens and access tokens",
+      "comment": "ID tokens for permissions based on a per-room basis. Access tokens for permissions granted directly in the token"
     }
   },
   "UIRelated": {
     "RichTextEditing": {
       "data": "Liveblocks Text Editor",
-      "comment": "Wrapper around Yjs with Lexical and TipTap plugins."
+      "comment": "Wrapper around Yjs with TipTap, BlockNote, and Lexical plugins."
     },
     "Components": {
       "data": [
         "Comments/Threads",
         "Notifications",
-        "Y.js plugins",
+        "AI Copilots",
+        "Yjs plugins",
         "Presence"
       ],
-      "comment": "Presence support via yjs-awareness."
+      "comment": "All Liveblocks products integrate into each other. Learn more about the other products on [liveblocks.io](https://liveblocks.io)."
     }
   },
   "DevelopmentWorkflowsDX": {
@@ -148,10 +151,10 @@
       "comment": "Viewing/editing data, events, usage, etc."
     },
     "CLI": {
-      "data": "CLI for installing examples, updating packages, creating your typescript config"
+      "data": "CLI for installing examples, updating packages, creating your typescript config."
     }
   },
   "__generated": {
-    "lastUpdated": "2025-04-24T00:54:03.439Z"
+    "lastUpdated": "2025-04-23T15:13:31.000Z"
   }
 }

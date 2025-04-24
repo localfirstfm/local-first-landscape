@@ -1,16 +1,14 @@
-## General
+# Liveblocks
 
-Lorem ipsum dolor sit amet consectetur. Penatibus viverra quam massa leo suspendisse. Est porttitor donec integer luctus sed sed ipsum in adipiscing. Nunc pharetra lacus iaculis tristique penatibus dolor sit.
+[Liveblocks](https://liveblocks.io) provides customizable pre-built features for human and AI collaboration, used to make your product multiplayer, engaging, and AI‑ready. All without derailing your roadmap.
 
-![Architecture diagram](https://i.imgur.com/xCOK0b7.jpeg)
+## Liveblocks Storage
 
-## The Story
+[Liveblocks Storage](https://liveblocks.io/sync-datastore/storage) is a realtime sync engine designed for multiplayer creative tools such as Figma, Pitch, and Spline. `LiveList`, `LiveMap`, and `LiveObject` conflict-free data types can be used to build all sorts of multiplayer tools. Liveblocks permanently stores Storage data in each room, handling scaling and maintenance for you.
 
-Lorem ipsum dolor sit amet consectetur. Penatibus viverra quam massa leo suspendisse. Est porttitor donec integer luctus sed sed ipsum in adipiscing. Nunc pharetra lacus iaculis tristique penatibus dolor sit. Lorem ipsum dolor sit amet consectetur. Penatibus viverra quam massa leo suspendisse. Est porttitor donec integer luctus sed sed ipsum in adipiscing. Nunc pharetra lacus iaculis tristique penatibus dolor sit. Lorem ipsum dolor sit amet consectetur. Penatibus viverra quam massa leo suspendisse. Est porttitor donec integer luctus sed sed ipsum in adipiscing. Nunc pharetra lacus iaculis tristique penatibus dolor sit.
+### Links
 
-## Resources
-
-Lorem ipsum dolor sit amet consectetur. Penatibus viverra quam massa leo suspendisse.
-
-- [Website](https://liveblocks.io)
-- [Documentation](https://liveblocks.io/docs)
+- [Get started](https://liveblocks.io/docs/get-started/custom)
+- [API reference](https://liveblocks.io/docs/api-reference/liveblocks-client#Storage)
+- [Examples](https://liveblocks.io/examples)
+- [More info](https://liveblocks.io/docs/platform/sync-datastore/liveblocks-storage)
