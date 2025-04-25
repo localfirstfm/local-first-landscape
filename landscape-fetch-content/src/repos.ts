@@ -14,6 +14,12 @@ export type RepoInfo = typeof RepoInfo.Type
 
 export const repos = Schema.decodeSync(Schema.Array(RepoInfo))([
   {
+    id: 'yjs',
+    owner: 'yjs',
+    repo: 'local-first-landscape-data',
+    basePath: 'yjs',
+  },
+  {
     id: 'automerge',
     owner: 'localfirstfm',
     repo: 'local-first-landscape',
