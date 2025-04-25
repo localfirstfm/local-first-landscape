@@ -18,7 +18,7 @@
         "macOS",
         "Linux"
       ],
-      "comment": "Limited only by y.js support."
+      "comment": "Limited only by Yjs support."
     },
     "LanguageSDK": {
       "data": [
@@ -123,6 +123,6 @@
     }
   },
   "__generated": {
-    "lastUpdated": "2025-04-25T14:29:07.746Z"
+    "lastUpdated": "2025-04-25T16:01:03.000Z"
   }
 }

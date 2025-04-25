@@ -110,6 +110,10 @@
         "Sync"
       ]
     },
+    "LocalRefreshLatency": {
+      "data": "<1ms",
+      "comment": "The in-memory data structures fire events instantaneously, without waiting for a database."
+    },
     "PersistenceMechanism": {
       "data": [
         "IndexedDB",
@@ -193,6 +197,6 @@
     }
   },
   "__generated": {
-    "lastUpdated": "2025-04-25T14:11:49.000Z"
+    "lastUpdated": "2025-04-25T15:10:43.000Z"
   }
 }
