@@ -103,8 +103,8 @@ export const repos = Schema.decodeSync(Schema.Array(RepoInfo))([
   },
   {
     id: 'y-sweet',
-    owner: 'localfirstfm',
-    repo: 'local-first-landscape',
-    basePath: 'temporary-technology-info/y-sweet',
+    owner: 'jamsocket',
+    repo: 'y-sweet',
+    basePath: 'local-first-landscape',
   },
 ])
