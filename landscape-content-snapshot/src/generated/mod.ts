@@ -1,6 +1,7 @@
 import { LandscapeSchema } from '@localfirstfm/landscape-schema'
 import { Schema } from 'effect'
 
+import yjsJson from './yjs/data.json' with { type: 'json' }
 import automergeJson from './automerge/data.json' with { type: 'json' }
 import electricsqlJson from './electricsql/data.json' with { type: 'json' }
 import jazzJson from './jazz/data.json' with { type: 'json' }
@@ -17,6 +18,8 @@ import triplitJson from './triplit/data.json' with { type: 'json' }
 import tinybaseJson from './tinybase/data.json' with { type: 'json' }
 import y_sweetJson from './y-sweet/data.json' with { type: 'json' }
 
+import yjsLogoLight from './yjs/logo.light.svg'
+import yjsLogoDark from './yjs/logo.dark.svg'
 import automergeLogoLight from './automerge/logo.light.png'
 import automergeLogoDark from './automerge/logo.dark.png'
 import electricsqlLogoLight from './electricsql/logo.light.svg'
@@ -48,6 +51,7 @@ import tinybaseLogoDark from './tinybase/logo.dark.svg'
 import y_sweetLogoLight from './y-sweet/logo.light.png'
 import y_sweetLogoDark from './y-sweet/logo.dark.png'
 
+const yjs = Schema.decodeUnknownSync(LandscapeSchema)(yjsJson)
 const automerge = Schema.decodeUnknownSync(LandscapeSchema)(automergeJson)
 const electricsql = Schema.decodeUnknownSync(LandscapeSchema)(electricsqlJson)
 const jazz = Schema.decodeUnknownSync(LandscapeSchema)(jazzJson)
@@ -65,6 +69,7 @@ const tinybase = Schema.decodeUnknownSync(LandscapeSchema)(tinybaseJson)
 const y_sweet = Schema.decodeUnknownSync(LandscapeSchema)(y_sweetJson)
 
 export const data = [
+  { ...yjs, Logo: { Light: yjsLogoLight, Dark: yjsLogoDark } },
   { ...automerge, Logo: { Light: automergeLogoLight, Dark: automergeLogoDark } },
   { ...electricsql, Logo: { Light: electricsqlLogoLight, Dark: electricsqlLogoDark } },
   { ...jazz, Logo: { Light: jazzLogoLight, Dark: jazzLogoDark } },

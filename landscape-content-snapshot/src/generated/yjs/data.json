@@ -1,0 +1,198 @@
+{
+  "Version": 1,
+  "Id": "yjs",
+  "Name": "Yjs",
+  "Description": "Shared types to make anything collaborative",
+  "MaturityLevel": "Mature",
+  "Website": "https://yjs.dev",
+  "GitHub": "https://github.com/yjs/yjs",
+  "GetStarted": "https://learn.yjs.dev",
+  "UniquenessNote": "Minimal, flexible, fast, easy to integrate, unopinionated",
+  "InitialReleaseDate": "2015-01-26T23:00:00.000Z",
+  "NotableAdopters": [
+    {
+      "Name": "Evernote",
+      "URL": "https://evernote.com"
+    },
+    {
+      "Name": "Project Jupyter",
+      "URL": "https://jupyter.org/"
+    },
+    {
+      "Name": "La Suite",
+      "URL": "https://lasuite.numerique.gouv.fr/en"
+    },
+    {
+      "Name": "NextCloud",
+      "URL": "https://nextcloud.com/"
+    }
+  ],
+  "Deployment": [
+    "Self-hosted",
+    "Hosted",
+    "Third-party integrations"
+  ],
+  "License": "MIT",
+  "AppTarget": {
+    "Platform": {
+      "data": [
+        "Browser",
+        "Node",
+        "iOS",
+        "React Native",
+        "WASM"
+      ],
+      "comment": "We have language bindings to many popular programming languages. See y-crdt."
+    },
+    "LanguageSDK": {
+      "data": [
+        "TypeScript",
+        "JavaScript",
+        "Rust",
+        "C#",
+        "Swift",
+        "Python",
+        "Cffi",
+        "Kotlin"
+      ]
+    },
+    "FrameworkIntegrations": {
+      "data": [
+        "React",
+        "React Native",
+        "Vue",
+        "Svelte",
+        "Zustand"
+      ],
+      "comment": "There are several \"bindings\" that make Yjs work with different web frameworks. This list is probably not up to date."
+    },
+    "ClientBundleSize": {
+      "data": "~20kb",
+      "comment": "About ~20kb gzipped. Your final bundle might be smaller as Yjs works well with dead-code elimination."
+    }
+  },
+  "Networking": {
+    "Protocol": {
+      "data": [
+        "WebRTC",
+        "WebSockets",
+        "Matrix",
+        "Signal",
+        "via integrations",
+        "custom"
+      ],
+      "comment": "It is relatively easy sync Yjs through custom communication protocols."
+    },
+    "Topology": {
+      "data": "P2P / Client-server"
+    }
+  },
+  "ServerSideData": {
+    "PersistenceMechanism": {
+      "data": [
+        "Redis",
+        "Leveldb",
+        "DB-integrations",
+        "custom"
+      ],
+      "comment": "It is relatively easy to persist Yjs data in your own database."
+    },
+    "DataModelParadigm": {
+      "data": "Document"
+    },
+    "ExistingDatabaseSupport": {
+      "data": "Via integrations and plugins"
+    }
+  },
+  "ClientSideData": {
+    "QueryAPI": {
+      "data": [
+        "Sync"
+      ]
+    },
+    "PersistenceMechanism": {
+      "data": [
+        "IndexedDB",
+        "DB-integrations",
+        "custom"
+      ]
+    },
+    "PersistenceFeatures": {
+      "data": "Transactions"
+    },
+    "DataModel": {
+      "data": "Document"
+    },
+    "OfflineReads": {
+      "data": "Full Support"
+    },
+    "OptimisticUpdates": {
+      "data": "Yes"
+    },
+    "OfflineWrites": {
+      "data": "Local conflict resolution"
+    },
+    "DataSize": {
+      "data": "Depends on the size of the shared data"
+    }
+  },
+  "SynchronizationStrategy": {
+    "FullOrPartialReplication": {
+      "data": [
+        "Full Replication"
+      ]
+    },
+    "ConflictHandling": {
+      "data": "Automatic via CRDT"
+    },
+    "WhereResolutionOccurs": {
+      "data": "Client"
+    },
+    "WhatGetsSynced": {
+      "data": {
+        "ClientToClient": "CRDT operations, awareness state, content attribution."
+      }
+    },
+    "Authority": {
+      "data": "Decentralized"
+    },
+    "Latency": {
+      "data": "<1ms",
+      "comment": "Depends on which provider you choose. But it's pretty fast."
+    }
+  },
+  "AuthIdentity": {
+    "Encryption": {
+      "data": "Unopinionated, via providers",
+      "comment": "E.g. via secsync or matrix-crdt"
+    },
+    "AuthenticationMethod": {
+      "data": [
+        "Unopinionated, via providers"
+      ]
+    },
+    "AuthorizationPermissions": {
+      "data": "Unopinionated, via providers"
+    }
+  },
+  "UIRelated": {
+    "RichTextEditing": {
+      "data": "Yes",
+      "comment": "We have integrations with most popular rich-text editors like ProseMirror, Lexical, and CodeMirror."
+    }
+  },
+  "DevelopmentWorkflowsDX": {
+    "DebuggingTools": {
+      "data": [
+        "DevTools",
+        "Data Inspector"
+      ]
+    },
+    "TypeSupport": {
+      "data": "Full Support"
+    }
+  },
+  "__generated": {
+    "lastUpdated": "2025-04-25T14:11:49.000Z"
+  }
+}
