@@ -13,6 +13,61 @@ export type DataWithComment<A, I = A> = ReturnType<
   typeof DataWithComment<A, I>
 >['Type']
 
+export const Score = Schema.Struct({
+  MultiDeviceCrossDevice: DataWithComment(Schema.Literal('Yes', 'No'))
+    .annotations({
+      description: `Does the user's data replicate across their devices?`,
+    })
+    .pipe(Schema.optional),
+  MultiDeviceDecentralized: DataWithComment(Schema.Literal('Yes', 'No'))
+    .annotations({
+      description: 'Can data replication work without a centralized server?',
+    })
+    .pipe(Schema.optional),
+  OfflineSupportWrites: DataWithComment(Schema.Literal('Yes', 'No'))
+    .annotations({
+      description: 'Can writes be performed while offline?',
+    })
+    .pipe(Schema.optional),
+  OfflineSupportArbitraryQueries: DataWithComment(Schema.Literal('Yes', 'No'))
+    .annotations({
+      description: 'Can arbitrary queries be performed while offline?',
+    })
+    .pipe(Schema.optional),
+  UserOwnedData: DataWithComment(Schema.Literal('Yes', 'No'))
+    .annotations({
+      description:
+        "Can the user's full dataset be stored locally and can they access it?",
+    })
+    .pipe(Schema.optional),
+  CollaborationMultiEdit: DataWithComment(Schema.Literal('Yes', 'No'))
+    .annotations({
+      description: 'Can multiple users edit the same data simultaneously?',
+    })
+    .pipe(Schema.optional),
+  CollaborationConflictingWrites: DataWithComment(Schema.Literal('Yes', 'No'))
+    .annotations({
+      description: 'Can conflicting writes be resolved automatically?',
+    })
+    .pipe(Schema.optional),
+  SecurityE2EE: DataWithComment(Schema.Literal('Yes', 'No'))
+    .annotations({
+      description: "Is the user's data encrypted end-to-end?",
+    })
+    .pipe(Schema.optional),
+  SecurityUserKeys: DataWithComment(Schema.Literal('Yes', 'No'))
+    .annotations({
+      description: "Is the user's data encrypted with their own keys?",
+    })
+    .pipe(Schema.optional),
+  LongevityNoProprietaryServer: DataWithComment(Schema.Literal('Yes', 'No'))
+    .annotations({
+      description:
+        'Can the software fully function without a proprietary server component?',
+    })
+    .pipe(Schema.optional),
+})
+
 export const AppTarget = Schema.Struct({
   Platform: DataWithComment(
     Schema.Literal(
@@ -449,6 +504,7 @@ export const LandscapeSchema = Schema.Struct({
     .annotations({
       description: 'The license of the technology or product.',
     }),
+  Score: Score.pipe(Schema.optional),
   AppTarget: AppTarget.pipe(Schema.optional),
   Networking: Networking.pipe(Schema.optional),
   ServerSideData: ServerSideData.pipe(Schema.optional),
