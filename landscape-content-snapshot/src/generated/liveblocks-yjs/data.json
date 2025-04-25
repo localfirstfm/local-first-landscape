@@ -2,7 +2,9 @@
   "Version": 1,
   "Id": "liveblocks-yjs",
   "Name": "Liveblocks Yjs",
+  "MaturityLevel": "Production-ready",
   "Website": "https://liveblocks.io/sync-datastore/yjs",
+  "InitialReleaseDate": "2023-09-05T00:00:00.000Z",
   "Deployment": [
     "Hosted"
   ],
@@ -155,6 +157,6 @@
     }
   },
   "__generated": {
-    "lastUpdated": "2025-04-23T15:13:31.000Z"
+    "lastUpdated": "2025-04-24T11:47:23.000Z"
   }
 }

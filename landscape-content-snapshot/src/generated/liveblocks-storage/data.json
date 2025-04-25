@@ -2,7 +2,9 @@
   "Version": 1,
   "Id": "liveblocks-storage",
   "Name": "Liveblocks Storage",
+  "MaturityLevel": "Production-ready",
   "Website": "https://liveblocks.io/sync-datastore/storage",
+  "InitialReleaseDate": "2022-03-16T00:00:00.000Z",
   "Deployment": [
     "Hosted"
   ],
@@ -164,6 +166,6 @@
     }
   },
   "__generated": {
-    "lastUpdated": "2025-04-23T15:13:31.000Z"
+    "lastUpdated": "2025-04-24T11:47:23.000Z"
   }
 }
