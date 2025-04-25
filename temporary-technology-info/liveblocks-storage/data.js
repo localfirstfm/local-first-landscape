@@ -10,117 +10,122 @@ export const data = LandscapeSchema.make({
   Deployment: ['Hosted'],
   AppTarget: {
     Platform: {
-      data: ['Browser', 'Node']
+      data: ['Browser', 'Node'],
     },
     LanguageSDK: {
-      data: ['TypeScript']
+      data: ['TypeScript'],
     },
     FrameworkIntegrations: {
-      data: ['React', 'Zustand', 'Redux']
-    }
+      data: ['React', 'Zustand', 'Redux'],
+    },
   },
   Networking: {
     Protocol: {
-      data: ['WebSockets', 'HTTP']
+      data: ['WebSockets', 'HTTP'],
     },
     Topology: {
-      data: 'Client-Server'
-    }
+      data: 'Client-Server',
+    },
   },
   ServerSideData: {
     PersistenceMechanism: {
-      data: ['Cloudflare Durable Object Storage', 'SQLite']
+      data: ['Cloudflare Durable Object Storage', 'SQLite'],
     },
     DataModelParadigm: {
-      data: 'Document'
+      data: 'Document',
     },
     SchemaManagement: {
-      data: ['Schema definition', 'Schema validation']
+      data: ['Schema definition', 'Schema validation'],
     },
     ExistingDatabaseSupport: {
       data: 'Webhooks and REST API',
-      comment: 'Does not require a datastore, but you can migrate or automatically sync to your database with webhooks/REST API'
-    }
+      comment:
+        'Does not require a datastore, but you can migrate or automatically sync to your database with webhooks/REST API',
+    },
   },
   ClientSideData: {
     QueryAPI: {
       data: ['Signals-based Reactivity', 'Reactive queries'],
-      comment: 'JS: via subscription. React: via selector hooks, mutation callbacks. Automatically converts live data structures to JSON for easy UI.hook updates automatically on changes.can retrieve deep into the data structure without causing unnecessary renders.'
+      comment:
+        'JS: via subscription. React: via selector hooks, mutation callbacks. Automatically converts live data structures to JSON for easy UI.hook updates automatically on changes.can retrieve deep into the data structure without causing unnecessary renders.',
     },
     LocalRefreshLatency: {
-      data: '16ms'
+      data: '16ms',
     },
     PersistenceMechanism: {
-      data: ['Liveblocks Storage']
+      data: ['Liveblocks Storage'],
     },
     DataModel: {
       data: 'Document',
-      comment: 'LiveObject'
+      comment: 'LiveObject',
     },
     SchemaManagement: {
-      data: ['Schema definition']
+      data: ['Schema definition'],
     },
     OfflineReads: {
       data: 'Query Cache',
-      comment: 'Previously accessed data is stored in-memory'
+      comment: 'Previously accessed data is stored in-memory',
     },
     OptimisticUpdates: {
       data: 'Yes',
     },
     OfflineWrites: {
       data: 'Cached offline writes',
-      comment: 'Full cached writes, stored in-memory, server will resolve conflict.'
+      comment:
+        'Full cached writes, stored in-memory, server will resolve conflict.',
     },
     DataSize: {
-      data: 'limited by device capabilities'
-    }
+      data: 'limited by device capabilities',
+    },
   },
   SynchronizationStrategy: {
     ConflictHandling: {
       data: 'Automatic via LWW or fractional indexing',
-      comment: 'Values: LWW, LiveObject: LWW at attribute level, LiveMap: LWW at entry level, LiveList: fractional indexing (for insertions) or LWW (for replacements)'
+      comment:
+        'Values: LWW, LiveObject: LWW at attribute level, LiveMap: LWW at entry level, LiveList: fractional indexing (for insertions) or LWW (for replacements)',
     },
     WhereResolutionOccurs: {
-      data: 'Server'
+      data: 'Server',
     },
     WhatGetsSynced: {
       data: {
         ClientToServer: 'ops',
-        ServerToClient: 'ops, acks, and fix-ops (when conflict was resolved)'
-      }
+        ServerToClient: 'ops, acks, and fix-ops (when conflict was resolved)',
+      },
     },
     Authority: {
-      data: 'Centralized'
-    }
+      data: 'Centralized',
+    },
   },
   AuthIdentity: {
     Encryption: {
-      data: 'transport-level (wss:// or https://)'
+      data: 'transport-level (wss:// or https://)',
     },
     AuthenticationMethod: {
-      data: ['JWT tokens', 'Public key']
+      data: ['JWT tokens', 'Public key'],
     },
     AuthorizationPermissions: {
       data: 'ID tokens and Access tokens',
-      comment: 'ID tokens (= permissions based on whats allowed on a per-room basis). Access tokens (= permissions granted in the token directly)'
-    }
+      comment:
+        'ID tokens (= permissions based on whats allowed on a per-room basis). Access tokens (= permissions granted in the token directly)',
+    },
   },
   UIRelated: {
     Components: {
-      data: ['Comments/Threads', 'Notifications', 'Presence']
-    }
+      data: ['Comments/Threads', 'Notifications', 'Presence'],
+    },
   },
   DevelopmentWorkflowsDX: {
     DebuggingTools: {
       data: ['DevTools', 'Dashboard', 'Data Inspector'],
-      comment: 'Viewing/editing data, events, usage, etc.'
+      comment: 'Viewing/editing data, events, usage, etc.',
     },
     CLI: {
-      data: 'CLI for installing examples, updating packages, creating your typescript config'
+      data: 'CLI for installing examples, updating packages, creating your typescript config',
     },
     TypeSupport: {
       data: 'Full type support',
-      comment: 'Via `liveblocks.config.ts`.'
-    }
-  }
+      comment: 'Via `liveblocks.config.ts`.',
+    },
+  },
 })

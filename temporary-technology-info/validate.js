@@ -1,6 +1,6 @@
 // @ts-check
-import { readdir } from 'node:fs/promises';
-import { join } from 'node:path';
+import { readdir } from 'node:fs/promises'
+import { join } from 'node:path'
 
 const directories = [
   'y-sweet',
@@ -15,19 +15,18 @@ const directories = [
   'basicdb',
   'ditto',
   'dxos',
-  'liveblocks-yjs'
-];
+  'liveblocks-yjs',
+]
 
 async function validateAll() {
   for (const dir of directories) {
     try {
-      const module = await import(`./${dir}/data.js`);
-      console.log(`✓ ${dir} validated successfully`);
+      const module = await import(`./${dir}/data.js`)
+      console.log(`✓ ${dir} validated successfully`)
     } catch (error) {
-      console.error(`✗ Error in ${dir}:`, error.message);
+      console.error(`✗ Error in ${dir}:`, error.message)
     }
   }
 }
 
-validateAll();
-
+validateAll()

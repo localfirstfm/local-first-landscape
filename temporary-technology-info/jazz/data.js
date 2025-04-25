@@ -10,129 +10,130 @@ export const data = LandscapeSchema.make({
   AppTarget: {
     Platform: {
       data: ['Browser', 'Node', 'iOS', 'Android'],
-      comment: 'iOS and Android support via React Native.'
+      comment: 'iOS and Android support via React Native.',
     },
     LanguageSDK: {
-      data: ['TypeScript']
+      data: ['TypeScript'],
     },
     FrameworkIntegrations: {
-      data: ['React', 'React Native', 'Vue', 'Svelte']
+      data: ['React', 'React Native', 'Vue', 'Svelte'],
     },
     ClientBundleSize: {
-      data: '112kb gzipped (jazz-react)'
-    }
+      data: '112kb gzipped (jazz-react)',
+    },
   },
   Networking: {
     Protocol: {
-      data: ['WebSockets']
+      data: ['WebSockets'],
     },
     Topology: {
       data: 'P2P',
-      comment: 'P2P via sync & storage servers. Servers are not stateless.'
-    }
+      comment: 'P2P via sync & storage servers. Servers are not stateless.',
+    },
   },
   ServerSideData: {
     PersistenceMechanism: {
-      data: ['SQLite', 'Custom']
+      data: ['SQLite', 'Custom'],
     },
     DataModelParadigm: {
-      data: 'Document'
+      data: 'Document',
     },
     SchemaManagement: {
-      data: ['Schema definition', 'Derived types', 'Schema migrations']
+      data: ['Schema definition', 'Derived types', 'Schema migrations'],
     },
     ExistingDatabaseSupport: {
-      data: 'manual sync to existing DBs'
+      data: 'manual sync to existing DBs',
     },
     DataSize: {
-      data: 'Unlimited, granular load & sync'
-    }
+      data: 'Unlimited, granular load & sync',
+    },
   },
   ClientSideData: {
     QueryAPI: {
-      data: ['Sync', 'Signals-based Reactivity']
+      data: ['Sync', 'Signals-based Reactivity'],
     },
     LocalRefreshLatency: {
-      data: '~1ms'
+      data: '~1ms',
     },
     PersistenceMechanism: {
-      data: ['IndexedDB', 'SQLite']
+      data: ['IndexedDB', 'SQLite'],
     },
     DataModel: {
-      data: 'Document'
+      data: 'Document',
     },
     SchemaManagement: {
-      data: ['Schema definition', 'Derived types', 'Schema migrations']
+      data: ['Schema definition', 'Derived types', 'Schema migrations'],
     },
     OfflineReads: {
-      data: 'Full Support'
+      data: 'Full Support',
     },
     OfflineWrites: {
-      data: 'Full local conflict resolution'
+      data: 'Full local conflict resolution',
     },
     DataSize: {
       data: 'limited by RAM',
-      comment: 'Soon limited only by disk.'
+      comment: 'Soon limited only by disk.',
     },
   },
   SynchronizationStrategy: {
     FullOrPartialReplication: {
       data: ['Partial Replication'],
-      comment: 'Partial replication on-demand or with explicit load depths.'
+      comment: 'Partial replication on-demand or with explicit load depths.',
     },
     ConflictHandling: {
-      data: 'Automatic via CRDT'
+      data: 'Automatic via CRDT',
     },
     WhereResolutionOccurs: {
-      data: 'Client'
+      data: 'Client',
     },
     WhatGetsSynced: {
       data: {
-        ClientToClient: 'CoValue headers, CoValue session diffs (transactions)'
-      }
+        ClientToClient: 'CoValue headers, CoValue session diffs (transactions)',
+      },
     },
     Authority: {
-      data: 'Decentralized'
+      data: 'Decentralized',
     },
     Latency: {
-      data: 'Close to network latency'
+      data: 'Close to network latency',
     },
     Throughput: {
       data: 'Roughly 5k transactions/s (structured data) or ~50MB/s (binary data)',
-      comment: 'Soon: limited only by number of participants (updates of any size by up to 5k participants/s)'
+      comment:
+        'Soon: limited only by number of participants (updates of any size by up to 5k participants/s)',
     },
     Concurrency: {
-      data: 'Support for granular prioritization'
-    }
+      data: 'Support for granular prioritization',
+    },
   },
   AuthIdentity: {
     Encryption: {
-      data: 'Built-in e2ee'
+      data: 'Built-in e2ee',
     },
     AuthenticationMethod: {
-      data: ['Built-in']
+      data: ['Built-in'],
     },
     AuthorizationPermissions: {
-      data: 'Built-in cryptographical hierarchical RBAC'
-    }
+      data: 'Built-in cryptographical hierarchical RBAC',
+    },
   },
   UIRelated: {
     RichTextEditing: {
-      data: 'Coming soon (incl. ProseMirror/TipTap/Lexical integration)'
+      data: 'Coming soon (incl. ProseMirror/TipTap/Lexical integration)',
     },
     Components: {
-      data: ['File upload', 'progressive image loading']
-    }
+      data: ['File upload', 'progressive image loading'],
+    },
   },
   DevelopmentWorkflowsDX: {
     DebuggingTools: {
-      data: ['Data Inspector']
+      data: ['Data Inspector'],
     },
     CLI: {
-      data: 'CLI for running local sync & storage server, for creating worker account'
+      data: 'CLI for running local sync & storage server, for creating worker account',
     },
     TypeSupport: {
-      data: 'Full type support without extra config'
-    }
-  }
+      data: 'Full type support without extra config',
+    },
+  },
 })

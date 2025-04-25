@@ -11,89 +11,93 @@ export const data = LandscapeSchema.make({
   AppTarget: {
     Platform: {
       data: ['Browser', 'Node', 'iOS', 'Android', 'macOS', 'Linux'],
-      comment: 'Limited only by y.js support.'
+      comment: 'Limited only by y.js support.',
     },
     LanguageSDK: {
-      data: ['TypeScript', 'Python']
+      data: ['TypeScript', 'Python'],
     },
     FrameworkIntegrations: {
-      data: ['React']
-    }
+      data: ['React'],
+    },
   },
   Networking: {
     Protocol: {
-      data: ['WebSockets', 'HTTP']
+      data: ['WebSockets', 'HTTP'],
     },
     Topology: {
-      data: 'Client-Server'
-    }
+      data: 'Client-Server',
+    },
   },
   ServerSideData: {
     PersistenceMechanism: {
-      data: ['S3-compatible object store']
+      data: ['S3-compatible object store'],
     },
     DataModelParadigm: {
-      data: 'Document'
+      data: 'Document',
     },
     ExistingDatabaseSupport: {
       data: 'Yes',
-      comment: 'In the "Figma architecture" sense: ground-truth document data only lives on S3, but document metadata exists in your existing DB.'
-    }
+      comment:
+        'In the "Figma architecture" sense: ground-truth document data only lives on S3, but document metadata exists in your existing DB.',
+    },
   },
   ClientSideData: {
     LocalRefreshLatency: {
-      data: '<1 ms'
+      data: '<1 ms',
     },
     PersistenceMechanism: {
-      data: ['IndexedDB']
+      data: ['IndexedDB'],
     },
     DataModel: {
-      data: 'Document'
+      data: 'Document',
     },
     SchemaManagement: {
-      data: ['No support']
+      data: ['No support'],
     },
     OfflineReads: {
-      data: 'Yes'
+      data: 'Yes',
     },
     OptimisticUpdates: {
-      data: 'Yes'
+      data: 'Yes',
     },
     OfflineWrites: {
-      data: 'Yes'
-    }
+      data: 'Yes',
+    },
   },
   SynchronizationStrategy: {
     ConflictHandling: {
       data: 'Automatic via CRDT',
-      comment: 'CRDT (YATA)'
+      comment: 'CRDT (YATA)',
     },
     WhereResolutionOccurs: {
-      data: 'Server'
+      data: 'Server',
     },
     WhatGetsSynced: {
       data: {
-        ClientToServer: 'mutations'
-      }
+        ClientToServer: 'mutations',
+      },
     },
     Authority: {
-      data: 'Centralized'
-    }
+      data: 'Centralized',
+    },
   },
   AuthIdentity: {
     Encryption: {
       data: 'Yes',
-      comment: 'Subject to the underlying object store used; most encrypt at rest by default; AES-GCM encryption on the client'
+      comment:
+        'Subject to the underlying object store used; most encrypt at rest by default; AES-GCM encryption on the client',
     },
     AuthenticationMethod: {
       data: ['Tokens'],
-      comment: 'Auth delegation from your application server based on temporary tokens.'
-    }
+      comment:
+        'Auth delegation from your application server based on temporary tokens.',
+    },
   },
   UIRelated: {
     Components: {
       data: ['y.js plugins', 'Presence'],
-      comment: 'Anything compatible with Yjs (Slate, BlockNote, Quill, Lexical, etc.)'
-    }
-  }
+      comment:
+        'Anything compatible with Yjs (Slate, BlockNote, Quill, Lexical, etc.)',
+    },
+  },
 })

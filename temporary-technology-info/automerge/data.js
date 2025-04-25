@@ -12,56 +12,57 @@ export const data = LandscapeSchema.make({
   Networking: {
     Topology: {
       data: 'P2P via Relay Servers',
-      comment: 'Coming soon: Beelay'
-    }
+      comment: 'Coming soon: Beelay',
+    },
   },
   ServerSideData: {
     PersistenceMechanism: {
-      data: ['N/A']
+      data: ['N/A'],
     },
     DataModelParadigm: {
-      data: 'Document'
-    }
+      data: 'Document',
+    },
   },
   ClientSideData: {
     QueryAPI: {
-      data: ['Async']
+      data: ['Async'],
     },
     PersistenceMechanism: {
-      data: ['IndexedDB']
+      data: ['IndexedDB'],
     },
     DataModel: {
-      data: 'Document'
+      data: 'Document',
     },
     OfflineReads: {
       data: 'Full Support',
-      comment: 'Full support within an automerge document.'
+      comment: 'Full support within an automerge document.',
     },
     OfflineWrites: {
-      data: 'Full local conflict resolution'
+      data: 'Full local conflict resolution',
     },
     DataSize: {
-      data: 'up to 5-10mb per doc'
-    }
+      data: 'up to 5-10mb per doc',
+    },
   },
   SynchronizationStrategy: {
     FullOrPartialReplication: {
       data: ['Full Replication'],
-      comment: 'Full replication within documents.'
+      comment: 'Full replication within documents.',
     },
     ConflictHandling: {
       data: 'Automatic via CRDT',
-      comment: 'Automatic via CRDTs for Maps, Lists, Text. If there are conflicts: LWW / MVCC.'
+      comment:
+        'Automatic via CRDTs for Maps, Lists, Text. If there are conflicts: LWW / MVCC.',
     },
     WhereResolutionOccurs: {
-      data: 'Client'
+      data: 'Client',
     },
     WhatGetsSynced: {
       data: { ClientToClient: 'ops' },
-      comment: 'Future: snapshots via relays'
+      comment: 'Future: snapshots via relays',
     },
     Authority: {
-      data: 'Decentralized'
-    }
-  }
+      data: 'Decentralized',
+    },
+  },
 })

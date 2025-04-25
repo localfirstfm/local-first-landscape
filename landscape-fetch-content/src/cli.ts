@@ -1,12 +1,12 @@
-import * as Cli from '@effect/cli'
-import { Array, Effect, Layer, Logger } from 'effect'
-import * as PlatformNode from '@effect/platform-node'
-import { FileSystem } from '@effect/platform'
-import packageJson from '../package.json' with { type: 'json' }
-import { repos } from './repos.js'
-import { fetchRepo } from './fetch-repo.js'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import * as Cli from '@effect/cli'
+import { FileSystem } from '@effect/platform'
+import * as PlatformNode from '@effect/platform-node'
+import { Array, Effect, Layer, Logger } from 'effect'
+import packageJson from '../package.json' with { type: 'json' }
+import { fetchRepo } from './fetch-repo.js'
+import { repos } from './repos.js'
 
 const targetDirOption = Cli.Options.directory('target-dir')
 const overrideTargetDirOption = Cli.Options.boolean('override-target-dir').pipe(

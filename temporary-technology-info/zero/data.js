@@ -14,88 +14,90 @@ export const data = LandscapeSchema.make({
   AppTarget: {
     Platform: {
       data: ['Browser', 'Node', 'iOS', 'Android'],
-      comment: 'Basically any JS environment.'
+      comment: 'Basically any JS environment.',
     },
     FrameworkIntegrations: {
-      data: ['React Native']
+      data: ['React Native'],
     },
     ClientBundleSize: {
-      data: '~40kb'
-    }
+      data: '~40kb',
+    },
   },
   Networking: {
     Protocol: {
-      data: ['WebSockets', 'HTTP']
+      data: ['WebSockets', 'HTTP'],
     },
     Topology: {
-      data: 'Client-Server'
-    }
+      data: 'Client-Server',
+    },
   },
   ServerSideData: {
     PersistenceMechanism: {
-      data: ['Postgres']
+      data: ['Postgres'],
     },
     DataModelParadigm: {
-      data: 'Relational'
+      data: 'Relational',
     },
     SchemaManagement: {
       data: ['Schema definition', 'Schema migrations'],
-      comment: 'Zero has built-in support for migrating schemas seamlessly across client and server.'
+      comment:
+        'Zero has built-in support for migrating schemas seamlessly across client and server.',
     },
     ExistingDatabaseSupport: {
-      data: 'Yes'
-    }
+      data: 'Yes',
+    },
   },
   ClientSideData: {
     QueryAPI: {
-      data: ['Reactive queries']
+      data: ['Reactive queries'],
     },
     LocalRefreshLatency: {
-      data: '<1ms'
+      data: '<1ms',
     },
     PersistenceMechanism: {
-      data: ['IndexedDB']
+      data: ['IndexedDB'],
     },
     DataModel: {
-      data: 'Relational'
+      data: 'Relational',
     },
     OfflineReads: {
       data: 'Query Cache',
-      comment: 'Developers choose data to be cached via query. Data is available to be queried while offline (even with novel queries)'
+      comment:
+        'Developers choose data to be cached via query. Data is available to be queried while offline (even with novel queries)',
     },
     OptimisticUpdates: {
-      data: 'Yes'
+      data: 'Yes',
     },
     OfflineWrites: {
-      data: 'No'
+      data: 'No',
     },
     DataSize: {
-      data: '25MB'
-    }
+      data: '25MB',
+    },
   },
   SynchronizationStrategy: {
     FullOrPartialReplication: {
       data: ['Partial Replication'],
-      comment: 'Via query caching.'
+      comment: 'Via query caching.',
     },
     ConflictHandling: {
       data: 'Server reconciliation or LWW',
-      comment: 'Automatic via keywise LWW or server reconciliation.'
+      comment: 'Automatic via keywise LWW or server reconciliation.',
     },
     WhereResolutionOccurs: {
-      data: 'Server'
+      data: 'Server',
     },
     WhatGetsSynced: {
       data: {
         ClientToServer: 'mutations',
-        ServerToClient: 'query results'
-      }
+        ServerToClient: 'query results',
+      },
     },
     Authority: {
-      data: 'Centralized'
+      data: 'Centralized',
     },
     Latency: {
-      data: 'Typically ~10ms over network time client<->server.'
-    }
-  }
+      data: 'Typically ~10ms over network time client<->server.',
+    },
+  },
 })

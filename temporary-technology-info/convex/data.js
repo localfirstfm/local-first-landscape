@@ -10,7 +10,7 @@ export const data = LandscapeSchema.make({
   Deployment: ['Hosted'],
   AppTarget: {
     Platform: {
-      data: ['Browser']
-    }
-  }
+      data: ['Browser'],
+    },
+  },
 })

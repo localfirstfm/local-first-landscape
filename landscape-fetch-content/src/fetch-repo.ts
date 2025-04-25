@@ -1,15 +1,15 @@
+import * as fs from 'node:fs'
+import path from 'node:path'
+import { LandscapeSchema } from '@localfirstfm/landscape-schema'
 import {
-  Array as ReadonlyArray,
+  Cause,
   Effect,
   Option,
-  Schema,
-  Cause,
   Predicate,
+  Array as ReadonlyArray,
+  Schema,
 } from 'effect'
 import { RepoInfo } from './repos.js'
-import path from 'node:path'
-import * as fs from 'node:fs'
-import { LandscapeSchema } from '@localfirstfm/landscape-schema'
 const dirname = import.meta.dirname
 
 const FileResponseSuccessSchema = Schema.Struct({

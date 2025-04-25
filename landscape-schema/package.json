@@ -1,27 +1,24 @@
 {
-	"name": "@localfirstfm/landscape-schema",
-	"version": "0.0.2",
-	"type": "module",
-	"exports": {
-		".": {
-			"types": "./dist/mod.d.ts",
-			"default": "./dist/mod.js"
-		}
-	},
-	"types": "./dist/mod.d.ts",
-	"files": [
-		"dist",
-		"src"
-	],
-	"scripts": {
-		"build": "tsc"
-	},
-	"dependencies": {},
-	"peerDependencies": {
-		"effect": "3.12.x"
-	},
-	"devDependencies": {
-		"effect": "3.12.0",
-		"typescript": "^5.7.2"
-	}
+  "name": "@localfirstfm/landscape-schema",
+  "version": "0.0.2",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/mod.d.ts",
+      "default": "./dist/mod.js"
+    }
+  },
+  "types": "./dist/mod.d.ts",
+  "files": ["dist", "src"],
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "effect": "3.12.x"
+  },
+  "devDependencies": {
+    "effect": "3.12.0",
+    "typescript": "^5.7.2"
+  }
 }
