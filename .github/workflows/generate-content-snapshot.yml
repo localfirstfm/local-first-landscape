@@ -56,3 +56,12 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git commit -m "chore: update content snapshot [skip ci]"
           git push
+
+      - name: Trigger localfirst.fm rebuild
+        # Ensure this only runs if the push was successful or the whole job succeeded
+        if: success()
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.LOCALFIRST_FM_PAT }}
+          repository: schickling/localfirst.fm
+          event-type: content-snapshot-updated
