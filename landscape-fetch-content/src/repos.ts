@@ -85,9 +85,9 @@ export const repos = Schema.decodeSync(Schema.Array(RepoInfo))([
   },
   {
     id: 'powersync',
-    owner: 'localfirstfm',
-    repo: 'local-first-landscape',
-    basePath: 'temporary-technology-info/powersync',
+    owner: 'powersync-ja',
+    repo: 'local-first-landscape-data',
+    basePath: '',
   },
   {
     id: 'triplit',
