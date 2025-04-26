@@ -2,12 +2,17 @@
   "Version": 1,
   "Id": "powersync",
   "Name": "PowerSync",
-  "Website": "https://powersync.com",
+  "Description": "Syncs between SQLite on the client-side and Postgres, MongoDB or MySQL on the server-side.",
+  "MaturityLevel": "Production-Ready",
+  "Website": "https://www.powersync.com",
+  "GitHub": "https://github.com/powersync-ja",
+  "UniquenessNote": "Sync Rules allow flexible dynamic partial syncing. Write path is fully customizable through your own backend.",
+  "InitialReleaseDate": "2023-11-30T00:00:00.000Z",
   "Deployment": [
     "Self-hosted",
     "Hosted"
   ],
-  "License": "FSL-Apach 2.0",
+  "License": "FSL-Apache 2.0 (Service) & Apache 2.0 (SDKs)",
   "AppTarget": {
     "Platform": {
       "data": [
@@ -25,7 +30,8 @@
         "Swift",
         "Kotlin",
         "Rust",
-        "Dart"
+        "Dart",
+        ".NET"
       ]
     },
     "FrameworkIntegrations": {
@@ -160,6 +166,6 @@
     }
   },
   "__generated": {
-    "lastUpdated": "2025-04-26T00:52:11.755Z"
+    "lastUpdated": "2025-04-26T01:09:17.000Z"
   }
 }
