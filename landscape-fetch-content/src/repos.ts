@@ -21,9 +21,9 @@ export const repos = Schema.decodeSync(Schema.Array(RepoInfo))([
   },
   {
     id: 'automerge',
-    owner: 'localfirstfm',
-    repo: 'local-first-landscape',
-    basePath: 'temporary-technology-info/automerge',
+    owner: 'automerge',
+    repo: 'local-first-landscape-data',
+    basePath: '',
   },
   {
     id: 'electricsql',
