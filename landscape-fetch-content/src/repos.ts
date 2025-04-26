@@ -61,9 +61,9 @@ export const repos = Schema.decodeSync(Schema.Array(RepoInfo))([
   },
   {
     id: 'dxos',
-    owner: 'localfirstfm',
-    repo: 'local-first-landscape',
-    basePath: 'temporary-technology-info/dxos',
+    owner: 'dxos',
+    repo: 'local-first-landscape-data',
+    basePath: '',
   },
   {
     id: 'basic',
