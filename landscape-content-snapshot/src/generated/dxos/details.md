@@ -1,16 +1,15 @@
-## General
+# DXOS
 
-Lorem ipsum dolor sit amet consectetur. Penatibus viverra quam massa leo suspendisse. Est porttitor donec integer luctus sed sed ipsum in adipiscing. Nunc pharetra lacus iaculis tristique penatibus dolor sit.
+The new standard for building collaborative local-first software.
 
-![Architecture diagram](https://i.imgur.com/xCOK0b7.jpeg)
+DXOS is an open source framework for building real-time, collaborative web applications that run entirely on the client and communicate peer-to-peer, without the need for centralized servers.
 
-## The Story
+To show off the power of DXOS, we've built [Composer](https://dxos.org/composer). A local-first workspace that is designed for small team collaboration.
 
-Lorem ipsum dolor sit amet consectetur. Penatibus viverra quam massa leo suspendisse. Est porttitor donec integer luctus sed sed ipsum in adipiscing. Nunc pharetra lacus iaculis tristique penatibus dolor sit. Lorem ipsum dolor sit amet consectetur. Penatibus viverra quam massa leo suspendisse. Est porttitor donec integer luctus sed sed ipsum in adipiscing. Nunc pharetra lacus iaculis tristique penatibus dolor sit. Lorem ipsum dolor sit amet consectetur. Penatibus viverra quam massa leo suspendisse. Est porttitor donec integer luctus sed sed ipsum in adipiscing. Nunc pharetra lacus iaculis tristique penatibus dolor sit.
+## Features
 
-## Resources
+- **Client-side databases that scale**: ECHO is an open source database architecture that incorporates transparent data replication and conflict resolution for secure and scalable local storage.
+- **Seamless Public/Private key identities**: HALO seamlessly manages digital identities using public/private key pairs allowing nuanced control over access to applications, databases, and networked devices.
+- **Performant Peer-to-Peer networks**: MESH extends existing internet protocols to enable secure and resilient peer-to-peer networks without the need for centralized server infrastructure.
+- **Seamless Collaboration**: Add realtime collaboration to your local-first application without the complexity of building your own sync engine.
 
-Lorem ipsum dolor sit amet consectetur. Penatibus viverra quam massa leo suspendisse.
-
-- [Website](https://dxos.org)
-- [Documentation](https://docs.dxos.org/guide/)
