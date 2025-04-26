@@ -2,23 +2,81 @@
   "Version": 1,
   "Id": "automerge",
   "Name": "Automerge",
+  "Description": "Automerge enables local first applications by providing generic version control for JSON documents",
+  "MaturityLevel": "Production-Ready",
   "Website": "https://automerge.org",
+  "GitHub": "https://github.com/automerge/automerge",
   "GetStarted": "https://automerge.org/docs/hello/",
+  "NotableAdopters": [
+    {
+      "Name": "GoodNotes",
+      "URL": "https://github.com/automerge/automerge"
+    },
+    {
+      "Name": "Bowtie",
+      "URL": "https://www.bowtie.security/"
+    }
+  ],
   "Deployment": [
     "Self-hosted"
   ],
   "License": "MIT",
+  "AppTarget": {
+    "Platform": {
+      "data": [
+        "Browser",
+        "Node",
+        "iOS",
+        "Android",
+        "macOS",
+        "Linux",
+        "Windows",
+        "WASM"
+      ],
+      "comment": "Automerge itself supports all these platforms, but the automerge-repo companion library is currently only available in JavaScript environments (excluding React Native) and Swift environments. Other platforms are in development."
+    },
+    "LanguageSDK": {
+      "data": [
+        "JavaScript",
+        "TypeScript",
+        "Swift",
+        "Rust",
+        "Go",
+        "Java",
+        "Kotlin"
+      ],
+      "comment": "The officially supported languages are JavaScript, TypeScript, Swift, and Rust. Go, Java and Kotlin are best-effort but tend to lag behind the official implementations"
+    },
+    "FrameworkIntegrations": {
+      "data": [
+        "React",
+        "Svelte"
+      ]
+    },
+    "ClientBundleSize": {
+      "data": "~800Kb gzipped"
+    }
+  },
   "Networking": {
+    "Protocol": {
+      "data": [
+        "WebSockets",
+        "TCP"
+      ],
+      "comment": "The Automerge sync protocol runs over anything which provides an in-order byte stream"
+    },
     "Topology": {
-      "data": "P2P via Relay Servers",
-      "comment": "Coming soon: Beelay"
+      "data": "Topology-agnostic",
+      "comment": "Typical deployments use a central relay server with opportunistic peer-to-peer"
     }
   },
   "ServerSideData": {
     "PersistenceMechanism": {
       "data": [
-        "N/A"
-      ]
+        "Local file system",
+        "Custom"
+      ],
+      "comment": "Automerge can use any storage mechanism which supports key/value storage with range queries. There are community maintained adapters for many storage backends including PostgreSQL and S3"
     },
     "DataModelParadigm": {
       "data": "Document"
@@ -30,17 +88,22 @@
         "Async"
       ]
     },
+    "LocalRefreshLatency": {
+      "data": "~10-100ms"
+    },
     "PersistenceMechanism": {
       "data": [
-        "IndexedDB"
-      ]
+        "IndexedDB",
+        "Local file system",
+        "Custom"
+      ],
+      "comment": "Automerge can use any storage mechanism which supports key/value storage with range queries"
     },
     "DataModel": {
       "data": "Document"
     },
     "OfflineReads": {
-      "data": "Full Support",
-      "comment": "Full support within an automerge document."
+      "data": "Full Support"
     },
     "OfflineWrites": {
       "data": "Full local conflict resolution"
@@ -53,27 +116,31 @@
     "FullOrPartialReplication": {
       "data": [
         "Full Replication"
-      ],
-      "comment": "Full replication within documents."
+      ]
     },
     "ConflictHandling": {
       "data": "Automatic via CRDT",
-      "comment": "Automatic via CRDTs for Maps, Lists, Text. If there are conflicts: LWW / MVCC."
+      "comment": "All changes are recorded and conflicts can be examined and resolved later"
     },
     "WhereResolutionOccurs": {
       "data": "Client"
     },
     "WhatGetsSynced": {
       "data": {
+        "ClientToServer": "ops",
+        "ServerToClient": "ops",
         "ClientToClient": "ops"
       },
-      "comment": "Future: snapshots via relays"
+      "comment": "There is no distinction between client and server in Automerge"
     },
     "Authority": {
       "data": "Decentralized"
+    },
+    "Latency": {
+      "data": "~10-100ms"
     }
   },
   "__generated": {
-    "lastUpdated": "2025-04-26T22:02:39.931Z"
+    "lastUpdated": "2025-04-25T13:32:27.000Z"
   }
 }
