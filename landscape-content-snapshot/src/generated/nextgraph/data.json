@@ -38,6 +38,10 @@
         "React",
         "Svelte"
       ]
+    },
+    "ClientBundleSize": {
+      "data": "4 kB compressed",
+      "comment": "not including Automerge or Yjs dependencies"
     }
   },
   "Networking": {
@@ -160,6 +164,6 @@
     }
   },
   "__generated": {
-    "lastUpdated": "2025-04-28T21:24:31.000Z"
+    "lastUpdated": "2025-04-29T14:47:05.000Z"
   }
 }
