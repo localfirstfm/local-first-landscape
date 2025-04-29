@@ -1,0 +1,165 @@
+{
+  "Version": 1,
+  "Id": "nextgraph",
+  "Name": "NextGraph",
+  "Description": "Decentralized and local-first web 3.0 ecosystem (everything apps and framework/SDK)",
+  "MaturityLevel": "Alpha",
+  "Website": "https://nextgraph.org",
+  "GitHub": "https://git.nextgraph.org/NextGraph/nextgraph-rs",
+  "UniquenessNote": "convergence of Linked Data, P2P, and local-first",
+  "InitialReleaseDate": "2024-09-02T00:00:00.000Z",
+  "Deployment": [
+    "Self-hosted",
+    "Hosted"
+  ],
+  "License": "MIT",
+  "AppTarget": {
+    "Platform": {
+      "data": [
+        "Browser",
+        "Node",
+        "iOS",
+        "Android",
+        "macOS",
+        "WASM",
+        "Linux"
+      ]
+    },
+    "LanguageSDK": {
+      "data": [
+        "TypeScript",
+        "JavaScript",
+        "Rust",
+        "Python"
+      ]
+    },
+    "FrameworkIntegrations": {
+      "data": [
+        "React",
+        "Svelte"
+      ]
+    }
+  },
+  "Networking": {
+    "Protocol": {
+      "data": [
+        "WebSockets"
+      ]
+    },
+    "Topology": {
+      "data": "P2P via Relay Servers"
+    }
+  },
+  "ServerSideData": {
+    "PersistenceMechanism": {
+      "data": [
+        "Custom"
+      ]
+    },
+    "DataModelParadigm": {
+      "data": "Document",
+      "comment": "Document-oriented and graph (RDF)"
+    }
+  },
+  "ClientSideData": {
+    "QueryAPI": {
+      "data": [
+        "Async",
+        "Sync",
+        "Signals-based Reactivity"
+      ]
+    },
+    "PersistenceMechanism": {
+      "data": [
+        "Yjs",
+        "OPFS",
+        "RocksDB"
+      ]
+    },
+    "PersistenceFeatures": {
+      "data": "Indexes",
+      "comment": "also with Full-text search and Transactions"
+    },
+    "DataModel": {
+      "data": "Document",
+      "comment": "Document-oriented and graph (RDF)"
+    },
+    "SchemaManagement": {
+      "data": [
+        "Schema definition",
+        "Schema validation on write"
+      ]
+    },
+    "OfflineReads": {
+      "data": "Full Support"
+    },
+    "OptimisticUpdates": {
+      "data": "Yes"
+    },
+    "OfflineWrites": {
+      "data": "Local conflict resolution"
+    }
+  },
+  "SynchronizationStrategy": {
+    "FullOrPartialReplication": {
+      "data": [
+        "Full Replication",
+        "Partial Replication"
+      ]
+    },
+    "ConflictHandling": {
+      "data": "Automatic via CRDT",
+      "comment": "supports Automerge, Yjs and RDF"
+    },
+    "WhereResolutionOccurs": {
+      "data": "Client"
+    },
+    "WhatGetsSynced": {
+      "data": {
+        "ClientToClient": "Commits"
+      }
+    },
+    "Authority": {
+      "data": "Decentralized"
+    }
+  },
+  "AuthIdentity": {
+    "Encryption": {
+      "data": "Yes",
+      "comment": "end-to-end encryption + encryption at rest"
+    },
+    "AuthenticationMethod": {
+      "data": [
+        "Built-in",
+        "Public keys"
+      ]
+    },
+    "AuthorizationPermissions": {
+      "data": "Cryptographic Capabilities"
+    }
+  },
+  "UIRelated": {
+    "RichTextEditing": {
+      "data": "Yes"
+    },
+    "Components": {
+      "data": [
+        "reusable Editors",
+        "reusable Viewers",
+        "Auth with Wallet",
+        "Malleable software"
+      ]
+    }
+  },
+  "DevelopmentWorkflowsDX": {
+    "CLI": {
+      "data": "Command line interface tools for developers and end-users"
+    },
+    "TypeSupport": {
+      "data": "type support via LDO"
+    }
+  },
+  "__generated": {
+    "lastUpdated": "2025-04-28T21:24:31.000Z"
+  }
+}

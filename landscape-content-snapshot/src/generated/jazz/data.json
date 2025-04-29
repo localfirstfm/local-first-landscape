@@ -2,6 +2,12 @@
   "Version": 1,
   "Id": "jazz",
   "Name": "Jazz",
+  "Description": "Toolkit for backendless apps.",
+  "MaturityLevel": "Production-Ready",
+  "Website": "https://jazz.tools",
+  "GitHub": "https://github.com/garden-co/jazz",
+  "GetStarted": "https://jazz.tools/docs",
+  "InitialReleaseDate": "2023-09-11T00:00:00.000Z",
   "Deployment": [
     "Self-hosted",
     "Hosted"
@@ -98,8 +104,11 @@
     "OfflineReads": {
       "data": "Full Support"
     },
+    "OptimisticUpdates": {
+      "data": "Yes"
+    },
     "OfflineWrites": {
-      "data": "Full local conflict resolution"
+      "data": "Local conflict resolution"
     },
     "DataSize": {
       "data": "limited by RAM",
@@ -140,7 +149,8 @@
   },
   "AuthIdentity": {
     "Encryption": {
-      "data": "Built-in e2ee"
+      "data": "Yes",
+      "comment": "Built-in e2ee"
     },
     "AuthenticationMethod": {
       "data": [
@@ -153,7 +163,8 @@
   },
   "UIRelated": {
     "RichTextEditing": {
-      "data": "Coming soon (incl. ProseMirror/TipTap/Lexical integration)"
+      "data": "Yes",
+      "comment": "ProseMirror integration"
     },
     "Components": {
       "data": [
@@ -177,6 +188,6 @@
     }
   },
   "__generated": {
-    "lastUpdated": "2025-04-16T09:39:00.000Z"
+    "lastUpdated": "2025-04-29T12:51:37.000Z"
   }
 }

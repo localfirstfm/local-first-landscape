@@ -1,15 +1,22 @@
-# SuperSync
+# Jazz
 
-SuperSync is a cool way to sync your data.
+## Toolkit for backendless apps.
+
+Jazz gives you data without needing a database — plus auth, permissions, files and multiplayer without needing a backend.
+
+Do everything right from the frontend and ship better apps, faster.
+
+Open source. Self-host or use Jazz Cloud for zero-config magic.
 
 ## Features
 
-- **SuperSync**: Sync your data with ease.
-- **Local-first**: Your data is stored locally, ensuring privacy and security.
-- **Cross-platform**: Works on all major platforms.
-- **Open-source**: The code is available for anyone to use and contribute to.
-- **Community-driven**: Join our community and help us improve the project.
+- Instant updates
+- Real-time sync
+- Multiplayer
+- File uploads
+- Social features
+- Permissions
+- E2E encryption
+- Authentication
 
-## More info
-
-...
+Find out how it works and more details at [jazz.tools](https://jazz.tools)

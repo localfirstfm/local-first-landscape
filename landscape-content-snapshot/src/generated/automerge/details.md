@@ -1,5 +1,9 @@
 # Automerge
 
+[Get Started](https://automerge.org/docs/quickstart/)
+
+---
+
 Automerge is a toolkit which makes building collaborative, local first applications which don't depend on servers feel as easy as building local only prototypes. We do this by thinking of the problem of local first collaboration as a version control problem - every peer has a different version of the data and Automerge provides tools to easily synchronise different versions, examine, history, and merge changes.
 
 This gives us a number of benefits:
