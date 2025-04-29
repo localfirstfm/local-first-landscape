@@ -26,5 +26,5 @@ Most apps today are built on a simple assumption: data lives on the app’s serv
 ## Getting Started
 
 - [Check out the docs](https://docs.basic.tech) to learn more.
-- [Read more about personal data stores](https://docs.basic.tech/info/user-owned-data-stores).
+- [Read more about personal data stores](https://docs.basic.tech/readings/user-owned-data-stores).
 - [Join our Discord](https://discord.gg/M57gcazvYk) to chat with the team or ask questions.

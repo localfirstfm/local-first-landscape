@@ -1,16 +1,13 @@
-## General
+# Zero
 
-Lorem ipsum dolor sit amet consectetur. Penatibus viverra quam massa leo suspendisse. Est porttitor donec integer luctus sed sed ipsum in adipiscing. Nunc pharetra lacus iaculis tristique penatibus dolor sit.
+Zero is a general-purpose sync engine for the web.
 
-![Architecture diagram](https://i.imgur.com/xCOK0b7.jpeg)
+You put Zero in front of your database or web service, and we distribute your backend all the way to main thread of the UI. You get a client-side API that _looks_ like an embedded db, but to which you can issue arbitrary _hybrid queries_ that span the entire database, including the server.
 
-## The Story
+![code sample](https://i.imgur.com/dfdeD7y.png)
 
-Lorem ipsum dolor sit amet consectetur. Penatibus viverra quam massa leo suspendisse. Est porttitor donec integer luctus sed sed ipsum in adipiscing. Nunc pharetra lacus iaculis tristique penatibus dolor sit. Lorem ipsum dolor sit amet consectetur. Penatibus viverra quam massa leo suspendisse. Est porttitor donec integer luctus sed sed ipsum in adipiscing. Nunc pharetra lacus iaculis tristique penatibus dolor sit. Lorem ipsum dolor sit amet consectetur. Penatibus viverra quam massa leo suspendisse. Est porttitor donec integer luctus sed sed ipsum in adipiscing. Nunc pharetra lacus iaculis tristique penatibus dolor sit.
+Behind the scenes, we synchronize queries results continuously to a client-side persistent cache. This cache is used automatically for future queries whenever possible.
 
-## Resources
+## More info
 
-Lorem ipsum dolor sit amet consectetur. Penatibus viverra quam massa leo suspendisse.
-
-- [Website](https://zero.rocicorp.dev/)
-- [Documentation](https://zero.rocicorp.dev/docs/introduction)
+To learn more, see [zerosync.dev](https://zerosync.dev/).

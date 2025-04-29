@@ -3,7 +3,9 @@
   "Id": "triplit",
   "Name": "Triplit",
   "Description": "The Typescript-first database that handles caching and syncing for your app automatically",
+  "MaturityLevel": "Production-Ready",
   "Website": "https://triplit.dev",
+  "InitialReleaseDate": "2023-07-27T00:00:00.000Z",
   "Deployment": [
     "Self-hosted",
     "Hosted"
@@ -13,12 +15,16 @@
     "Platform": {
       "data": [
         "Browser",
-        "Node"
+        "Node",
+        "Deno",
+        "Bun",
+        "Cloudflare Workers",
+        "Hermes"
       ]
     },
     "LanguageSDK": {
       "data": [
-        "typescript"
+        "Typescript"
       ]
     },
     "FrameworkIntegrations": {
@@ -29,6 +35,9 @@
         "Angular",
         "React Native"
       ]
+    },
+    "ClientBundleSize": {
+      "data": "~70kB (gzip) "
     }
   },
   "Networking": {
@@ -49,18 +58,28 @@
         "Cloudflare Durable Object Storage",
         "Custom"
       ],
-      "comment": "Adapter for k-v stores."
+      "comment": "Pluggable with simple Key-Value interface"
     },
     "DataModelParadigm": {
       "data": "Relational"
+    },
+    "SchemaManagement": {
+      "data": [
+        "Derived types",
+        "Schema migrations",
+        "Validate schemas on write"
+      ]
     }
   },
   "ClientSideData": {
     "QueryAPI": {
       "data": [
         "Async",
-        "Signals-based Reactivity"
+        "Reactive queries"
       ]
+    },
+    "LocalRefreshLatency": {
+      "data": "~1ms"
     },
     "PersistenceMechanism": {
       "data": [
@@ -71,7 +90,7 @@
       "comment": "Adapter for k-v stores."
     },
     "PersistenceFeatures": {
-      "data": "Indexes"
+      "data": "Transactions"
     },
     "DataModel": {
       "data": "Relational"
@@ -84,6 +103,9 @@
     "OfflineReads": {
       "data": "Query Cache",
       "comment": "Subscribed queries have full db support including novel queries"
+    },
+    "OptimisticUpdates": {
+      "data": "Yes"
     },
     "OfflineWrites": {
       "data": "Cached offline writes"
@@ -106,8 +128,8 @@
     },
     "WhatGetsSynced": {
       "data": {
-        "ClientToServer": "Only changes",
-        "ServerToClient": "Only changes"
+        "ClientToServer": "Minimal deltas",
+        "ServerToClient": "Normalized query results, depuded across subscriptions then minimal deltas for changes"
       }
     },
     "Authority": {
@@ -124,7 +146,23 @@
       "data": "Custom mapping from token attributes to query filters"
     }
   },
+  "DevelopmentWorkflowsDX": {
+    "DebuggingTools": {
+      "data": [
+        "DevTools",
+        "Network Inspector",
+        "Data Inspector",
+        "Dashboard"
+      ]
+    },
+    "CLI": {
+      "data": "Yes"
+    },
+    "TypeSupport": {
+      "data": "Yes"
+    }
+  },
   "__generated": {
-    "lastUpdated": "2025-04-16T19:15:34.000Z"
+    "lastUpdated": "2025-04-29T03:07:26.000Z"
   }
 }

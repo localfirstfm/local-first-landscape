@@ -2,6 +2,11 @@
 
 Triplit is the database that's in sync with your front-end.
 
+## Get Started with Triplit Cloud or Self-Hosted today
+
+Website: [https://triplit.dev](https://triplit.dev)
+Github: [aspen-cloud/triplit](https://github.com/aspen-cloud/triplit)
+
 ## Features
 
 🔄 Real-time sync with incremental updates and conflict resolution at the property level
