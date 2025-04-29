@@ -33,6 +33,7 @@ To edit the information for an existing technology, you need to open a Pull Requ
 | [Jazz](placeholder-homepage-jazz)                                                       | [`garden-co/jazz-lofi-landscape`](https://github.com/garden-co/jazz-lofi-landscape)               |
 | [Liveblocks](placeholder-homepage-liveblocks)                                           | [`liveblocks/local-first-landscape-data`](https://github.com/liveblocks/local-first-landscape-data)     |
 | [LiveStore](placeholder-homepage-livestore)                                             | [`livestorejs/local-first-landscape`](https://github.com/livestorejs/local-first-landscape)           |
+| [NextGraph](https://nextgraph.org)                                                      | [`nextgraph-org/landscape-data`](https://github.com/nextgraph-org/landscape-data)           |
 | [PowerSync](placeholder-homepage-powersync)                                             | [`powersync-ja/local-first-landscape-data`](https://github.com/powersync-ja/local-first-landscape-data) |
 | [TinyBase](placeholder-homepage-tinybase)                                               | [`tinyplex/tinybase-landscape-data`](https://github.com/tinyplex/tinybase-landscape-data)           |
 | [Triplit](placeholder-homepage-triplit)                                                 | [`aspen-cloud/local-first-landscape-data`](https://github.com/aspen-cloud/local-first-landscape-data) |
