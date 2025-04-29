@@ -14,6 +14,12 @@ export type RepoInfo = typeof RepoInfo.Type
 
 export const repos = Schema.decodeSync(Schema.Array(RepoInfo))([
   {
+    id: 'nextgraph',
+    owner: 'nextgraph-org',
+    repo: 'landscape-data',
+    basePath: '',
+  },
+  {
     id: 'yjs',
     owner: 'yjs',
     repo: 'local-first-landscape-data',
