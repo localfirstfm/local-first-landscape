@@ -7,6 +7,9 @@
     "build": "tsc",
     "fetch-content": "bun src/cli.ts --target-dir ../landscape-content-snapshot/src/generated"
   },
+  "exports": {
+    "./repos": "./src/repos.ts"
+  },
   "dependencies": {
     "@localfirstfm/landscape-schema": "workspace:*",
     "effect": "3.12.0",
