@@ -119,4 +119,10 @@ export const repos = Schema.decodeSync(Schema.Array(RepoInfo))([
     repo: 'loro-landscape-data',
     basePath: '',
   },
+  {
+    id: 'instant',
+    owner: 'instantdb',
+    repo: 'local-first-landscape-data',
+    basePath: '',
+  },
 ])
