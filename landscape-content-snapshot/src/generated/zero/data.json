@@ -15,7 +15,7 @@
   "Deployment": [
     "Self-hosted"
   ],
-  "License": "FSL-Apach 2.0",
+  "License": "Apache-2.0",
   "AppTarget": {
     "Platform": {
       "data": [
@@ -207,6 +207,6 @@
     }
   },
   "__generated": {
-    "lastUpdated": "2025-04-29T01:19:18.000Z"
+    "lastUpdated": "2025-04-29T20:52:30.000Z"
   }
 }

@@ -7,6 +7,7 @@
   "Website": "https://automerge.org",
   "GitHub": "https://github.com/automerge/automerge",
   "GetStarted": "https://automerge.org/docs/hello/",
+  "InitialReleaseDate": "2017-01-01T00:00:00.000Z",
   "NotableAdopters": [
     {
       "Name": "GoodNotes",
@@ -66,7 +67,7 @@
       "comment": "The Automerge sync protocol runs over anything which provides an in-order byte stream"
     },
     "Topology": {
-      "data": "Topology-agnostic",
+      "data": "P2P",
       "comment": "Typical deployments use a central relay server with opportunistic peer-to-peer"
     }
   },
@@ -106,7 +107,7 @@
       "data": "Full Support"
     },
     "OfflineWrites": {
-      "data": "Full local conflict resolution"
+      "data": "Local conflict resolution"
     },
     "DataSize": {
       "data": "up to 5-10mb per doc"
@@ -140,7 +141,32 @@
       "data": "~10-100ms"
     }
   },
+  "AuthIdentity": {
+    "Encryption": {
+      "data": "Transport-level encryption"
+    },
+    "AuthenticationMethod": {
+      "data": [
+        "Full Custom"
+      ]
+    },
+    "AuthorizationPermissions": {
+      "data": "Custom"
+    }
+  },
+  "UIRelated": {
+    "RichTextEditing": {
+      "data": "Yes"
+    },
+    "Components": {
+      "data": [
+        "ProseMirror plugin",
+        "CodeMirror plugin",
+        "React hooks"
+      ]
+    }
+  },
   "__generated": {
-    "lastUpdated": "2025-04-25T13:32:27.000Z"
+    "lastUpdated": "2025-04-29T17:35:36.000Z"
   }
 }
