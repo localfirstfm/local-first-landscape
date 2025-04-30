@@ -113,4 +113,10 @@ export const repos = Schema.decodeSync(Schema.Array(RepoInfo))([
     repo: 'y-sweet',
     basePath: 'local-first-landscape',
   },
+  {
+    id: 'loro',
+    owner: 'loro-dev',
+    repo: 'loro-landscape-data',
+    basePath: '',
+  },
 ])
