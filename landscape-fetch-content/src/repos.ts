@@ -86,7 +86,7 @@ export const repos = Schema.decodeSync(Schema.Array(RepoInfo))([
   {
     id: 'ditto',
     owner: 'ditto',
-    repo: 'localfirst-landscape-data',
+    repo: 'local-first-landscape-data',
     basePath: 'getditto',
   },
   {
