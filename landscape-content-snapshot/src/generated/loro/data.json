@@ -1,0 +1,140 @@
+{
+  "Version": 1,
+  "Id": "loro",
+  "Name": "Loro",
+  "Description": "Make your JSON data collaborative and version-controlled with CRDTs",
+  "MaturityLevel": "Production-Ready",
+  "Logo": {
+    "Light": "https://github.com/loro-dev/loro/blob/main/docs/Loro.svg",
+    "Dark": "https://github.com/loro-dev/loro/blob/main/docs/Loro.svg"
+  },
+  "Website": "https://loro.dev",
+  "GitHub": "https://github.com/loro-dev/loro",
+  "GetStarted": "https://loro.dev/docs/tutorial/get_started",
+  "InitialReleaseDate": "2023-11-13T00:00:00.000Z",
+  "Deployment": [
+    "Self-hosted"
+  ],
+  "License": "MIT",
+  "AppTarget": {
+    "Platform": {
+      "data": [
+        "Browser",
+        "Node",
+        "iOS",
+        "macOS",
+        "WASM",
+        "Linux"
+      ]
+    },
+    "LanguageSDK": {
+      "data": [
+        "typescript",
+        "javascript",
+        "Rust",
+        "Swift",
+        "Python"
+      ]
+    },
+    "ClientBundleSize": {
+      "data": "~900 kB"
+    }
+  },
+  "Networking": {
+    "Protocol": {
+      "data": [
+        "WebSockets",
+        "HTTP"
+      ]
+    },
+    "Topology": {
+      "data": "P2P"
+    }
+  },
+  "ServerSideData": {
+    "PersistenceMechanism": {
+      "data": [
+        "Custom"
+      ]
+    },
+    "DataModelParadigm": {
+      "data": "Document"
+    }
+  },
+  "ClientSideData": {
+    "QueryAPI": {
+      "data": [
+        "Async"
+      ]
+    },
+    "LocalRefreshLatency": {
+      "data": "~1ms"
+    },
+    "PersistenceMechanism": {
+      "data": [
+        "IndexedDB",
+        "Custom"
+      ]
+    },
+    "DataModel": {
+      "data": "Document"
+    },
+    "OfflineReads": {
+      "data": "Full Support"
+    },
+    "OfflineWrites": {
+      "data": "Local conflict resolution"
+    },
+    "DataSize": {
+      "data": "Up to 5-10 MB per document"
+    }
+  },
+  "SynchronizationStrategy": {
+    "FullOrPartialReplication": {
+      "data": [
+        "Full Replication"
+      ]
+    },
+    "ConflictHandling": {
+      "data": "Automatic via CRDT"
+    },
+    "WhereResolutionOccurs": {
+      "data": "Client"
+    },
+    "WhatGetsSynced": {
+      "data": {
+        "ClientToServer": "Ops",
+        "ServerToClient": "Ops",
+        "ClientToClient": "Ops"
+      }
+    },
+    "Authority": {
+      "data": "Decentralized"
+    }
+  },
+  "UIRelated": {
+    "RichTextEditing": {
+      "data": "Yes"
+    },
+    "Components": {
+      "data": [
+        "ProseMirror",
+        "CodeMirror"
+      ]
+    }
+  },
+  "DevelopmentWorkflowsDX": {
+    "DebuggingTools": {
+      "data": [
+        "Data Inspector"
+      ],
+      "comment": "https://loro.dev/docs/advanced/inspector"
+    },
+    "TypeSupport": {
+      "data": "TypeScript"
+    }
+  },
+  "__generated": {
+    "lastUpdated": "2025-04-30T09:20:37.000Z"
+  }
+}
