@@ -43,3 +43,6 @@ To edit the information for an existing technology, you need to open a Pull Requ
 
 Make your changes to the relevant files in that repository.
 
+> [!NOTE]
+> The content for each technology is automatically pulled from its respective repository and regenerated **daily at 00:00 UTC**. Changes made in the source repositories will only be reflected in the website after the next daily update.
+
