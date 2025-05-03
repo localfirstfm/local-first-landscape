@@ -18,6 +18,7 @@ import triplitJson from './triplit/data.json' with { type: 'json' }
 import tinybaseJson from './tinybase/data.json' with { type: 'json' }
 import y_sweetJson from './y-sweet/data.json' with { type: 'json' }
 import loroJson from './loro/data.json' with { type: 'json' }
+import instantJson from './instant/data.json' with { type: 'json' }
 
 import nextgraphLogoLight from './nextgraph/logo.light.svg'
 import nextgraphLogoDark from './nextgraph/logo.dark.svg'
@@ -53,6 +54,8 @@ import y_sweetLogoLight from './y-sweet/logo.light.png'
 import y_sweetLogoDark from './y-sweet/logo.dark.png'
 import loroLogoLight from './loro/logo.light.svg'
 import loroLogoDark from './loro/logo.dark.svg'
+import instantLogoLight from './instant/logo.light.svg'
+import instantLogoDark from './instant/logo.dark.svg'
 
 const nextgraph = Schema.decodeUnknownSync(LandscapeSchema)(nextgraphJson)
 const yjs = Schema.decodeUnknownSync(LandscapeSchema)(yjsJson)
@@ -71,6 +74,7 @@ const triplit = Schema.decodeUnknownSync(LandscapeSchema)(triplitJson)
 const tinybase = Schema.decodeUnknownSync(LandscapeSchema)(tinybaseJson)
 const y_sweet = Schema.decodeUnknownSync(LandscapeSchema)(y_sweetJson)
 const loro = Schema.decodeUnknownSync(LandscapeSchema)(loroJson)
+const instant = Schema.decodeUnknownSync(LandscapeSchema)(instantJson)
 
 export const data = [
   { ...nextgraph, Logo: { Light: nextgraphLogoLight, Dark: nextgraphLogoDark } },
@@ -89,5 +93,6 @@ export const data = [
   { ...triplit, Logo: { Light: triplitLogoLight, Dark: triplitLogoDark } },
   { ...tinybase, Logo: { Light: tinybaseLogoLight, Dark: tinybaseLogoDark } },
   { ...y_sweet, Logo: { Light: y_sweetLogoLight, Dark: y_sweetLogoDark } },
-  { ...loro, Logo: { Light: loroLogoLight, Dark: loroLogoDark } }
+  { ...loro, Logo: { Light: loroLogoLight, Dark: loroLogoDark } },
+  { ...instant, Logo: { Light: instantLogoLight, Dark: instantLogoDark } }
 ]
