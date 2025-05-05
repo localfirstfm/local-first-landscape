@@ -13,6 +13,7 @@ import livestoreJson from './livestore/data.json' with { type: 'json' }
 import dxosJson from './dxos/data.json' with { type: 'json' }
 import basicJson from './basic/data.json' with { type: 'json' }
 import convexJson from './convex/data.json' with { type: 'json' }
+import dittoJson from './ditto/data.json' with { type: 'json' }
 import powersyncJson from './powersync/data.json' with { type: 'json' }
 import triplitJson from './triplit/data.json' with { type: 'json' }
 import tinybaseJson from './tinybase/data.json' with { type: 'json' }
@@ -44,6 +45,8 @@ import basicLogoLight from './basic/logo.light.svg'
 import basicLogoDark from './basic/logo.dark.svg'
 import convexLogoLight from './convex/logo.light.svg'
 import convexLogoDark from './convex/logo.dark.svg'
+import dittoLogoLight from './ditto/logo.light.svg'
+import dittoLogoDark from './ditto/logo.dark.svg'
 import powersyncLogoLight from './powersync/logo.light.svg'
 import powersyncLogoDark from './powersync/logo.dark.svg'
 import triplitLogoLight from './triplit/logo.light.svg'
@@ -69,6 +72,7 @@ const livestore = Schema.decodeUnknownSync(LandscapeSchema)(livestoreJson)
 const dxos = Schema.decodeUnknownSync(LandscapeSchema)(dxosJson)
 const basic = Schema.decodeUnknownSync(LandscapeSchema)(basicJson)
 const convex = Schema.decodeUnknownSync(LandscapeSchema)(convexJson)
+const ditto = Schema.decodeUnknownSync(LandscapeSchema)(dittoJson)
 const powersync = Schema.decodeUnknownSync(LandscapeSchema)(powersyncJson)
 const triplit = Schema.decodeUnknownSync(LandscapeSchema)(triplitJson)
 const tinybase = Schema.decodeUnknownSync(LandscapeSchema)(tinybaseJson)
@@ -89,6 +93,7 @@ export const data = [
   { ...dxos, Logo: { Light: dxosLogoLight, Dark: dxosLogoDark } },
   { ...basic, Logo: { Light: basicLogoLight, Dark: basicLogoDark } },
   { ...convex, Logo: { Light: convexLogoLight, Dark: convexLogoDark } },
+  { ...ditto, Logo: { Light: dittoLogoLight, Dark: dittoLogoDark } },
   { ...powersync, Logo: { Light: powersyncLogoLight, Dark: powersyncLogoDark } },
   { ...triplit, Logo: { Light: triplitLogoLight, Dark: triplitLogoDark } },
   { ...tinybase, Logo: { Light: tinybaseLogoLight, Dark: tinybaseLogoDark } },
