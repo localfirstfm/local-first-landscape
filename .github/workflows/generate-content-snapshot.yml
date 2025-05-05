@@ -37,7 +37,7 @@ jobs:
       - run: pnpm build:ts
 
       - name: Generate content snapshot
-        run: pnpm generate:content-snapshot
+        run: pnpm generate:content-snapshot --show-full-errors
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
