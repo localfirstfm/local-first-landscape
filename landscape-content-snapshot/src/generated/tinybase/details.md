@@ -2,11 +2,11 @@
 
 A <em>reactive</emdata store <span>& <em>sync</emengine</span>.
 
-<a class='start' href='/guides/the-basics/getting-started/'>Get started</a>
+<a class='start' href='https://tinybase.org/guides/the-basics/getting-started/'>Get started</a>
 
-<a href='/demos/'>Try the demos</a>
+<a href='https://tinybase.org/demos/'>Try the demos</a>
 
-<a href='/api/store/interfaces/store/store/'>Read the docs</a>
+<a href='https://tinybase.org/api/store/interfaces/store/store/'>Read the docs</a>
 
 ---
 
