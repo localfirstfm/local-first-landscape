@@ -2,7 +2,7 @@
   "Version": 1,
   "Id": "liveblocks-storage",
   "Name": "Liveblocks Storage",
-  "MaturityLevel": "Production-ready",
+  "MaturityLevel": "Production-Ready",
   "Website": "https://liveblocks.io/sync-datastore/storage",
   "InitialReleaseDate": "2022-03-16T00:00:00.000Z",
   "Deployment": [
