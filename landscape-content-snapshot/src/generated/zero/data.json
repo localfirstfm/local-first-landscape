@@ -137,7 +137,7 @@
     },
     "ConflictHandling": {
       "data": "Automatic via Server Reconciliation",
-      "comment": "See https://rocicorp.dev/blog/ready-player-two for more information about server reconciliation"
+      "comment": "See https://zero.rocicorp.dev/docs/custom-mutators for more information"
     },
     "WhereResolutionOccurs": {
       "data": "Client and Server"
@@ -207,6 +207,6 @@
     }
   },
   "__generated": {
-    "lastUpdated": "2025-04-29T20:52:30.000Z"
+    "lastUpdated": "2025-06-19T20:15:16.000Z"
   }
 }
