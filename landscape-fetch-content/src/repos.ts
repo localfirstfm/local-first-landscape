@@ -125,4 +125,10 @@ export const repos = Schema.decodeSync(Schema.Array(RepoInfo))([
     repo: 'local-first-landscape-data',
     basePath: '',
   },
+  {
+    id: 'pouchdb',
+    owner: 'neighbourhoodie',
+    repo: 'pouchdb-landscape-data',
+    basePath: '',
+  },
 ])
