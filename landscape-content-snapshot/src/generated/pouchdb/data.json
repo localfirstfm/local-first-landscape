@@ -1,0 +1,156 @@
+{
+  "Version": 1,
+  "Id": "pouchdb",
+  "Name": "PouchDB",
+  "Description": "Open source JavaScript database inspired by Apache CouchDB that is designed to run well within the browser.",
+  "MaturityLevel": "Production-Ready",
+  "Website": "https://pouchdb.com/",
+  "InitialReleaseDate": "2013-12-21T23:00:00.000Z",
+  "Deployment": [
+    "Self-hosted"
+  ],
+  "License": "Apache-2.0",
+  "AppTarget": {
+    "Platform": {
+      "data": [
+        "Browser",
+        "Node"
+      ]
+    },
+    "LanguageSDK": {
+      "data": [
+        "Typescript",
+        "JavaScript"
+      ]
+    },
+    "FrameworkIntegrations": {
+      "data": [
+        "React",
+        "Svelte",
+        "Vue",
+        "Angular"
+      ],
+      "comment": "PouchDB can be used with all Javascript Frameworks, no special package required."
+    },
+    "ClientBundleSize": {
+      "data": "46KB",
+      "comment": "46KB zipped"
+    }
+  },
+  "Networking": {
+    "Protocol": {
+      "data": [
+        "HTTP",
+        "WebSockets"
+      ]
+    },
+    "Topology": {
+      "data": "P2P / Client-server / Mesh Network / Relay Server"
+    }
+  },
+  "ClientSideData": {
+    "QueryAPI": {
+      "data": [
+        "Async"
+      ]
+    },
+    "PersistenceMechanism": {
+      "data": [
+        "IndexedDB",
+        "LevelDB",
+        "SQLite",
+        "Localstorage"
+      ]
+    },
+    "PersistenceFeatures": {
+      "data": "Indexes"
+    },
+    "DataModel": {
+      "data": "Document & Event Sourcing"
+    },
+    "SchemaManagement": {
+      "data": [
+        "Schema definition"
+      ],
+      "comment": " validation & typing optional"
+    },
+    "OfflineReads": {
+      "data": "Full Support"
+    },
+    "OptimisticUpdates": {
+      "data": "Yes"
+    },
+    "OfflineWrites": {
+      "data": "Local conflict resolution"
+    },
+    "DataSize": {
+      "data": "Depends on the size of the shared data"
+    }
+  },
+  "SynchronizationStrategy": {
+    "FullOrPartialReplication": {
+      "data": [
+        "Full Replication",
+        "Partial Replication"
+      ],
+      "comment": "Full Replication & Various Partial Replication Strategies"
+    },
+    "ConflictHandling": {
+      "data": "Flexible/Custom"
+    },
+    "WhereResolutionOccurs": {
+      "data": "Client and/or Server"
+    },
+    "WhatGetsSynced": {
+      "data": {
+        "ClientToServer": "Full document revisions",
+        "ServerToClient": "Full document revisions"
+      },
+      "comment": "Efficient sync-list delta computation and efficient avoidance of redundant document sync."
+    },
+    "Authority": {
+      "data": "Default centralized, decentralized possible"
+    },
+    "Latency": {
+      "data": "~1–10ms",
+      "comment": "Customisable for low-bandwidth and/or high-latency networks"
+    },
+    "Concurrency": {
+      "data": "Effectively unlimited"
+    }
+  },
+  "AuthIdentity": {
+    "Encryption": {
+      "data": "Transport-level encryption",
+      "comment": "Document encryption optional"
+    },
+    "AuthenticationMethod": {
+      "data": [
+        "Built-in",
+        "JWT Tokens",
+        "Basic Auth",
+        "Proxy Auth"
+      ]
+    },
+    "AuthorizationPermissions": {
+      "data": "RBAC"
+    }
+  },
+  "DevelopmentWorkflowsDX": {
+    "DebuggingTools": {
+      "data": [
+        "Data Inspector",
+        "Network Inspector"
+      ]
+    },
+    "CLI": {
+      "data": "N/A"
+    },
+    "TypeSupport": {
+      "data": "Full type support"
+    }
+  },
+  "__generated": {
+    "lastUpdated": "2025-06-06T14:45:10.000Z"
+  }
+}
