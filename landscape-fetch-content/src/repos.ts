@@ -131,4 +131,10 @@ export const repos = Schema.decodeSync(Schema.Array(RepoInfo))([
     repo: 'pouchdb-landscape-data',
     basePath: '',
   },
+  {
+    id: 'p2p-shipyard',
+    owner: 'darksoil-studio',
+    repo: 'local-first-landscape-data',
+    basePath: '',
+  },
 ])
