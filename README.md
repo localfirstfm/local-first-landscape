@@ -42,6 +42,7 @@ To edit the information for an existing technology, you need to open a Pull Requ
 | [Zero](placeholder-homepage-zero)                                                       | [`rocicorp/local-first-landscape-data`](https://github.com/rocicorp/local-first-landscape-data)         |
 | [Instant](https://instantdb.com)                                                        | [`instantdb/local-first-landscape-data`](https://github.com/instantdb/local-first-landscape-data)         |
 | [PouchDB](https://pouchdb.com/)                                                        | [`neighbourhoodie/pouchdb-landscape-data`](https://github.com/neighbourhoodie/pouchdb-landscape-data)         |
+| [remoteStorage.js](https://remotestorage.io)                                            | [`remotestorage/local-first-landscape-data`](https://github.com/remotestorage/local-first-landscape-data) |
 
 Make your changes to the relevant files in that repository.
 
