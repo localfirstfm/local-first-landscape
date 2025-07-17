@@ -1,0 +1,130 @@
+{
+  "Version": 1,
+  "Id": "couchdb",
+  "Name": "CouchDB",
+  "Description": "TODO",
+  "MaturityLevel": "Production-Ready",
+  "Website": "https://couchdb.apache.org",
+  "InitialReleaseDate": "2010-07-13T23:00:00.000Z",
+  "Deployment": [
+    "Self-hosted"
+  ],
+  "License": "Apache-2.0",
+  "AppTarget": {
+    "Platform": {
+      "data": [
+        "Linux",
+        "macOS",
+        "Windows",
+        "Unix"
+      ]
+    },
+    "LanguageSDK": {
+      "data": [
+        "HTTP",
+        "JSON"
+      ]
+    },
+    "FrameworkIntegrations": {
+      "data": [
+        ""
+      ],
+      "comment": "None directly; all via PouchDB."
+    }
+  },
+  "Networking": {
+    "Protocol": {
+      "data": [
+        "HTTP"
+      ]
+    },
+    "Topology": {
+      "data": "P2P / Client-server / Mesh Network / Relay Server"
+    }
+  },
+  "ServerSideData": {
+    "PersistenceMechanism": {
+      "data": [
+        "Custom"
+      ]
+    },
+    "DataSize": {
+      "data": "Unlimited"
+    },
+    "DataModelParadigm": {
+      "data": "Document"
+    },
+    "SchemaManagement": {
+      "data": [
+        "Schema definition",
+        "Schema validation"
+      ],
+      "comment": "Definition and validation optional."
+    }
+  },
+  "SynchronizationStrategy": {
+    "FullOrPartialReplication": {
+      "data": [
+        "Full Replication",
+        "Partial Replication"
+      ],
+      "comment": "Full Replication & Various Partial Replication Strategies"
+    },
+    "ConflictHandling": {
+      "data": "Flexible/Custom"
+    },
+    "WhereResolutionOccurs": {
+      "data": "Client and/or Server"
+    },
+    "WhatGetsSynced": {
+      "data": {
+        "ClientToServer": "Full document revisions",
+        "ServerToClient": "Full document revisions"
+      },
+      "comment": "Efficient sync-list delta computation and efficient avoidance of redundant document sync."
+    },
+    "Authority": {
+      "data": "Default centralized, decentralized possible"
+    },
+    "Latency": {
+      "data": "~1–10ms",
+      "comment": "Customisable for low-bandwidth and/or high-latency networks"
+    },
+    "Concurrency": {
+      "data": "Effectively unlimited"
+    }
+  },
+  "AuthIdentity": {
+    "Encryption": {
+      "data": "Transport-level encryption"
+    },
+    "AuthenticationMethod": {
+      "data": [
+        "Built-in",
+        "JWT Tokens",
+        "Basic Auth",
+        "Proxy Auth"
+      ]
+    },
+    "AuthorizationPermissions": {
+      "data": "RBAC"
+    }
+  },
+  "DevelopmentWorkflowsDX": {
+    "DebuggingTools": {
+      "data": [
+        "Data Inspector",
+        "Network Inspector"
+      ]
+    },
+    "CLI": {
+      "data": "Standard tooling like curl & jq suffices"
+    },
+    "TypeSupport": {
+      "data": "Full type support"
+    }
+  },
+  "__generated": {
+    "lastUpdated": "2025-06-23T12:59:20.000Z"
+  }
+}
