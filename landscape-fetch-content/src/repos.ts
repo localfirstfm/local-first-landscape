@@ -131,4 +131,10 @@ export const repos = Schema.decodeSync(Schema.Array(RepoInfo))([
     repo: 'pouchdb-landscape-data',
     basePath: '',
   },
+  {
+    id: 'couchdb',
+    owner: 'neighbourhoodie',
+    repo: 'couchdb-landscape-data',
+    basePath: '',
+  },
 ])
