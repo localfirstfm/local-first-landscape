@@ -2,7 +2,7 @@
   "Version": 1,
   "Id": "couchdb",
   "Name": "CouchDB",
-  "Description": "Seamless multi-primary sync that scales from Big Data to Mobile, with an Intuitive HTTP/JSON API and designed for Reliability.",
+  "Description": "The database that perfected Offline-First. Multi-primary sync, designed for reliability.",
   "MaturityLevel": "Production-Ready",
   "Website": "https://couchdb.apache.org",
   "InitialReleaseDate": "2010-07-13T23:00:00.000Z",
@@ -125,6 +125,6 @@
     }
   },
   "__generated": {
-    "lastUpdated": "2025-07-21T09:54:53.000Z"
+    "lastUpdated": "2025-08-14T14:50:28.000Z"
   }
 }
