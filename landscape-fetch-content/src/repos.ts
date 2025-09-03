@@ -137,4 +137,10 @@ export const repos = Schema.decodeSync(Schema.Array(RepoInfo))([
     repo: 'couchdb-landscape-data',
     basePath: '',
   },
+  {
+    id: 'legend-state',
+    owner: 'legendapp',
+    repo: 'legend-state-landscape',
+    basePath: '',
+  },
 ])
