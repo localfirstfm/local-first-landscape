@@ -22,6 +22,7 @@ import loroJson from './loro/data.json' with { type: 'json' }
 import instantJson from './instant/data.json' with { type: 'json' }
 import pouchdbJson from './pouchdb/data.json' with { type: 'json' }
 import couchdbJson from './couchdb/data.json' with { type: 'json' }
+import rxdbJson from './rxdb/data.json' with { type: 'json' }
 
 import nextgraphLogoLight from './nextgraph/logo.light.svg'
 import nextgraphLogoDark from './nextgraph/logo.dark.svg'
@@ -65,6 +66,8 @@ import pouchdbLogoLight from './pouchdb/logo.light.svg'
 import pouchdbLogoDark from './pouchdb/logo.dark.svg'
 import couchdbLogoLight from './couchdb/logo.light.svg'
 import couchdbLogoDark from './couchdb/logo.dark.svg'
+import rxdbLogoLight from './rxdb/logo.light.svg'
+import rxdbLogoDark from './rxdb/logo.dark.svg'
 
 const nextgraph = Schema.decodeUnknownSync(LandscapeSchema)(nextgraphJson)
 const yjs = Schema.decodeUnknownSync(LandscapeSchema)(yjsJson)
@@ -87,6 +90,7 @@ const loro = Schema.decodeUnknownSync(LandscapeSchema)(loroJson)
 const instant = Schema.decodeUnknownSync(LandscapeSchema)(instantJson)
 const pouchdb = Schema.decodeUnknownSync(LandscapeSchema)(pouchdbJson)
 const couchdb = Schema.decodeUnknownSync(LandscapeSchema)(couchdbJson)
+const rxdb = Schema.decodeUnknownSync(LandscapeSchema)(rxdbJson)
 
 export const data = [
   { ...nextgraph, Logo: { Light: nextgraphLogoLight, Dark: nextgraphLogoDark } },
@@ -109,5 +113,6 @@ export const data = [
   { ...loro, Logo: { Light: loroLogoLight, Dark: loroLogoDark } },
   { ...instant, Logo: { Light: instantLogoLight, Dark: instantLogoDark } },
   { ...pouchdb, Logo: { Light: pouchdbLogoLight, Dark: pouchdbLogoDark } },
-  { ...couchdb, Logo: { Light: couchdbLogoLight, Dark: couchdbLogoDark } }
+  { ...couchdb, Logo: { Light: couchdbLogoLight, Dark: couchdbLogoDark } },
+  { ...rxdb, Logo: { Light: rxdbLogoLight, Dark: rxdbLogoDark } }
 ]
