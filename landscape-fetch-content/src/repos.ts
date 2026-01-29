@@ -143,4 +143,10 @@ export const repos = Schema.decodeSync(Schema.Array(RepoInfo))([
     repo: 'landscape-data-rxdb',
     basePath: '',
   },
+  {
+    id: 'signaldb',
+    owner: 'maxnowack',
+    repo: 'signaldb-landscape-data',
+    basePath: '',
+  },
 ])
