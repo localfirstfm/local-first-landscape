@@ -143,4 +143,10 @@ export const repos = Schema.decodeSync(Schema.Array(RepoInfo))([
     repo: 'landscape-data-rxdb',
     basePath: '',
   },
+  {
+    id: 'researchpocket',
+    owner: 'ResearchPocket',
+    repo: 'local-first-landscape-data',
+    basePath: '',
+  },
 ])
