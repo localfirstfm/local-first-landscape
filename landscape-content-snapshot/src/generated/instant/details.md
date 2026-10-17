@@ -1,4 +1,4 @@
-# Insant
+# Instant
 
 Instant is a modern Firebase. We make you productive by giving your frontend a real-time database.
 

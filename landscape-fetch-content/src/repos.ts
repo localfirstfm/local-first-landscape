@@ -132,6 +132,17 @@ export const repos = Schema.decodeSync(Schema.Array(RepoInfo))([
     basePath: '',
   },
   {
+    id: 'couchdb',
+    owner: 'neighbourhoodie',
+    repo: 'couchdb-landscape-data',
+    basePath: '',
+  },
+  {
+    id: 'rxdb',
+    owner: 'pubkey',
+    repo: 'landscape-data-rxdb',
+  },
+  {
     id: 'remotestorage',
     owner: 'remotestorage',
     repo: 'local-first-landscape-data',

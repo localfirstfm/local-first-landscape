@@ -2,7 +2,7 @@
   "Version": 1,
   "Id": "powersync",
   "Name": "PowerSync",
-  "Description": "Syncs between SQLite on the client-side and Postgres, MongoDB or MySQL on the server-side.",
+  "Description": "Syncs between SQLite on the client-side and Postgres, MongoDB, MySQL or SQL Server on the server-side.",
   "MaturityLevel": "Production-Ready",
   "Website": "https://www.powersync.com",
   "GitHub": "https://github.com/powersync-ja",
@@ -61,9 +61,10 @@
       "data": [
         "Postgres",
         "MongoDB",
-        "MySQL"
+        "MySQL",
+        "SQL Server"
       ],
-      "comment": "Backend source databases: Postgres, MongoDB, MySQL. Storage of sync bucket data: MongoDB, Postgres"
+      "comment": "Backend source databases: Postgres, MongoDB, MySQL, SQL Server. Storage of sync bucket data: MongoDB, Postgres"
     },
     "DataSize": {
       "data": "No theoretical limit"
@@ -72,7 +73,7 @@
       "data": "Relational"
     },
     "ExistingDatabaseSupport": {
-      "data": "Works with backend source databases: Postgres, MongoDB, MySQL"
+      "data": "Works with backend source databases: Postgres, MongoDB, MySQL, SQL Server"
     }
   },
   "ClientSideData": {
@@ -166,6 +167,6 @@
     }
   },
   "__generated": {
-    "lastUpdated": "2025-04-26T01:09:17.000Z"
+    "lastUpdated": "2025-12-10T19:58:02.000Z"
   }
 }
